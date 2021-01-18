@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
+import {View} from "react-native";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import SalesData from './SalesData';
 
@@ -101,10 +102,7 @@ export class Sales extends Component {
         }
     }
     render() {
-        return (
-            <div>
-                <div id="SalesChart" style={{ width: "100%", height: "500px" }} />
-            </div>
+        return (<View></View>
         );
     }
 }
