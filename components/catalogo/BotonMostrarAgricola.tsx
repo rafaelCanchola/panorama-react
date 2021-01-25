@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-function BotonAgricola(props) {
+function BotonMostrarAgricola(props) {
     return (
         <TouchableOpacity style={[styles.container, props.style]}>
             <Text style={styles.agricola}>Agrícola</Text>
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default BotonAgricola;
+export default BotonMostrarAgricola;

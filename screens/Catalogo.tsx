@@ -9,7 +9,7 @@ import {
     TouchableOpacity
 } from "react-native";
 import MaterialRadio from "../components/catalogo/MaterialRadio";
-import BotonAgricola from "../components/catalogo/BotonAgricola";
+import BotonMostrarAgricola from "../components/catalogo/BotonMostrarAgricola";
 import {useNavigation} from "@react-navigation/native";
 
 function Catalogo(props) {
@@ -35,8 +35,8 @@ function Catalogo(props) {
                                     resizeMode="cover"
                                     style={styles.iconoProducto}
                                 ></Image>
-                                <TouchableOpacity onPress={navigation.navigate('MostrarProducto')}>
-                                <Text style={styles.nombreProducto}>Agave Tequilero</Text>
+                                <TouchableOpacity onPress={() => navigation.navigate('Producto')}>
+                                    <Text style={styles.nombreProducto}>Agave Tequilero</Text>
                                 </TouchableOpacity>
                             </View>
                         </ScrollView>
@@ -49,7 +49,7 @@ function Catalogo(props) {
                         <MaterialRadio style={styles.radioPesquero}></MaterialRadio>
                     </View>
                 </TouchableOpacity>
-                <BotonAgricola style={styles.botonAgricola}></BotonAgricola>
+                <BotonMostrarAgricola style={styles.botonAgricola}></BotonMostrarAgricola>
             </View>
         </View>
     );

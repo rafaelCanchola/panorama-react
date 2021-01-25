@@ -34,8 +34,7 @@ export default class MostrarProducto extends Component{
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text>Agave</Text>
+            <View >
                 {/*
               Propiedades de <VictoryChart>
                 width: Especifica la anchura de la grafica
@@ -117,13 +116,6 @@ export default class MostrarProducto extends Component{
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});
 
 const vol = [
     {   idvolumen:1,

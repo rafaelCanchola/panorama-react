@@ -10,6 +10,7 @@ import Contacto from "../screens/Contacto";
 import Ayuda from "../screens/Ayuda";
 import Infografia from "../screens/Infografia";
 import Catalogo from "../screens/Catalogo";
+import Producto from "../screens/Producto";
 const Stack = createStackNavigator();
 
 export default function App(){
@@ -34,6 +35,8 @@ export default function App(){
                     <Stack.Screen name={'Ayuda'} component={Ayuda}></Stack.Screen>
                     <Stack.Screen name={'Infografia'} component={Infografia}></Stack.Screen>
                     <Stack.Screen name={'Catalogo'} component={Catalogo}></Stack.Screen>
+                    <Stack.Screen name={'Producto'} component={Producto}></Stack.Screen>
+
                 </Stack.Navigator>
             </NavigationContainer>
         )
