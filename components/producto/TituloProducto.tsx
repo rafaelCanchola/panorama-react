@@ -3,15 +3,14 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 function TituloProducto(props) {
     return (
-        <TouchableOpacity style={[styles.container, props.style]}>
-            <Text style={styles.agaveTequilero}>Agave Tequilero</Text>
+        <TouchableOpacity style={[styles.container, props.style, {backgroundColor:props.color}]}>
+            <Text style={styles.agaveTequilero}>{props.nombre}</Text>
         </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "rgba(0,114,127,1)",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component, useEffect, useState} from "react";
 import {
     StyleSheet,
     View,
@@ -7,21 +7,21 @@ import {
     ImageBackground,
     Text, Dimensions
 } from "react-native";
-//import FooterRegresar from "../components/FooterRegresar";
-//import BotonManu from "../components/BotonManu";
 import TituloProducto from "../components/producto/TituloProducto";
+import MostrarProducto from "./MostrarProducto";
+import ImagenProducto from "../components/producto/ImagenProducto";
+import ImagenConsumo from "../components/producto/ImagenConsumo";
 
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
-import MostrarProducto from "./MostrarProducto";
-import ImagenProducto from "../components/producto/ImagenProducto";
-import Images from '../assets/images/index'
+import produc from "../json/productos"
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
 function Producto(props) {
+    const idProducto = 1;
     return (
         <View style={styles.container}>
             <View >
@@ -31,9 +31,98 @@ function Producto(props) {
                         horizontal={false}
                         contentContainerStyle={styles.scrollArea_contentContainerStyle}
                     >
-                        <TituloProducto style={styles.tituloProducto}></TituloProducto>
-                        <ImagenProducto img={Images.t_aga1}/>
+                        <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
+                        <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]}/>
+                        <ImagenConsumo bgcolor={"rgba(0,114,127,1)"}/>
+
+                        <Text style={styles.tituloConsumo}>
+                            Consumo anual per cápita
+                        </Text>
+                        <Text style={styles.tituloParticipacion}>
+                            Participación en la producción n...
+                        </Text>
+                        <Text style={styles.datoParticipacion}>2.3%</Text>
+                <Text style={styles.textoPrincipal}>
+                    En 2019 se tenían plantadas 103 mil hec...
+                </Text>
+
+            <Text style={styles.tituloVolumen}>
+                Volumen de la producción nacional
+            </Text>
                         <MostrarProducto/>
+
+                <Text style={styles.tituloTop}>
+                    Top en volumen de producción...
+                </Text>
+
+
+                <FontAwesomeIcon
+                    name="table"
+                    style={styles.tablaTop}
+                ></FontAwesomeIcon>
+                <Text style={styles.tituloPorcentaje}>
+                    Porcentaje del valor de la produc...
+                </Text>
+            <Image
+                source={require("../assets/images/mapas/m_aga.jpg")}
+                resizeMode="cover"
+                style={styles.imagenMapa}
+            ></Image>
+            <Text style={styles.textoPorcentaje}>
+                Jalisco incrementó 3.1% la producción d...
+            </Text>
+            <Text style={styles.tituloIndicadores}>Indicadores 2019</Text>
+            <FontAwesomeIcon
+                name="table"
+                style={styles.tablaIndicadores}
+            ></FontAwesomeIcon>
+            <Text style={styles.tituloMensual}>
+                Producción mensual nacional (%)
+            </Text>
+            <Text style={styles.textoMensual}>
+                La jima (cosecha) de agave está presen...
+            </Text>
+            <SimpleLineIconsIcon
+                name="calendar"
+                style={styles.calendarioMensual}
+            ></SimpleLineIconsIcon>
+            <Text style={styles.tituloExterior}>Comercio exterior 2019</Text>
+            <Text style={styles.textoExterior}>
+                Durante 2019 las ventas internacionales...
+            </Text>
+            <Text style={styles.tituloOrigen}>Origen-destino comercial</Text>
+            <Text style={styles.textoOrigen}>
+                En 2019, Japón desplazó al Reino Unido...
+            </Text>
+            <View style={styles.group}>
+                <View style={styles.listadosClientesStack}>
+                    <Text style={styles.listadosClientes}>
+                        • Cliente principal • Clientes (export...) • Proveedores Entre
+                        2018 y 2019 E...
+                    </Text>
+                    <Image
+                        source={require("../assets/images/us.png")}
+                        resizeMode="contain"
+                        style={styles.imagenBandera}
+                    ></Image>
+                </View>
+            </View>
+            <Text style={styles.tituloEvolucion}>
+                Evolución de comercio exterior
+            </Text>
+            <View style={styles.graficaEvolucionStack}>
+                <OcticonsIcon
+                    name="graph"
+                    style={styles.graficaEvolucion}
+                ></OcticonsIcon>
+                <Text style={styles.tituloDistribucion}>
+                    Distribución mensual del comerc...
+                </Text>
+            </View>
+            <FontAwesomeIcon
+                name="table"
+                style={styles.tablaDistribucion}
+            ></FontAwesomeIcon>
                     </ScrollView>
                 </View>
             </View>
@@ -69,48 +158,25 @@ const styles = StyleSheet.create({
         height: 83,
         alignSelf: "center"
     },
-    imagenConsumo: {
-        top: 7,
-        width: 327,
-        height: 327,
-        position: "absolute",
-        backgroundColor: "rgba(0,114,127,1)",
-        left: 0
-    },
-    imagenConsumo_imageStyle: {},
-    datoConsumo: {
-        fontFamily: "montserrat-700",
-        color: "rgba(255,255,255,1)",
-        fontSize: 41,
-        marginTop: 194,
-        marginLeft: 143
-    },
     tituloConsumo: {
-        top: 0,
-        position: "absolute",
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
-        width: 327,
+        width: screenWidth -30,
         height: 22,
         textAlign: "center",
         fontSize: 18,
         left: 0
     },
     tituloParticipacion: {
-        top: 320,
-        position: "absolute",
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
-        width: 327,
+        width: screenWidth -30,
         height: 22,
         textAlign: "center",
         fontSize: 18,
         left: 0
     },
     datoParticipacion: {
-        top: 340,
-        left: 115,
-        position: "absolute",
         fontFamily: "montserrat-900",
         color: "rgba(0,114,127,1)",
         fontSize: 40,
@@ -125,14 +191,12 @@ const styles = StyleSheet.create({
         position: "absolute"
     },
     textoPrincipal: {
-        top: 0,
-        position: "absolute",
         fontFamily: "montserrat-regular",
         color: "#121212",
         height: 20,
-        width: 327,
+        width: screenWidth -30,
         fontSize: 16,
-        left: 0
+        alignSelf:"center",
     },
     imagenConsumoStackStack: {
         width: 327,
@@ -143,7 +207,7 @@ const styles = StyleSheet.create({
     tituloVolumen: {
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
-        width: 327,
+        width: screenWidth -30,
         height: 22,
         textAlign: "center",
         fontSize: 18,
@@ -157,28 +221,24 @@ const styles = StyleSheet.create({
         fontSize: 40
     },
     tituloTop: {
-        position: "absolute",
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
-        width: 327,
+        width: screenWidth -30,
         height: 22,
         textAlign: "center",
         fontSize: 18,
-        top: 42,
-        left: 0
+        alignSelf:"center",
     },
     graficaVolumenStack: {
-        width: 327,
+        width: screenWidth -30,
         height: 64,
         marginTop: 1,
         marginLeft: 24
     },
     tablaTop: {
-        top: 0,
-        left: 147,
-        position: "absolute",
         color: "rgba(128,128,128,1)",
-        fontSize: 40
+        fontSize: 40,
+        alignSelf:"center",
     },
     tituloPorcentaje: {
         position: "absolute",
@@ -197,18 +257,18 @@ const styles = StyleSheet.create({
         marginLeft: 24
     },
     imagenMapa: {
-        width: 327,
+        width:  screenWidth -30,
         height: 200,
-        marginLeft: 26
+        alignSelf: "center",
     },
     textoPorcentaje: {
         fontFamily: "montserrat-regular",
         color: "#121212",
         height: 20,
-        width: 327,
+        width: screenWidth -30,
         fontSize: 16,
         marginTop: 7,
-        marginLeft: 24
+        alignSelf:"center",
     },
     tituloIndicadores: {
         fontFamily: "montserrat-700",
