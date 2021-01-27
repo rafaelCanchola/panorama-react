@@ -5,7 +5,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {View} from "react-native";
 import {useFonts} from "@use-expo/font";
 import Principal from '../screens/Principal'
-import MostrarProducto from '../screens/MostrarProducto'
+import GraficaProduccion from '../components/producto/GraficaProduccion'
 import Contacto from "../screens/Contacto";
 import Ayuda from "../screens/Ayuda";
 import Infografia from "../screens/Infografia";
@@ -30,7 +30,7 @@ export default function App(){
                 <Stack.Navigator>
                     <Stack.Screen name={'Principal'} component={Principal}
                                   options={{headerShown: false}}></Stack.Screen>
-                    <Stack.Screen name={'MostrarProducto'} component={MostrarProducto}></Stack.Screen>
+                    <Stack.Screen name={'GraficaProduccion'} component={GraficaProduccion}></Stack.Screen>
                     <Stack.Screen name={'Contacto'} component={Contacto}></Stack.Screen>
                     <Stack.Screen name={'Ayuda'} component={Ayuda}></Stack.Screen>
                     <Stack.Screen name={'Infografia'} component={Infografia}></Stack.Screen>

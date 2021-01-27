@@ -11,19 +11,16 @@ import {
     createContainer,
 } from 'victory-native';
 
-
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
-const productColor = '#00727f';
 
-export default class MostrarProducto extends Component{
+export default class GraficaProduccion extends Component{
     constructor() {
         super();
         this.state = {};
     }
-
     handleZoom(domain) {
         this.setState({selectedDomain: domain});
     }
@@ -33,6 +30,8 @@ export default class MostrarProducto extends Component{
     }
 
     render() {
+        const vol = this.props.graficaarray;
+        const productColor = this.props.color;
         return (
             <View >
                 {/*
@@ -60,9 +59,7 @@ export default class MostrarProducto extends Component{
                                                                labels={({ datum }) => `${datum.volumenproduccion}`}
                                                                labelComponent={<VictoryTooltip flyoutStyle={{fill: productColor}} style={{fill: "white"}}/>}
                                   />
-
                               }
-
                 >
                     {/*
                   Propiedades de <VictoryBar>
@@ -87,7 +84,6 @@ export default class MostrarProducto extends Component{
                     />
 
                 </VictoryChart>
-
                 <VictoryChart
                     width={screenWidth}
                     height={150}
@@ -115,77 +111,3 @@ export default class MostrarProducto extends Component{
         )
     }
 }
-
-
-const vol = [
-    {   idvolumen:1,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2010,
-        volumenproduccion:848},
-    {   idvolumen:2,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2011,
-        volumenproduccion:1281},
-    {idvolumen:3,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2012,
-        volumenproduccion:1426},
-    {idvolumen:4,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2013,
-        volumenproduccion:1060},
-    {idvolumen:5,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2014,
-        volumenproduccion:1914},
-    {idvolumen:6,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2015,
-        volumenproduccion:1642},
-    {idvolumen:7,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2016,
-        volumenproduccion:1668},
-    {idvolumen:8,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2017,
-        volumenproduccion:1501},
-    {idvolumen:9,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2018,
-        volumenproduccion:1440},
-    {idvolumen:10,
-        idproducto:1,
-        idgrafica:1,
-        idcomercio:0,
-        unidad:"(millones de toneladas)",
-        aniovolumen:2019,
-        volumenproduccion:1513}
-];
