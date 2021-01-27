@@ -9,7 +9,7 @@ function ImagenConsumo(props) {
         style={[styles.imagenConsumo,{backgroundColor: props.bgcolor}]}
         imageStyle={styles.imagenConsumo_imageStyle}
     >
-        <Text style={styles.datoConsumo}>1 l</Text>
+        <Text style={styles.datoConsumo}>{props.consumo}</Text>
     </ImageBackground>
     )
 
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         color: "rgba(255,255,255,1)",
         fontSize: 41,
         marginTop: 194,
-        marginLeft: 143
+        alignSelf:'center',
     },
 });
 

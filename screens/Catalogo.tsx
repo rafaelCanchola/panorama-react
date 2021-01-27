@@ -31,7 +31,7 @@ function Catalogo(props) {
                         >
                             <View style={styles.iconoProductoRow}>
                                 <Image
-                                    source={require("../assets/images/productos/t_aga.jpg")}
+                                    source={require("../assets/images/productos/t/t_aga.jpg")}
                                     resizeMode="cover"
                                     style={styles.iconoProducto}
                                 ></Image>

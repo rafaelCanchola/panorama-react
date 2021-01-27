@@ -8,20 +8,24 @@ import {
     Text, Dimensions
 } from "react-native";
 import TituloProducto from "../components/producto/TituloProducto";
-import MostrarProducto from "./MostrarProducto";
 import ImagenProducto from "../components/producto/ImagenProducto";
 import ImagenConsumo from "../components/producto/ImagenConsumo";
+import TextoDescripcion from "../components/producto/TextoDescripcion";
+import TextoAgroindustriales from "../components/producto/TextoAgroindustriales";
+import GraficaProduccion from "../components/producto/GraficaProduccion";
 
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
-import produc from "../json/productos"
+
+import produc from "../json/productos";
+import producvol from "../json/productionVolumeJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
 function Producto(props) {
-    const idProducto = 1;
+    const idProducto = 68;
     return (
         <View style={styles.container}>
             <View >
@@ -31,29 +35,36 @@ function Producto(props) {
                         horizontal={false}
                         contentContainerStyle={styles.scrollArea_contentContainerStyle}
                     >
-                        <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
-                        <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]}/>
-                        <ImagenConsumo bgcolor={"rgba(0,114,127,1)"}/>
+                        <View>
+                            <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
+                            <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]}/>
+                            <TextoDescripcion descripcion={produc[idProducto].descripcion} style={styles.textoPrincipal}/>
+                            <Text style={styles.tituloConsumo}>
+                                Consumo anual per cápita
+                            </Text>
+                            <ImagenConsumo bgcolor={produc[idProducto].color_fondo} consumo={produc[idProducto].consumonacional}/>
 
-                        <Text style={styles.tituloConsumo}>
-                            Consumo anual per cápita
+                            <Text style={styles.tituloParticipacion}>
+                                Participación en la producción nacional de agroindustriales
+                            </Text>
+                            <TextoAgroindustriales participacion={produc[idProducto].participacion} color={produc[idProducto].color_fondo} width={screenWidth}/>
+                            </View>
+                        <View>
+                            <Text style={styles.tituloVolumen}>
+                                Volumen de la producción nacional 2010-2019
+                            </Text>
+                            <Text style={[styles.tituloVolumen,{fontSize:14}]}>
+                                {producvol[idProducto].[4].unidad}
+                            </Text>
+                            <GraficaProduccion graficaarray={producvol[idProducto]} color={produc[idProducto].color_fondo}/>
+                        </View>
+                        <Text style={styles.tituloTop}>
+                            Top en volumen de producción
                         </Text>
-                        <Text style={styles.tituloParticipacion}>
-                            Participación en la producción n...
+                        <Text style={styles.tituloTop}>
+                        Principales entidades
                         </Text>
-                        <Text style={styles.datoParticipacion}>2.3%</Text>
-                <Text style={styles.textoPrincipal}>
-                    En 2019 se tenían plantadas 103 mil hec...
-                </Text>
 
-            <Text style={styles.tituloVolumen}>
-                Volumen de la producción nacional
-            </Text>
-                        <MostrarProducto/>
-
-                <Text style={styles.tituloTop}>
-                    Top en volumen de producción...
-                </Text>
 
 
                 <FontAwesomeIcon
@@ -171,7 +182,6 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: screenWidth -30,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
         left: 0
@@ -193,7 +203,6 @@ const styles = StyleSheet.create({
     textoPrincipal: {
         fontFamily: "montserrat-regular",
         color: "#121212",
-        height: 20,
         width: screenWidth -30,
         fontSize: 16,
         alignSelf:"center",
@@ -208,7 +217,6 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: screenWidth -30,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
         alignSelf: "center"
