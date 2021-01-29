@@ -47,7 +47,7 @@ function Producto(props) {
                             <Text style={styles.tituloParticipacion}>
                                 Participación en la producción nacional de agroindustriales
                             </Text>
-                            <TextoAgroindustriales participacion={produc[idProducto].participacion} color={produc[idProducto].color_fondo} width={screenWidth}/>
+                            <TextoAgroindustriales participacion={produc[idProducto].participacion + '%'} color={produc[idProducto].color_fondo} width={screenWidth}/>
                         </View>
                         <View style={{backgroundColor:'#fff'}}>
                             <Text style={styles.tituloVolumen}>
@@ -55,7 +55,6 @@ function Producto(props) {
                             </Text>
                             <GraficaProduccion graficaarray={producvol[idProducto]} color={produc[idProducto].color_fondo} titulo={styles.tituloVolumen}/>
                         </View>
-
 
                         <View style={{backgroundColor:'#fff'}}>
                             <Text style={styles.tituloTop}>
@@ -79,24 +78,73 @@ function Producto(props) {
                                 {produc[idProducto].valprodentidadlider}
                             </Text>
                         </View>
+                        <Text style={styles.tituloPorcentaje}>Indicadores 2019</Text>
+                        <Text style={styles.tituloPorcentaje}>
+                            Producción mensual nacional (%)
+                        </Text>
+                        <Text style={styles.textoPorcentaje}>
+                            {produc[idProducto].mercadospotenciales}
+                        </Text>
+
+                        <Text style={styles.textoPorcentaje}>
+                            {produc[idProducto].distribucionmensualprod}
+                        </Text>
+
+                        <View style={{backgroundColor:'#fff'}}>
+                            <Text style={styles.tituloPorcentaje}>Ranking Mundial</Text>
+                            <Text style={styles.textoPorcentaje}>
+                                {produc[idProducto].rankingmundial}º productor mundial
+                            </Text>
+                            <Text style={styles.textoPorcentaje}>
+                                {produc[idProducto].rankingmundial_descripcion}
+                            </Text>
+                            <Text style={styles.textoPorcentaje}>
+                                {produc[idProducto].paismasproductivo}
+                            </Text>
+                            <TextoAgroindustriales participacion={produc[idProducto].volumen_toneladas + ' toneladas'} color={produc[idProducto].color_fondo} width={screenWidth}/>
+                        </View>
+
+                        <Text style={styles.tituloPorcentaje}>Comercio exterior 2019</Text>
+                        <Text style={styles.textoPorcentaje}>
+                            {produc[idProducto].comercioexterior}
+                        </Text>
+                        <Text style={styles.textoPorcentaje}>
+                            Origen-destino comercial
+                        </Text>
+                        <Text style={styles.textoPorcentaje}>
+                            {produc[idProducto].mercadospotenciales}
+                        </Text>
 
 
-                {/*<FontAwesomeIcon
-                    name="table"
-                    style={styles.tablaTop}
-                ></FontAwesomeIcon>
-                <Text style={styles.tituloPorcentaje}>
-                    Porcentaje del valor de la produc...
-                </Text>
-            <Image
-                source={require("../assets/images/mapas/m_aga.jpg")}
-                resizeMode="cover"
-                style={styles.imagenMapa}
-            ></Image>
-            <Text style={styles.textoPorcentaje}>
-                Jalisco incrementó 3.1% la producción d...
-            </Text>
-            <Text style={styles.tituloIndicadores}>Indicadores 2019</Text>
+                        <Text style={styles.tituloPorcentaje}>
+                            Evolución de comercio exterior
+                        </Text>
+                        <Text style={styles.tituloPorcentaje}>
+                            Distribución mensual del comercio exterior (%)
+                        </Text>
+                        <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
+                        <ImagenProducto img={produc[idProducto].imagen_monografia.split("\/")[1]}/>
+                        <Text style={styles.textoExterior}>
+                            {produc[idProducto].nom_cientifico_monografia}
+                        </Text>
+                        <Text style={styles.tituloEvolucion}>
+                            Descripción
+                        </Text>
+                        <TextoDescripcion descripcion={produc[idProducto].descripcion_monografia} style={styles.textoPrincipal}/>
+                        <Text style={styles.tituloEvolucion}>
+                            Producto
+                        </Text>
+                        <TextoDescripcion descripcion={produc[idProducto].contenido_producto_monografia} style={styles.textoPrincipal}/>
+                        <Text style={styles.tituloEvolucion}>
+                            Flujo Comercial
+                        </Text>
+                        <ImagenProducto img={produc[idProducto].imagen_flujo_comercial.split("\/")[1]}/>
+                        <TextoDescripcion descripcion={produc[idProducto].texto_flujo_comercial} style={styles.textoPrincipal}/>
+
+
+
+
+                        {/*
             <FontAwesomeIcon
                 name="table"
                 style={styles.tablaIndicadores}
@@ -286,10 +334,10 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: 327,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
-        marginLeft: 26
+        marginLeft: 26,
+        alignSelf: "center"
     },
     tablaIndicadores: {
         color: "rgba(128,128,128,1)",
@@ -300,18 +348,18 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: 327,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
-        marginLeft: 26
+        marginLeft: 26,
+        alignSelf: "center"
     },
     textoMensual: {
         fontFamily: "montserrat-regular",
         color: "#121212",
-        height: 20,
         width: 327,
         fontSize: 16,
-        marginLeft: 26
+        marginLeft: 26,
+        alignSelf: "center"
     },
     calendarioMensual: {
         color: "rgba(128,128,128,1)",
@@ -322,18 +370,16 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: 327,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
-        marginLeft: 24
+        alignSelf:'center'
     },
     textoExterior: {
         fontFamily: "montserrat-regular",
         color: "#121212",
-        height: 20,
         width: 327,
         fontSize: 16,
-        marginLeft: 24
+        alignSelf:'center'
     },
     tituloOrigen: {
         fontFamily: "montserrat-500",
@@ -381,10 +427,9 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: 327,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
-        marginLeft: 26
+        alignSelf:'center'
     },
     graficaEvolucion: {
         top: 0,

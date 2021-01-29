@@ -4,7 +4,7 @@ import {StyleSheet, TouchableOpacity, Text, View} from "react-native";
 function TextoAgroindustriales(props) {
     return (
         <View style={[styles.container,{backgroundColor:props.color, width:props.width - 40}]}>
-            <Text style={styles.agaveTequilero}>{props.participacion}%</Text>
+            <Text style={styles.agaveTequilero}>{props.participacion}</Text>
         </View>
 
     );
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     },
     agaveTequilero: {
         color: "#fff",
-        fontSize: 40,
+        fontSize: 36,
         fontFamily: "montserrat-700"
     }
 });
