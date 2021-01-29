@@ -10,6 +10,7 @@ import {
     VictoryBrushContainer,
     createContainer,
 } from 'victory-native';
+import producvol from "../../json/productionVolumeJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -34,6 +35,9 @@ export default class GraficaProduccion extends Component{
         const productColor = this.props.color;
         return (
             <View >
+                <Text style={[this.props.titulo,{fontSize:14}]}>
+                    {vol[0].unidad}
+                </Text>
                 {/*
               Propiedades de <VictoryChart>
                 width: Especifica la anchura de la grafica
