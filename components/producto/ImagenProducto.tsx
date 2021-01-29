@@ -14,7 +14,6 @@ function ImagenProducto(props){
 
 const styles =StyleSheet.create({
     imagenPrincipal: {
-        width: 327,
         height: 218,
         marginTop: 10,
         alignSelf: "center"
