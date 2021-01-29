@@ -20,22 +20,22 @@ import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
 
 import produc from "../json/productos";
 import producvol from "../json/productionVolumeJSON";
-
+import top10 from "../json/top10_statesJSON";
+import TablaTopProduccion from "../components/producto/TablaTopProduccion";
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
 function Producto(props) {
-    const idProducto = 68;
+    const idProducto = 4;
     return (
         <View style={styles.container}>
             <View >
                 <View >
-
                     <ScrollView
                         horizontal={false}
                         contentContainerStyle={styles.scrollArea_contentContainerStyle}
                     >
-                        <View>
+                        <View style={{backgroundColor:'#fff'}}>
                             <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
                             <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]}/>
                             <TextoDescripcion descripcion={produc[idProducto].descripcion} style={styles.textoPrincipal}/>
@@ -48,26 +48,40 @@ function Producto(props) {
                                 Participación en la producción nacional de agroindustriales
                             </Text>
                             <TextoAgroindustriales participacion={produc[idProducto].participacion} color={produc[idProducto].color_fondo} width={screenWidth}/>
-                            </View>
-                        <View>
+                        </View>
+                        <View style={{backgroundColor:'#fff'}}>
                             <Text style={styles.tituloVolumen}>
                                 Volumen de la producción nacional 2010-2019
                             </Text>
-                            <Text style={[styles.tituloVolumen,{fontSize:14}]}>
-                                {producvol[idProducto].[4].unidad}
-                            </Text>
-                            <GraficaProduccion graficaarray={producvol[idProducto]} color={produc[idProducto].color_fondo}/>
+                            <GraficaProduccion graficaarray={producvol[idProducto]} color={produc[idProducto].color_fondo} titulo={styles.tituloVolumen}/>
                         </View>
-                        <Text style={styles.tituloTop}>
-                            Top en volumen de producción
-                        </Text>
-                        <Text style={styles.tituloTop}>
-                        Principales entidades
-                        </Text>
 
 
+                        <View style={{backgroundColor:'#fff'}}>
+                            <Text style={styles.tituloTop}>
+                                Top en volumen de producción
+                            </Text>
+                            <Text style={styles.tituloTop}>
+                                Principales entidades
+                            </Text>
+                            <TablaTopProduccion
+                                data={top10[idProducto+1]}
+                                color={produc[idProducto].color_fondo}
+                                unidades={producvol[idProducto][0].unidad.split(" ")[2]}
+                                totalnac={produc[idProducto].volumen_toneladas}
+                                variacionpro={produc[idProducto].variacion_producto}/>
 
-                <FontAwesomeIcon
+                            <Text style={styles.tituloPorcentaje}>
+                                Porcentaje del valor de la producción por entidad federativa
+                            </Text>
+                            <ImagenProducto img={produc[idProducto].mapaentidades.split("\/")[1]}/>
+                            <Text style={styles.textoPorcentaje}>
+                                {produc[idProducto].valprodentidadlider}
+                            </Text>
+                        </View>
+
+
+                {/*<FontAwesomeIcon
                     name="table"
                     style={styles.tablaTop}
                 ></FontAwesomeIcon>
@@ -133,7 +147,7 @@ function Producto(props) {
             <FontAwesomeIcon
                 name="table"
                 style={styles.tablaDistribucion}
-            ></FontAwesomeIcon>
+            ></FontAwesomeIcon>*/}
                     </ScrollView>
                 </View>
             </View>
@@ -154,14 +168,9 @@ const styles = StyleSheet.create({
         height: 56
     },
     scrollArea: {
-        top: 0,
-        left: 0,
-        width: 375,
-        height: 578,
     },
     scrollArea_contentContainerStyle: {
-        height: 1544,
-        width: 375,
+        width: screenWidth,
         overflow: "hidden"
     },
     tituloProducto: {
@@ -232,7 +241,6 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
         width: screenWidth -30,
-        height: 22,
         textAlign: "center",
         fontSize: 18,
         alignSelf:"center",
@@ -249,15 +257,12 @@ const styles = StyleSheet.create({
         alignSelf:"center",
     },
     tituloPorcentaje: {
-        position: "absolute",
         fontFamily: "montserrat-700",
         color: "rgba(128,128,128,1)",
-        width: 327,
-        height: 22,
+        width: screenWidth -30,
         textAlign: "center",
         fontSize: 18,
-        top: 35,
-        left: 0
+        alignSelf:"center",
     },
     tablaTopStack: {
         width: 327,
@@ -272,7 +277,6 @@ const styles = StyleSheet.create({
     textoPorcentaje: {
         fontFamily: "montserrat-regular",
         color: "#121212",
-        height: 20,
         width: screenWidth -30,
         fontSize: 16,
         marginTop: 7,
