@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {View, StyleSheet, ScrollView,Text} from "react-native";
 import {Table,Row,Rows,Col,TableWrapper} from 'react-native-table-component';
 
-export default class TablaTopProduccion extends Component{
+export default class TablaTopProduccion extends Component<any, any>{
 
 
     render() {
@@ -10,6 +10,7 @@ export default class TablaTopProduccion extends Component{
         const tableHead = ['', 'Total nacional', '', this.props.totalnac,this.props.variacionpro];
         const tableTitle= [];
         const tableData = [];
+        const widthArr=[50,140,130,100,100];
         for (let i = 0; i < this.props.data.length; i += 1) {
             tableTitle.push(this.props.data[i].rankingtop);
         }
@@ -22,17 +23,23 @@ export default class TablaTopProduccion extends Component{
             tableData.push(rowData);
         }
         return (
+
             <View style={styles.container}>
-                <Table>
-                    <Row data={indicadoresHead} style={styles.inhead} flexArr={[0.5,1,1,1,1]} textStyle={styles.intitle}></Row>
-                </Table>
-                <Table >
-                    <Row data={tableHead} style={[styles.head,{backgroundColor:this.props.color}]} flexArr={[0.5,1.5,2, 1.5, 1]} textStyle={styles.textwhite}/>
-                    <TableWrapper style={styles.wrapper}  >
-                        <Col data={tableTitle} style={[styles.title,{backgroundColor:this.props.color}]} textStyle={styles.textwhite}/>
-                        <Rows data={tableData} flexArr={[1.5,2, 1.5, 1]} style={[styles.row]} textStyle={styles.text}   />
-                    </TableWrapper>
-                </Table>
+                <ScrollView horizontal={true}>
+                    <View>
+                        <Table>
+                            <Row data={indicadoresHead} style={styles.inhead} widthArr={widthArr} textStyle={styles.intitle}></Row>
+                        </Table>
+                        <Table >
+                            <Row data={tableHead} style={[styles.head,{backgroundColor:this.props.color}]} widthArr={widthArr} textStyle={styles.textwhite}/>
+                            <TableWrapper style={styles.wrapper}  >
+                                <Col data={tableTitle} style={[styles.title,{backgroundColor:this.props.color}]} textStyle={styles.textwhite}/>
+                                <Rows data={tableData} widthArr={[140,130,100,100]} style={[styles.row]} textStyle={styles.text}   />
+                            </TableWrapper>
+                        </Table>
+                    </View>
+                </ScrollView>
+
             </View>
         )
     }

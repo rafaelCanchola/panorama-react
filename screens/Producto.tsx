@@ -13,6 +13,8 @@ import ImagenConsumo from "../components/producto/ImagenConsumo";
 import TextoDescripcion from "../components/producto/TextoDescripcion";
 import TextoAgroindustriales from "../components/producto/TextoAgroindustriales";
 import GraficaProduccion from "../components/producto/GraficaProduccion";
+import TablaTopProduccion from "../components/producto/TablaTopProduccion";
+import TablaIndicadores from "../components/producto/TablaIndicadores";
 
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
@@ -21,12 +23,13 @@ import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
 import produc from "../json/productos";
 import producvol from "../json/productionVolumeJSON";
 import top10 from "../json/top10_statesJSON";
-import TablaTopProduccion from "../components/producto/TablaTopProduccion";
+import indicadores19 from "../json/indicadores_infoJSON";
+
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
 function Producto(props) {
-    const idProducto = 4;
+    const idProducto = 9;
     return (
         <View style={styles.container}>
             <View >
@@ -79,6 +82,8 @@ function Producto(props) {
                             </Text>
                         </View>
                         <Text style={styles.tituloPorcentaje}>Indicadores 2019</Text>
+                        <TablaIndicadores indicadorarr={indicadores19[idProducto]} color={produc[idProducto].color_fondo}/>
+
                         <Text style={styles.tituloPorcentaje}>
                             Producción mensual nacional (%)
                         </Text>
