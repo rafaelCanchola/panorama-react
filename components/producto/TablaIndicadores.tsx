@@ -21,7 +21,7 @@ export default class TablaIndicadores extends Component<any, any>{
     render() {
         const indicadorArray = this.props.indicadorarr;
 
-        const widthArr=[100,240,100,100,100,130];
+        const widthArr=[120,240,100,100,100,130];
         const subWidthArr=[100,80,80,80];
         const indicadoresHeadTable1= ['',indicadorArray.Superficie,indicadorArray.Volumen,indicadorArray.Valor,indicadorArray.Rendimiento,indicadorArray.Precio_Medio];
         const superficieRow1 = [indicadorArray.Sub_Etiqueta_Superficie_1,indicadorArray.Sub_Etiqueta_Superficie_2,indicadorArray.Sub_Etiqueta_Superficie_3];
@@ -41,13 +41,13 @@ export default class TablaIndicadores extends Component<any, any>{
                     <TableWrapper style={{flexDirection:'row'}}>
                         <TableWrapper>
                             <TableWrapper style={{flexDirection:'row'}}>
-                                <Cell data="" style={styles.inhead} width={100}/>
+                                <Cell data="" style={styles.inhead} width={120}/>
                                 <Cell data={superficieRow1[0]} style={styles.inhead} width={80} textStyle={styles.intitle}/>
                                 <Cell data={superficieRow1[1]} style={styles.inhead} width={80} textStyle={styles.intitle}/>
                                 <Cell data={superficieRow1[2]} style={styles.inhead} width={80} textStyle={styles.intitle}/>
                             </TableWrapper>
                             <TableWrapper style={{flexDirection:'row'}}>
-                                <Cell data="" style={styles.inhead} width={100}/>
+                                <Cell data="" style={styles.inhead} width={120}/>
                                 <Cell data={indicadorArray.Sub_Etiqueta_Superficie_4} style={styles.inhead} width={240} textStyle={styles.intitle}/>
                             </TableWrapper>
                         </TableWrapper>
@@ -58,12 +58,16 @@ export default class TablaIndicadores extends Component<any, any>{
                     </TableWrapper>
                     <TableWrapper style={{flexDirection: 'row'}}>
                         <TableWrapper style={{ flexDirection: 'column' }}>
-                            <Cell data="" style={styles.inhead} width={100}/>
-                            <Col data={primerCol} style={[styles.title,{backgroundColor:this.props.color}]} textStyle={styles.textwhite}/>
+                            <Cell data="" style={styles.inhead} width={120}/>
+                            <Col data={primerCol} style={[styles.title,{backgroundColor:this.props.color}]}  width={120} textStyle={styles.textwhite}/>
                         </TableWrapper>
-                        <TableWrapper style={{ flexDirection: 'row' }}>
                             <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        </TableWrapper>
+                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
+                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
+                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
+                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
+                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
+                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
                     </TableWrapper>
 
 
