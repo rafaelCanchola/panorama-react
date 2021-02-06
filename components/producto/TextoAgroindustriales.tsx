@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     agaveTequilero: {
         color: "#fff",
         fontSize: 36,
-        fontFamily: "montserrat-700"
+        fontFamily: "montserrat-700",
+        textAlign: "center",
     }
 });
 

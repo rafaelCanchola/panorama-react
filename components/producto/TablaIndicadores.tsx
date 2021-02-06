@@ -1,84 +1,120 @@
 import React, {Component} from "react";
 import {View, StyleSheet, ScrollView,Text} from "react-native";
 import {Table,Row,Rows,Col,TableWrapper,Cell} from 'react-native-table-component';
+import CellData from "./CellData";
 
 export default class TablaIndicadores extends Component<any, any>{
-    /*superficie={indicadores19[idProducto].Superficie}
-                                            volumen={indicadores19[idProducto].Volumen}
-                                            valor={indicadores19[idProducto].Valor}
-                                            rendimiento={indicadores19[idProducto].Rendimiento}
-                                            preciomedio={indicadores19[idProducto].Precio_Medio}
-                                            superficieet1={indicadores19[idProducto].Sub_Etiqueta_Superficie_1}
-                                            superficieet2={indicadores19[idProducto].Sub_Etiqueta_Superficie_2}
-                                            superficieet3={indicadores19[idProducto].Sub_Etiqueta_Superficie_3}
-                                            superficieet4={indicadores19[idProducto].Sub_Etiqueta_Superficie_4}
-                                            volumenet1={indicadores19[idProducto].Sub_Etiqueta_Vol_1}
-                                            valoret1={indicadores19[idProducto].Sub_Etiqueta_Val}
-                                            rendimientoet1={indicadores19[idProducto].Sub_Etiqueta_Rendimiento}
-                                            preciomedioet1={indicadores19[idProducto].Sub_Etiqueta_Precio_Med}
-                                            colsemval1={indicadores19[idProducto].SuperficieSemVal}*/
-
     render() {
         const indicadorArray = this.props.indicadorarr;
-
-        const widthArr=[120,240,100,100,100,130];
-        const subWidthArr=[100,80,80,80];
+        /*Llenado de la primera tabla*/
+        const heightCell = 40;
+        const headArrTable1=[120,240,100,100,100,130];
+        const subWidthArrTable1=[120,80,80,80,100,100,100,130];
         const indicadoresHeadTable1= ['',indicadorArray.Superficie,indicadorArray.Volumen,indicadorArray.Valor,indicadorArray.Rendimiento,indicadorArray.Precio_Medio];
-        const superficieRow1 = [indicadorArray.Sub_Etiqueta_Superficie_1,indicadorArray.Sub_Etiqueta_Superficie_2,indicadorArray.Sub_Etiqueta_Superficie_3];
-        const primerCol =['','Variaciones %\nAnual 2018-2019','Variaciones %\nTMAC 2018-2019'];
-        {/*const firstCols = ['',indicadorArray.SuperficieSemVal,indicadorArray.SuperficieSiniVal,indicadorArray.SuperficieCoseVal,indicadorArray.VolumenVal_1,indicadorArray.,indicadorArray.,indicadorArray.];*/}
-        const colTitle = ['Variaciones %\nAnual 2018-2019','Variaciones %\nTMAC 2018-2019']
-        const colSembrada =[]
-        const tableTitle= [];
-        const tableData = [];
+        const indicadoresUnidadTable1 = [indicadorArray.Sub_Etiqueta_Vol_1,indicadorArray.Sub_Etiqueta_Val,indicadorArray.Sub_Etiqueta_Rendimiento,indicadorArray.Sub_Etiqueta_Precio_Med]
+        const superficieRow = [indicadorArray.Sub_Etiqueta_Superficie_1,indicadorArray.Sub_Etiqueta_Superficie_2,indicadorArray.Sub_Etiqueta_Superficie_3];
+        const primerCol =['Variaciones %\nAnual 2018-2019','Variaciones %\nTMAC 2018-2019'];
+        const indicadoresValRowTable1 = ['',indicadorArray.SuperficieSemVal,indicadorArray.SuperficieSiniVal,indicadorArray.SuperficieCoseVal,indicadorArray.VolumenVal_1,indicadorArray.ValorVal,indicadorArray.RendiVal,indicadorArray.PrecioVal];
+        const superficieSem = [indicadorArray.SuperficieSemValAnual,indicadorArray.SuperficieSemValTMAC];
+        const superficieSini = [indicadorArray.SuperficieSiniValAnual,indicadorArray.SuperficieSiniValTMAC];
+        const superficieCose = [indicadorArray.SuperficieCoseValAnual,indicadorArray.SuperficieCoseValTMCA];
+        const volumenVals =[indicadorArray.VolumenValAnual_1,indicadorArray.VolumenValTMAC_1];
+        const valorVals =[indicadorArray.ValorValAnual,indicadorArray.ValorValTMAC];
+        const rendiVals =[indicadorArray.RendiAnual,indicadorArray.RendiTMAC];
+        const precioVals =[indicadorArray.PrecioAnual,indicadorArray.PrecioTMAC];
+        /*Llenado de la segunda tabla*/
+        const headArrTable2=[120,100,100,100,130];
+        const indicadoresHeadTable2= ['',indicadorArray.Inventario,indicadorArray.Produccion,indicadorArray.Valor,indicadorArray.Precio_Medio];
+        const indicadoresUnidadTable2 =['',indicadorArray.Sub_Etiqueta_Inven,indicadorArray.Sub_Etiqueta_Prod,indicadorArray.Sub_Etiqueta_Val,indicadorArray.Sub_Etiqueta_Precio_Med];
+        const indicadoresValRowTable2 = ['',indicadorArray.InventarioVal,indicadorArray.ProduccionVal,indicadorArray.ValorVal,indicadorArray.PrecioVal];
+        const inventarioVals=[indicadorArray.InventarioAnual,indicadorArray.InventarioTMAC];
+        const produccionVals=[indicadorArray.ProduccionAnual,indicadorArray.ProduccionTMAC];
+        /*Llenado de la tercera tabla*/
+        const headArrTable3=[120,130,130,130];
+        const indicadoresHeadTable3= ['',indicadorArray.Volumen,indicadorArray.Valor,indicadorArray.Precio_Medio];
+        const indicadoresUnidadTable3 =['',indicadorArray.Sub_Etiqueta_Vol_1,indicadorArray.Sub_Etiqueta_Val,indicadorArray.Sub_Etiqueta_Precio_Med];
+        const indicadoresValRowTable3 = ['',indicadorArray.VolumenVal_1,indicadorArray.ValorVal,indicadorArray.PrecioVal];
 
         const switchTable1 =
             <View style={styles.container}>
-                <Table>
-                    <Row data={indicadoresHeadTable1} style={[styles.inhead,{backgroundColor:this.props.color}]} widthArr={widthArr} textStyle={styles.textwhite} ></Row>
-                </Table>
                 <Table >
-                    <TableWrapper style={{flexDirection:'row'}}>
+                    {/*header de la tabla*/}
+                    <Row data={indicadoresHeadTable1} style={{backgroundColor:this.props.color}} widthArr={headArrTable1} height={heightCell} textStyle={styles.textwhite}/>
+                    <TableWrapper style={{flexDirection:'row'}}>{/*primeras dos filas de la tabla*/}
+                    {/*unidades de superficie*/}
                         <TableWrapper>
                             <TableWrapper style={{flexDirection:'row'}}>
-                                <Cell data="" style={styles.inhead} width={120}/>
-                                <Cell data={superficieRow1[0]} style={styles.inhead} width={80} textStyle={styles.intitle}/>
-                                <Cell data={superficieRow1[1]} style={styles.inhead} width={80} textStyle={styles.intitle}/>
-                                <Cell data={superficieRow1[2]} style={styles.inhead} width={80} textStyle={styles.intitle}/>
+                                {/*subtitulos de superficie*/}
+                                <Cell data="" width={headArrTable1[0]} height={heightCell} />
+                                <Cell data={superficieRow[0]} width={headArrTable1[1]/3} height={heightCell} textStyle={styles.intitle}/>
+                                <Cell data={superficieRow[1]} width={headArrTable1[1]/3} height={heightCell} textStyle={styles.intitle}/>
+                                <Cell data={superficieRow[2]} width={headArrTable1[1]/3} height={heightCell} textStyle={styles.intitle}/>
                             </TableWrapper>
                             <TableWrapper style={{flexDirection:'row'}}>
-                                <Cell data="" style={styles.inhead} width={120}/>
-                                <Cell data={indicadorArray.Sub_Etiqueta_Superficie_4} style={styles.inhead} width={240} textStyle={styles.intitle}/>
+                                {/*unidades de superficie*/}
+                                <Cell data=""  width={headArrTable1[0]} height={heightCell}/>
+                                <Cell data={indicadorArray.Sub_Etiqueta_Superficie_4} width={headArrTable1[1]} height={heightCell} textStyle={styles.intitle}/>
                             </TableWrapper>
                         </TableWrapper>
-                        <Cell data={indicadorArray.Sub_Etiqueta_Vol_1} style={styles.incell} width={100} textStyle={styles.intitle}/>
-                        <Cell data={indicadorArray.Sub_Etiqueta_Val} style={styles.incell} width={100} textStyle={styles.intitle}/>
-                        <Cell data={indicadorArray.Sub_Etiqueta_Rendimiento} style={styles.incell} width={100} textStyle={styles.intitle}/>
-                        <Cell data={indicadorArray.Sub_Etiqueta_Precio_Med} style={styles.incell} width={130} textStyle={styles.intitle}/>
+                        {/*unidades del resto de indicadores*/}
+                        <Cell data={indicadoresUnidadTable1[0]} width={headArrTable1[2]} height={heightCell*2} textStyle={styles.intitle}/>
+                        <Cell data={indicadoresUnidadTable1[1]} width={headArrTable1[3]} height={heightCell*2} textStyle={styles.intitle}/>
+                        <Cell data={indicadoresUnidadTable1[2]} width={headArrTable1[4]} height={heightCell*2} textStyle={styles.intitle}/>
+                        <Cell data={indicadoresUnidadTable1[3]} width={headArrTable1[5]} height={heightCell*2} textStyle={styles.intitle}/>
                     </TableWrapper>
-                    <TableWrapper style={{flexDirection: 'row'}}>
-                        <TableWrapper style={{ flexDirection: 'column' }}>
-                            <Cell data="" style={styles.inhead} width={120}/>
-                            <Col data={primerCol} style={[styles.title,{backgroundColor:this.props.color}]}  width={120} textStyle={styles.textwhite}/>
-                        </TableWrapper>
-                            <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
-                        <Col data={[200,130,2200]} style={styles.title}  textStyle={styles.intitle}/>
+                    {/*unidades del resto de indicadores*/}
+                    <Row data={indicadoresValRowTable1} widthArr={subWidthArrTable1} height={heightCell} textStyle={styles.text}/>
+                    <TableWrapper style={{flexDirection:"row"}}>
+                        <Col data={primerCol} style={[styles.title,{backgroundColor:this.props.color}]} width={headArrTable1[0]} heightArr={[heightCell,heightCell]} textStyle={styles.textwhite}/>
+                        {/*Valores Superficie*/}
+                        <CellData data={superficieSem} width={headArrTable1[1]/3} height={heightCell}/>
+                        <CellData data={superficieSini} width={headArrTable1[1]/3} height={heightCell}/>
+                        <CellData data={superficieCose} width={headArrTable1[1]/3} height={heightCell}/>
+                        <CellData data={volumenVals} width={headArrTable1[2]} height={heightCell}/>
+                        <CellData data={valorVals} width={headArrTable1[3]} height={heightCell}/>
+                        <CellData data={rendiVals} width={headArrTable1[4]} height={heightCell}/>
+                        <CellData data={precioVals} width={headArrTable1[5]} height={heightCell}/>
                     </TableWrapper>
-
-
-
-                    {/*<Row data={superficieRow1} style={styles.inhead} widthArr={subWidthArr} textStyle={styles.intitle} ></Row>*/}
-                    {/*<Row data={superficieRow2} style={styles.inhead} widthArr={widthArr} textStyle={styles.intitle} ></Row>*/}
                 </Table>
             </View>
         ;
 
-        switch (indicadorArray.IdEtiqueta){
+        const switchTable2 =
+            <View style={styles.container}>
+                <Table>
+                    {/*header de la tabla*/}
+                    <Row data={indicadoresHeadTable2} style={{backgroundColor:this.props.color}} widthArr={headArrTable2} height={heightCell} textStyle={styles.textwhite}/>
+                    <Row data={indicadoresUnidadTable2} widthArr={headArrTable2} height={heightCell} textStyle={styles.intitle}/>
+                    <Row data={indicadoresValRowTable2} widthArr={headArrTable2} height={heightCell} textStyle={styles.text}/>
+                    <TableWrapper style={{flexDirection:"row"}}>
+                        <Col data={primerCol} style={[styles.title,{backgroundColor:this.props.color}]} width={headArrTable2[0]} heightArr={[heightCell,heightCell]} textStyle={styles.textwhite}/>
+                        <CellData data={inventarioVals} width={headArrTable2[1]} height={heightCell}/>
+                        <CellData data={produccionVals} width={headArrTable2[2]} height={heightCell}/>
+                        <CellData data={valorVals} width={headArrTable2[3]} height={heightCell}/>
+                        <CellData data={precioVals} width={headArrTable2[4]} height={heightCell}/>
+                    </TableWrapper>
+                </Table>
+            </View>
+        ;
+
+        const switchTable3 =
+            <View style={styles.container}>
+                <Table>
+                    {/*header de la tabla*/}
+                    <Row data={indicadoresHeadTable3} style={{backgroundColor:this.props.color}} widthArr={headArrTable3} height={heightCell} textStyle={styles.textwhite}/>
+                    <Row data={indicadoresUnidadTable3} widthArr={headArrTable3} height={heightCell} textStyle={styles.intitle}/>
+                    <Row data={indicadoresValRowTable3} widthArr={headArrTable3} height={heightCell} textStyle={styles.text}/>
+                    <TableWrapper style={{flexDirection:"row"}}>
+                        <Col data={primerCol} style={[styles.title,{backgroundColor:this.props.color}]} width={headArrTable3[0]} heightArr={[heightCell,heightCell]} textStyle={styles.textwhite}/>
+                        <CellData data={volumenVals} width={headArrTable3[1]} height={heightCell}/>
+                        <CellData data={valorVals} width={headArrTable3[2]} height={heightCell}/>
+                        <CellData data={precioVals} width={headArrTable3[3]} height={heightCell}/>
+                    </TableWrapper>
+                </Table>
+            </View>
+        ;
+
+        switch (indicadorArray.Tipo_Producto){
             case '1': return (
                 <View style={styles.container}>
                     <ScrollView horizontal={true}>
@@ -86,49 +122,30 @@ export default class TablaIndicadores extends Component<any, any>{
                     </ScrollView>
                 </View>
                     )
+            case '2': return (
+                <View style={styles.container}>
+                    <ScrollView horizontal={true}>
+                        {switchTable2}
+                    </ScrollView>
+                </View>
+            )
             case '3': return (
                 <View style={styles.container}>
                     <ScrollView horizontal={true}>
-                        {switchTable1}
-                    </ScrollView>
-                </View>
-            )
-            case '4': return (
-                <View style={styles.container}>
-                    <ScrollView horizontal={true}>
-                        {switchTable1}
-                    </ScrollView>
-                </View>
-            )
-            case '5': return (
-                <View style={styles.container}>
-                    <ScrollView horizontal={true}>
-                        {switchTable1}
-                    </ScrollView>
-                </View>
-            )
-            case '6': return (
-                <View style={styles.container}>
-                    <ScrollView horizontal={true}>
-                        {switchTable1}
+                        {switchTable3}
                     </ScrollView>
                 </View>
             )
         }
-
     }
 }
 
 const styles = StyleSheet.create({
     container: { flex: 1, padding: 10,},
-    head: {  height: 40, },
-    inhead: {  height: 40,},
-    incell: {  height: 80},
     intitle:{textAlign:"center",fontFamily: "montserrat-700"},
     wrapper: { flexDirection: 'row' },
     title: { flex: 1,},
     text: { textAlign: 'center', fontFamily: "montserrat-500"},
-    row: {  height: 30  },
     textwhite: { textAlign: 'center',color:"#fff",fontFamily: "montserrat-700"}
 });
 

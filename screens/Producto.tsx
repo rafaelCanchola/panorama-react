@@ -29,7 +29,7 @@ const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
 function Producto(props) {
-    const idProducto = 9;
+    const idProducto = 3;
     return (
         <View style={styles.container}>
             <View >
@@ -42,9 +42,7 @@ function Producto(props) {
                             <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
                             <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]}/>
                             <TextoDescripcion descripcion={produc[idProducto].descripcion} style={styles.textoPrincipal}/>
-                            <Text style={styles.tituloConsumo}>
-                                Consumo anual per cápita
-                            </Text>
+
                             <ImagenConsumo bgcolor={produc[idProducto].color_fondo} consumo={produc[idProducto].consumonacional}/>
 
                             <Text style={styles.tituloParticipacion}>
@@ -230,15 +228,6 @@ const styles = StyleSheet.create({
         width: screenWidth -30 ,
         height: 83,
         alignSelf: "center"
-    },
-    tituloConsumo: {
-        fontFamily: "montserrat-700",
-        color: "rgba(128,128,128,1)",
-        width: screenWidth -30,
-        height: 22,
-        textAlign: "center",
-        fontSize: 18,
-        left: 0
     },
     tituloParticipacion: {
         fontFamily: "montserrat-700",

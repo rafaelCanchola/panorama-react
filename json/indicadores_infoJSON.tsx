@@ -1917,7 +1917,7 @@ IdEtiqueta:"1",AñoIndicador:"2019",SuperficieSemVal:"13",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones\r\nde litros",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / litro"
+Tipo_Producto:"1",Superficie:"Superficie",Sub_Etiqueta_Superficie_1:"Sembrada",Sub_Etiqueta_Superficie_2:"Siniestrada",Sub_Etiqueta_Superficie_3:"Cosechada",Sub_Etiqueta_Superficie_4:"Miles de hectáreas",Rendimiento:"Rendimiento",Sub_Etiqueta_Rendimiento:"Toneladas \/ hectárea",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones de litros",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Miles de toneladas",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio Rural",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"61",
 IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -1949,7 +1949,7 @@ IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"3,477",
                                         ProduccionAnual:"4.1",
                                          ProduccionTMAC:"2.9",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA\r\n",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles \r\nde toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"62",
 IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -1981,7 +1981,7 @@ IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"2,028",
                                         ProduccionAnual:"2.4",
                                          ProduccionTMAC:"1.7",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA\r\n",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles \r\nde toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"63",
 IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2013,7 +2013,7 @@ IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"40",
                                         ProduccionAnual:"0.2",
                                          ProduccionTMAC:"-1.0",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA\r\n",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles \r\nde toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"64",
 IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2045,7 +2045,7 @@ IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"64",
                                         ProduccionAnual:"1.7",
                                          ProduccionTMAC:"1.7",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA\r\n",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles \r\nde toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Miles de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"65",
 IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2077,7 +2077,7 @@ IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"1,600",
                                         ProduccionAnual:"6.5",
                                          ProduccionTMAC:"3.5",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA\r\n",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Producción",Sub_Etiqueta_Prod:"Miles \r\nde toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Producción",Sub_Etiqueta_Prod:"Miles de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"66",
 IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2109,7 +2109,7 @@ IdEtiqueta:"4",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"2,950",
                                         ProduccionAnual:"2.7",
                                          ProduccionTMAC:"2.4",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA\r\n",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Producción",Sub_Etiqueta_Prod:"Miles \r\nde toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos/ tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Producción",Sub_Etiqueta_Prod:"Miles de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos/ tonelada"
 },{IdProducto:"67",
 IdEtiqueta:"3",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2141,7 +2141,7 @@ IdEtiqueta:"3",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"12,276",
                                         ProduccionAnual:"2.3",
                                          ProduccionTMAC:"1.6",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones \r\nde cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones\r\nde litros",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / litro"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de cabezas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones de litros",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / litro"
 },{IdProducto:"68",
 IdEtiqueta:"3",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2173,7 +2173,7 @@ IdEtiqueta:"3",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"162",
                                         ProduccionAnual:"-1.1",
                                          ProduccionTMAC:"0.01",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"",Sub_Etiqueta_Inven:"",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones \r\nde litros",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / litro"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"",Sub_Etiqueta_Inven:"",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones de litros",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / litro"
 },{IdProducto:"69",
 IdEtiqueta:"5",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2205,7 +2205,7 @@ IdEtiqueta:"5",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"62",
                                         ProduccionAnual:"-3.5",
                                          ProduccionTMAC:"1.2",
-Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de colmenas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos/ tonelada"
+Tipo_Producto:"2",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"Inventario",Sub_Etiqueta_Inven:"Millones de colmenas",Produccion:"Produccion",Sub_Etiqueta_Prod:"Millones de toneladas",Volumen:"NA",Sub_Etiqueta_Vol_1:"NA",Sub_Etiqueta_Vol_2:"NA",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos/ tonelada"
 },{IdProducto:"70",
 IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2237,7 +2237,7 @@ IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"71",
 IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2269,7 +2269,7 @@ IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"72",
 IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2301,7 +2301,7 @@ IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"73",
 IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2333,7 +2333,7 @@ IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"74",
 IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2365,7 +2365,7 @@ IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
+Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"
 },{IdProducto:"75",
 IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                   SuperficieSemValAnual:"NA",
@@ -2397,6 +2397,6 @@ IdEtiqueta:"6",AñoIndicador:"2019",SuperficieSemVal:"NA",
                                           ProduccionVal:"NA",
                                         ProduccionAnual:"NA",
                                          ProduccionTMAC:"NA",
-Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones \r\nde pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"}]
+Tipo_Producto:"3",Superficie:"NA",Sub_Etiqueta_Superficie_1:"NA",Sub_Etiqueta_Superficie_2:"NA",Sub_Etiqueta_Superficie_3:"NA",Sub_Etiqueta_Superficie_4:"NA",Rendimiento:"NA",Sub_Etiqueta_Rendimiento:"NA",Inventario:"NA",Sub_Etiqueta_Inven:"NA",Produccion:"NA",Sub_Etiqueta_Prod:"NA",Volumen:"Volumen",Sub_Etiqueta_Vol_1:"Peso vivo\r\n(miles de toneladas)",Sub_Etiqueta_Vol_2:"  ",Valor:"Valor",Sub_Etiqueta_Val:"Millones de pesos",Precio_Medio:"Precio Medio \r\nal Productor",Sub_Etiqueta_Precio_Med:"Pesos / tonelada"}]
 
 export default indicadores19;
