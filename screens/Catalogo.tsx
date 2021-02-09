@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     StyleSheet,
     View,
@@ -6,18 +6,33 @@ import {
     ImageBackground,
     ScrollView,
     Text,
-    TouchableOpacity
+    TouchableOpacity, FlatList, Dimensions
 } from "react-native";
 import MaterialRadio from "../components/catalogo/MaterialRadio";
-import BotonMostrarAgricola from "../components/catalogo/BotonMostrarAgricola";
+import BotonMostrarSector from "../components/catalogo/BotonMostrarSector";
 import {useNavigation} from "@react-navigation/native";
 
-function Catalogo(props) {
+const ImagesArray = require('../components/producto/ImagesArray').default
 
+import produc from "../json/productos";
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get('window').height;
+
+
+function Catalogo(props) {
     const navigation = useNavigation();
-    return (
-        <View style={styles.container}>
-            <View style={styles.imagenFondoStack}>
+
+    const pagesArray = [
+        {id:'1',img:'agricola'},{id:'2',img:'pecuario'},{id:'3',img:'pesquero'}
+    ];
+    const sectorLim = {
+        'agricola':[0,60],
+        'pecuario':[60,70],
+        'pesquero':[70,75]
+    };
+
+    {/*
+    <View style={styles.imagenFondoStack}>
                 <ImageBackground
                     source={require("../assets/images/Agricola2019.jpg")}
                     resizeMode="center"
@@ -29,16 +44,7 @@ function Catalogo(props) {
                             horizontal={false}
                             contentContainerStyle={styles.scrollArea_contentContainerStyle}
                         >
-                            <View style={styles.iconoProductoRow}>
-                                <Image
-                                    source={require("../assets/images/productos/t/t_aga.jpg")}
-                                    resizeMode="cover"
-                                    style={styles.iconoProducto}
-                                ></Image>
-                                <TouchableOpacity onPress={() => navigation.navigate('Producto')}>
-                                    <Text style={styles.nombreProducto}>Agave Tequilero</Text>
-                                </TouchableOpacity>
-                            </View>
+
                         </ScrollView>
                     </View>
                 </ImageBackground>
@@ -51,32 +57,82 @@ function Catalogo(props) {
                 </TouchableOpacity>
                 <BotonMostrarAgricola style={styles.botonAgricola}></BotonMostrarAgricola>
             </View>
+    */}
+
+
+    const Item = ({sector}) => (
+        <ImageBackground source={ImagesArray(sector)}
+                         resizeMode={"cover"}
+                         style={{width:(screenWidth)}}>
+            <BotonMostrarSector style={styles.botonAgricola} nombre={sector}></BotonMostrarSector>
+            <View>
+                {
+                    (() => {
+                        switch (sector){
+                            case 'agricola': return(
+                                produc.slice(sectorLim.agricola[0],sectorLim.agricola[1]).map((item)=>
+                                    <View style={styles.iconoProductoRow} key={item.idproducto}>
+                                        <Image
+                                            source={ImagesArray(item.imagen_producto.split("\/")[1])}
+                                            resizeMode="cover"
+                                            style={styles.iconoProducto}
+                                        />
+                                        <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
+                                            <Text style={styles.nombreProducto}>{item.producto}</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            )
+                            case 'pecuario': return(
+                                produc.slice(sectorLim.pecuario[0],sectorLim.pecuario[1]).map((item)=>
+                                    <View style={styles.iconoProductoRow} key={item.idproducto}>
+                                        <Image
+                                            source={ImagesArray(item.imagen_producto.split("\/")[1])}
+                                            resizeMode="cover"
+                                            style={styles.iconoProducto}
+                                        />
+                                        <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
+                                            <Text style={styles.nombreProducto}>{item.producto}</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            )
+                            case 'pesquero': return(
+                                produc.slice(sectorLim.pesquero[0],sectorLim.pesquero[1]).map((item)=>
+                                    <View style={styles.iconoProductoRow} key={item.idproducto}>
+                                        <Image
+                                            source={ImagesArray(item.imagen_producto.split("\/")[1])}
+                                            resizeMode="cover"
+                                            style={styles.iconoProducto}
+                                        />
+                                        <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
+                                            <Text style={styles.nombreProducto}>{item.producto}</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            )
+                        }
+                    })()
+                }
+            </View>
+            </ImageBackground>
+    );
+
+    const renderItem = ({item}) =>(
+        <Item sector={item.img} />
+        );
+
+    return (
+        <View style={styles.container}>
+            <FlatList data={pagesArray} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} pagingEnabled={true} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
-    },
-    imagenFondo: {
-        top: 0,
-        left: 0,
-        width: 375,
-        height: 610,
-        position: "absolute"
-    },
-    imagenFondo_imageStyle: {},
-    scrollArea: {
-        width: 375,
-        height: 368,
-        backgroundColor: "rgba(230,230, 230,0.75)",
-        marginTop: 143
-    },
-    scrollArea_contentContainerStyle: {
-        height: 368,
-        width: 375,
-        flexDirection: "row"
+        flex: 1,
+        justifyContent: "center",
     },
     iconoProducto: {
         width: 40,
@@ -85,20 +141,14 @@ const styles = StyleSheet.create({
     },
     nombreProducto: {
         fontFamily: "roboto-700",
-        color: "#121212",
         height: 25,
-        width: 275,
         fontSize: 19,
         marginLeft: 14,
         marginTop: 7
     },
     iconoProductoRow: {
-        height: 40,
         flexDirection: "row",
-        flex: 1,
-        marginRight: 28,
-        marginLeft: 18,
-        marginTop: 26
+        margin:30,
     },
     radioCatalogos: {
         top: 549,
@@ -127,27 +177,15 @@ const styles = StyleSheet.create({
         flex: 1
     },
     botonAgricola: {
-        height: 56,
-        width: 300,
-        position: "absolute",
-        left: 38,
-        top: 42,
-        backgroundColor: "rgba(0,120,83,1)",
+        height: 60,
+        alignSelf:'center',
+        width: (screenWidth - 30 ),
         borderWidth: 2,
         borderColor: "rgba(255,255,255,1)",
         borderStyle: "solid",
-        borderRadius: 7
+        borderRadius: 7,
+        top: 20
     },
-    imagenFondoStack: {
-        width: 375,
-        height: 610
-    },
-    footerRegresar: {
-        width: 375,
-        height: 56,
-        backgroundColor: "rgba(230, 230, 230,1)",
-        marginTop: 1
-    }
 });
 
 export default Catalogo;
