@@ -23,14 +23,9 @@ function Catalogo(props) {
     const navigation = useNavigation();
 
     const pagesArray = [
-        {id:'1',img:'agricola'},{id:'2',img:'pecuario'},{id:'3',img:'pesquero'}
+        {id:'1',img:'agricola',limite:[0,60]},{id:'2',img:'pecuario',limite:[60,70]},{id:'3',img:'pesquero',limite:[70,75]}
     ];
-    const sectorLim = {
-        'agricola':[0,60],
-        'pecuario':[60,70],
-        'pesquero':[70,75]
-    };
-
+    
     {/*
     <View style={styles.imagenFondoStack}>
                 <ImageBackground
@@ -60,66 +55,32 @@ function Catalogo(props) {
     */}
 
 
-    const Item = ({sector}) => (
+    const Item = ({sector,limite}) => (
         <ImageBackground source={ImagesArray(sector)}
                          resizeMode={"cover"}
                          style={{width:(screenWidth)}}>
             <BotonMostrarSector style={styles.botonAgricola} nombre={sector}></BotonMostrarSector>
             <View>
                 {
-                    (() => {
-                        switch (sector){
-                            case 'agricola': return(
-                                produc.slice(sectorLim.agricola[0],sectorLim.agricola[1]).map((item)=>
-                                    <View style={styles.iconoProductoRow} key={item.idproducto}>
-                                        <Image
-                                            source={ImagesArray(item.imagen_producto.split("\/")[1])}
-                                            resizeMode="cover"
-                                            style={styles.iconoProducto}
-                                        />
-                                        <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
-                                            <Text style={styles.nombreProducto}>{item.producto}</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                )
-                            )
-                            case 'pecuario': return(
-                                produc.slice(sectorLim.pecuario[0],sectorLim.pecuario[1]).map((item)=>
-                                    <View style={styles.iconoProductoRow} key={item.idproducto}>
-                                        <Image
-                                            source={ImagesArray(item.imagen_producto.split("\/")[1])}
-                                            resizeMode="cover"
-                                            style={styles.iconoProducto}
-                                        />
-                                        <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
-                                            <Text style={styles.nombreProducto}>{item.producto}</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                )
-                            )
-                            case 'pesquero': return(
-                                produc.slice(sectorLim.pesquero[0],sectorLim.pesquero[1]).map((item)=>
-                                    <View style={styles.iconoProductoRow} key={item.idproducto}>
-                                        <Image
-                                            source={ImagesArray(item.imagen_producto.split("\/")[1])}
-                                            resizeMode="cover"
-                                            style={styles.iconoProducto}
-                                        />
-                                        <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
-                                            <Text style={styles.nombreProducto}>{item.producto}</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                )
-                            )
-                        }
-                    })()
+                    produc.slice(limite[0],limite[1]).map((item)=>
+                        <View style={styles.iconoProductoRow} key={item.idproducto}>
+                            <Image
+                                source={ImagesArray(item.imagen_producto.split("\/")[1])}
+                                resizeMode="cover"
+                                style={styles.iconoProducto}
+                            />
+                            <TouchableOpacity onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
+                                <Text style={styles.nombreProducto}>{item.producto}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    )
                 }
             </View>
             </ImageBackground>
     );
 
     const renderItem = ({item}) =>(
-        <Item sector={item.img} />
+        <Item sector={item.img} limite={item.limite}/>
         );
 
     return (
