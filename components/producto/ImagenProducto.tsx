@@ -8,7 +8,7 @@ function ImagenProducto(props){
             source={ImagesArray(props.img)}
             resizeMode="contain"
             style={styles.imagenPrincipal}
-        ></Image>
+        />
     );
 }
 

@@ -9,7 +9,9 @@ export default function ImagesArray(imgName) {
 }
 
 const imagesArray = {
-
+    'agricola' : Images.b_agricola,
+    'pecuario' : Images.b_pecuario,
+    'pesquero' : Images.b_pesquero,
     'b_aga.jpg' : Images.b_aga,
     'b_agu.jpg' : Images.b_agu,
     'b_ajo.jpg' : Images.b_ajo,

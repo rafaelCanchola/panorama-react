@@ -1,4 +1,7 @@
 const images={
+    b_agricola: require('./fondos/Agricola2019.jpg'),
+    b_pecuario: require('./fondos/Pecuario2019.jpg'),
+    b_pesquero: require('./fondos/Pesquero2019.jpg'),
     //productos
     b_aga: require('./productos/b/b_aga.jpg'),
     b_agu: require('./productos/b/b_agu.jpg'),
