@@ -1,10 +1,8 @@
-import React, {Component, useEffect, useState} from "react";
+import React from "react";
 import {
     StyleSheet,
     View,
     ScrollView,
-    Image,
-    ImageBackground,
     Text, Dimensions
 } from "react-native";
 import TituloProducto from "../components/producto/TituloProducto";
@@ -12,24 +10,23 @@ import ImagenProducto from "../components/producto/ImagenProducto";
 import ImagenConsumo from "../components/producto/ImagenConsumo";
 import TextoDescripcion from "../components/producto/TextoDescripcion";
 import TextoAgroindustriales from "../components/producto/TextoAgroindustriales";
+import CalendarioProduccion from "../components/producto/CalendarioProduccion";
 import GraficaProduccion from "../components/producto/GraficaProduccion";
 import TablaTopProduccion from "../components/producto/TablaTopProduccion";
 import TablaIndicadores from "../components/producto/TablaIndicadores";
-
-import OcticonsIcon from "react-native-vector-icons/Octicons";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import SimpleLineIconsIcon from "react-native-vector-icons/SimpleLineIcons";
 
 import produc from "../json/productos";
 import producvol from "../json/productionVolumeJSON";
 import top10 from "../json/top10_statesJSON";
 import indicadores19 from "../json/indicadores_infoJSON";
+import monthD from "../json/monthDistributionJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 
-function Producto(props) {
-    const idProducto = 3;
+function Producto({route}) {
+    const {id} = route.params;
+    const idProducto = id -1;
     return (
         <View style={styles.container}>
             <View >
@@ -39,14 +36,14 @@ function Producto(props) {
                         contentContainerStyle={styles.scrollArea_contentContainerStyle}
                     >
                         <View style={{backgroundColor:'#fff'}}>
-                            <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
+                            <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}/>
                             <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]}/>
                             <TextoDescripcion descripcion={produc[idProducto].descripcion} style={styles.textoPrincipal}/>
 
                             <ImagenConsumo bgcolor={produc[idProducto].color_fondo} consumo={produc[idProducto].consumonacional}/>
 
                             <Text style={styles.tituloParticipacion}>
-                                Participación en la producción nacional de agroindustriales
+                                {produc[idProducto].participacionetiqueta}
                             </Text>
                             <TextoAgroindustriales participacion={produc[idProducto].participacion + '%'} color={produc[idProducto].color_fondo} width={screenWidth}/>
                         </View>
@@ -85,6 +82,7 @@ function Producto(props) {
                         <Text style={styles.tituloPorcentaje}>
                             Producción mensual nacional (%)
                         </Text>
+                        <CalendarioProduccion calendarioarr={monthD[idProducto]} color={produc[idProducto].color_fondo}/>
                         <Text style={styles.textoPorcentaje}>
                             {produc[idProducto].mercadospotenciales}
                         </Text>
@@ -125,7 +123,7 @@ function Producto(props) {
                         <Text style={styles.tituloPorcentaje}>
                             Distribución mensual del comercio exterior (%)
                         </Text>
-                        <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}></TituloProducto>
+                        <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}/>
                         <ImagenProducto img={produc[idProducto].imagen_monografia.split("\/")[1]}/>
                         <Text style={styles.textoExterior}>
                             {produc[idProducto].nom_cientifico_monografia}
