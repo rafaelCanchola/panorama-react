@@ -30,7 +30,7 @@ export default class TablaIndicadores extends Component<any, any>{
         const inventarioVals=[indicadorArray.InventarioAnual,indicadorArray.InventarioTMAC];
         const produccionVals=[indicadorArray.ProduccionAnual,indicadorArray.ProduccionTMAC];
         /*Llenado de la tercera tabla*/
-        const headArrTable3=[120,130,130,130];
+        const headArrTable3=[120,150,130,130];
         const indicadoresHeadTable3= ['',indicadorArray.Volumen,indicadorArray.Valor,indicadorArray.Precio_Medio];
         const indicadoresUnidadTable3 =['',indicadorArray.Sub_Etiqueta_Vol_1,indicadorArray.Sub_Etiqueta_Val,indicadorArray.Sub_Etiqueta_Precio_Med];
         const indicadoresValRowTable3 = ['',indicadorArray.VolumenVal_1,indicadorArray.ValorVal,indicadorArray.PrecioVal];

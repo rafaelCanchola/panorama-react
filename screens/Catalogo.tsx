@@ -25,7 +25,7 @@ function Catalogo(props) {
     const pagesArray = [
         {id:'1',img:'agricola',limite:[0,60]},{id:'2',img:'pecuario',limite:[60,70]},{id:'3',img:'pesquero',limite:[70,75]}
     ];
-    
+
     {/*
     <View style={styles.imagenFondoStack}>
                 <ImageBackground
@@ -60,8 +60,8 @@ function Catalogo(props) {
                          resizeMode={"cover"}
                          style={{width:(screenWidth)}}>
             <BotonMostrarSector style={styles.botonAgricola} nombre={sector}></BotonMostrarSector>
-            <View>
-                {
+            <View style={styles.flatlistView}>
+                {/*
                     produc.slice(limite[0],limite[1]).map((item)=>
                         <View style={styles.iconoProductoRow} key={item.idproducto}>
                             <Image
@@ -74,10 +74,23 @@ function Catalogo(props) {
                             </TouchableOpacity>
                         </View>
                     )
-                }
+                */}
+                <FlatList data={produc.slice(limite[0],limite[1])} renderItem={renderProduct} keyExtractor={item => item.idproducto}   />
             </View>
             </ImageBackground>
     );
+const renderProduct = ({item}) => (
+    <View style={styles.iconoProductoRow}>
+        <TouchableOpacity style={styles.botonProducto} onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
+        <Image
+            source={ImagesArray(item.imagen_producto.split("\/")[1])}
+            resizeMode="cover"
+            style={styles.iconoProducto}
+        />
+            <Text style={styles.nombreProducto}>{item.producto}</Text>
+        </TouchableOpacity>
+    </View>
+);
 
     const renderItem = ({item}) =>(
         <Item sector={item.img} limite={item.limite}/>
@@ -102,14 +115,13 @@ const styles = StyleSheet.create({
     },
     nombreProducto: {
         fontFamily: "roboto-700",
-        height: 25,
         fontSize: 19,
         marginLeft: 14,
         marginTop: 7
     },
     iconoProductoRow: {
         flexDirection: "row",
-        margin:30,
+        margin:20,
     },
     radioCatalogos: {
         top: 549,
@@ -137,6 +149,18 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flex: 1
     },
+    botonProducto:{
+        flexDirection:"row",
+        width:(screenWidth - 30)
+    },
+    flatlistView:{
+        alignSelf:'center',
+        width: (screenWidth - 30),
+        marginTop:30,
+        backgroundColor: "rgba(230,230, 230,0.75)",
+        borderRadius: 5,
+        height: (screenHeight/1.35)
+    },
     botonAgricola: {
         height: 60,
         alignSelf:'center',
@@ -145,7 +169,7 @@ const styles = StyleSheet.create({
         borderColor: "rgba(255,255,255,1)",
         borderStyle: "solid",
         borderRadius: 7,
-        top: 20
+        top: 15
     },
 });
 
