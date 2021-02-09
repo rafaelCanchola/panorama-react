@@ -4,7 +4,6 @@ import {Table,Row,Rows,Col,TableWrapper} from 'react-native-table-component';
 
 export default class TablaTopProduccion extends Component<any, any>{
 
-
     render() {
         const indicadoresHead= ['Rank','Entidad\nfederativa','Región','Volumen\n('+this.props.unidades,'Variación (%)\n2018-2019'];
         const tableHead = ['', 'Total nacional', '', this.props.totalnac,this.props.variacionpro];
@@ -23,7 +22,6 @@ export default class TablaTopProduccion extends Component<any, any>{
             tableData.push(rowData);
         }
         return (
-
             <View style={styles.container}>
                 <ScrollView horizontal={true}>
                     <View>

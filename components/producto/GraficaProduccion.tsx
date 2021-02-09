@@ -56,12 +56,14 @@ export default class GraficaProduccion extends Component{
                               scale={{x: "time"}}
                               theme={VictoryTheme.material}
                               containerComponent={
-                                  <VictoryZoomVoronoiContainer zoomDimension="x"
-                                                               zoomDomain={this.state.zoomDomain}
-                                                               onZoomDomainChange={this.handleZoom.bind(this)}
-                                                               voronoiDimension="x"
-                                                               labels={({ datum }) => `${datum.volumenproduccion}`}
-                                                               labelComponent={<VictoryTooltip flyoutStyle={{fill: productColor}} style={{fill: "white"}}/>}
+                                  <VictoryZoomVoronoiContainer
+                                      labels={({ datum }) =>
+                                          datum.volumenproduccion.toLocaleString()}
+                                      zoomDimension="x"
+                                      zoomDomain={this.state.zoomDomain}
+                                      onZoomDomainChange={this.handleZoom.bind(this)}
+                                      voronoiDimension="x"
+                                      labelComponent={<VictoryTooltip flyoutStyle={{fill: productColor}} style={{fill: "white"}}/>}
                                   />
                               }
                 >
