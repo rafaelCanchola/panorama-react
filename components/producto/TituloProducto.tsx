@@ -11,9 +11,7 @@ function TituloProducto(props) {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "center",
         alignItems: "center",
-        flexDirection: "row",
         borderRadius: 5,
         shadowColor: "#000",
         shadowOffset: {
@@ -23,9 +21,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         shadowRadius: 4,
         elevation: 12,
-        minWidth: 88,
-        paddingLeft: 16,
-        paddingRight: 16,
         borderWidth: 2,
         borderColor: "rgba(255,255,255,1)",
         borderStyle: "solid"
@@ -33,7 +28,10 @@ const styles = StyleSheet.create({
     agaveTequilero: {
         color: "#fff",
         fontSize: 32,
-        fontFamily: "montserrat-700"
+        fontFamily: "montserrat-700",
+        textAlign:'center',
+        margin:15,
+
     }
 });
 

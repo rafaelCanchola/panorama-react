@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     },
     tituloProducto: {
         width: screenContainer ,
-        height: 80,
         margin:20,
     },
     imagenProducto:{
