@@ -9,7 +9,7 @@ export default class TablaTopProduccion extends Component<any, any>{
         const tableHead = ['', 'Total nacional', '', this.props.totalnac,this.props.variacionpro];
         const tableTitle= [];
         const tableData = [];
-        const widthArr=[50,140,130,100,100];
+        const widthArr=[50,160,160,110,110];
         for (let i = 0; i < this.props.data.length; i += 1) {
             tableTitle.push(this.props.data[i].rankingtop);
         }
@@ -32,7 +32,7 @@ export default class TablaTopProduccion extends Component<any, any>{
                             <Row data={tableHead} style={[styles.head,{backgroundColor:this.props.color}]} widthArr={widthArr} textStyle={styles.textwhite}/>
                             <TableWrapper style={styles.wrapper}  >
                                 <Col data={tableTitle} style={[styles.title,{backgroundColor:this.props.color}]} textStyle={styles.textwhite}/>
-                                <Rows data={tableData} widthArr={[140,130,100,100]} style={[styles.row]} textStyle={styles.text}   />
+                                <Rows data={tableData} widthArr={widthArr.slice(1,5)} style={[styles.row]} textStyle={styles.text}   />
                             </TableWrapper>
                         </Table>
                     </View>

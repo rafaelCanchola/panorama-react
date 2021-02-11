@@ -33,9 +33,9 @@ function CalendarioProduccion(props) {
         <ImageBackground
             source={require("../../assets/calendar.png")}
             resizeMode={"center"}
-            style={[styles.imagenConsumo,{backgroundColor:'white',width:(screenWidth/2)}]}>
+            style={[styles.imagenConsumo,{backgroundColor:'white',width:(screenWidth/2.3)}]}>
 
-            <Text style={[styles.fechaConsumo, {width:(screenWidth/2.4), top:'17%', color:'white', backgroundColor: props.color}]}>{month}</Text>
+            <Text style={[styles.fechaConsumo, {width:(screenWidth/2.5), top:'17%', color:'white', backgroundColor: props.color}]}>{month}</Text>
             <Text style={[styles.datoConsumo,{color:'black'}]}>{info}</Text>
         </ImageBackground>
     );
@@ -45,7 +45,7 @@ function CalendarioProduccion(props) {
     );
 
     return (
-            <View style={{flex:1, height:150}}>
+            <View style={{flex:1, height:200}}>
                 <FlatList data={monthName} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} pagingEnabled={true} />
             </View>
         )
@@ -54,7 +54,7 @@ function CalendarioProduccion(props) {
 
 const styles = StyleSheet.create({
     imagenConsumo: {
-
+        margin:10,
     },
     fechaConsumo: {
         fontFamily: "montserrat-700",

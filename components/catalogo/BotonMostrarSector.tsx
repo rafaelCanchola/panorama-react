@@ -8,24 +8,24 @@ export default class BotonMostrarSector extends Component<any, any>{
             {nombre:'Pecuario',color:'rgb(147, 37, 44)'},
             {nombre:'Pesquero',color:'rgb(55, 187, 211)'}
         ];
+        let index:number = 0
 
         switch (this.props.nombre){
-            case 'agricola': return(
-                <TouchableOpacity style={[styles.container, this.props.style,{backgroundColor:sector[0].color}]} disabled={true}>
-                    <Text style={styles.agricola}>{sector[0].nombre}</Text>
-                </TouchableOpacity>
-            )
-            case 'pecuario': return(
-                <TouchableOpacity style={[styles.container, this.props.style,{backgroundColor:sector[1].color}]} disabled={true}>
-                    <Text style={styles.agricola}>{sector[1].nombre}</Text>
-                </TouchableOpacity>
-            )
-            case 'pesquero': return(
-                <TouchableOpacity style={[styles.container, this.props.style,{backgroundColor:sector[2].color}]} disabled={true}>
-                    <Text style={styles.agricola}>{sector[2].nombre}</Text>
-                </TouchableOpacity>
-            )
+            case 'agricola':
+                index = 0
+            break
+            case 'pecuario':
+                index = 1
+            break
+            case 'pesquero':
+                index = 2
+            break
         }
+        return (
+            <TouchableOpacity style={[styles.container, this.props.style,{backgroundColor:sector[index].color}]} disabled={true}>
+                <Text style={styles.agricola}>{sector[index].nombre}</Text>
+            </TouchableOpacity>
+        )
     }
 }
 

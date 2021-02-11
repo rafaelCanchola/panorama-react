@@ -7,9 +7,9 @@ export default class TablaIndicadores extends Component<any, any>{
     render() {
         const indicadorArray = this.props.indicadorarr;
         /*Llenado de la primera tabla*/
-        const heightCell = 40;
-        const headArrTable1=[120,240,100,100,100,130];
-        const subWidthArrTable1=[120,80,80,80,100,100,100,130];
+        const heightCell = 50;
+        const headArrTable1=[120,270,100,100,100,130];
+        const subWidthArrTable1=[120,90,90,90,100,100,100,130];
         const indicadoresHeadTable1= ['',indicadorArray.Superficie,indicadorArray.Volumen,indicadorArray.Valor,indicadorArray.Rendimiento,indicadorArray.Precio_Medio];
         const indicadoresUnidadTable1 = [indicadorArray.Sub_Etiqueta_Vol_1,indicadorArray.Sub_Etiqueta_Val,indicadorArray.Sub_Etiqueta_Rendimiento,indicadorArray.Sub_Etiqueta_Precio_Med]
         const superficieRow = [indicadorArray.Sub_Etiqueta_Superficie_1,indicadorArray.Sub_Etiqueta_Superficie_2,indicadorArray.Sub_Etiqueta_Superficie_3];

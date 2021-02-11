@@ -6,16 +6,14 @@ function ImagenProducto(props){
     return (
         <Image
             source={ImagesArray(props.img)}
-            resizeMode="contain"
-            style={styles.imagenPrincipal}
+            resizeMode="cover"
+            style={props.style}
         />
     );
 }
 
 const styles =StyleSheet.create({
     imagenPrincipal: {
-        height: 218,
-        marginTop: 10,
         alignSelf: "center"
     },
 })

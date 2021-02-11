@@ -7,17 +7,16 @@ function ImagenConsumo(props) {
     }
     else{
         return(
-            <View>
-                <Text style={styles.tituloConsumo}>
+            <View style={{margin:5,}}>
+                <Text style={props.textstyle}>
                     Consumo anual per cápita
                 </Text>
                 <ImageBackground
                     source={require("../../assets/images/CUCHARA.png")}
-                    resizeMode="contain"
-                    style={[styles.imagenConsumo,{backgroundColor: props.bgcolor}]}
-                    imageStyle={styles.imagenConsumo_imageStyle}
+                    resizeMode="center"
+                    style={[styles.imagenConsumo,{backgroundColor: props.bgcolor,width:props.imagestyle,height:props.imagestyle}]}
                 >
-                    <Text style={styles.datoConsumo}>{props.consumo}</Text>
+                    <Text style={[styles.datoConsumo,{top:props.imagestyle/1.65}]}>{props.consumo}</Text>
                 </ImageBackground>
             </View>
 
@@ -26,26 +25,14 @@ function ImagenConsumo(props) {
 }
 
 const styles = StyleSheet.create({
-    tituloConsumo: {
-        fontFamily: "montserrat-700",
-        color: "rgba(128,128,128,1)",
-        textAlign: "center",
-        fontSize: 18,
-        left: 0
-    },
     imagenConsumo: {
-        width: 327,
-        height: 327,
         alignSelf: "center",
         backgroundColor: "rgba(0,114,127,1)",
-        left: 0
     },
-    imagenConsumo_imageStyle: {},
     datoConsumo: {
         fontFamily: "montserrat-700",
         color: "rgba(255,255,255,1)",
         fontSize: 41,
-        marginTop: 194,
         alignSelf:'center',
     },
 });
