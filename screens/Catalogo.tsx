@@ -10,21 +10,18 @@ import {
 } from "react-native";
 import MaterialRadio from "../components/catalogo/MaterialRadio";
 import BotonMostrarSector from "../components/catalogo/BotonMostrarSector";
-import {useNavigation} from "@react-navigation/native";
-
 const ImagesArray = require('../components/producto/ImagesArray').default
 
 import produc from "../json/productos";
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get('window').height;
 
-
-function Catalogo(props) {
-    const navigation = useNavigation();
+function Catalogo({navigation}) {
 
     const pagesArray = [
-        {id:'1',img:'agricola',limite:[0,60]},{id:'2',img:'pecuario',limite:[60,70]},{id:'3',img:'pesquero',limite:[70,75]}
+        {id:'1',img:'agricola',limite:[0,60]},{id:'2',img:'pecuario',limite:[60,69]},{id:'3',img:'pesquero',limite:[69,75]}
     ];
+
 
     {/*
     <View style={styles.imagenFondoStack}>
@@ -81,7 +78,9 @@ function Catalogo(props) {
     );
 const renderProduct = ({item}) => (
     <View style={styles.iconoProductoRow}>
-        <TouchableOpacity style={styles.botonProducto} onPress={() => navigation.navigate('Producto',{id:item.idproducto})}>
+        <TouchableOpacity style={styles.botonProducto} onPress={() => navigation.navigate(
+            'Productos', {id:item.idproducto,color:item.color_fondo}
+            )}>
         <Image
             source={ImagesArray(item.imagen_producto.split("\/")[1])}
             resizeMode="cover"
@@ -156,7 +155,7 @@ const styles = StyleSheet.create({
     flatlistView:{
         alignSelf:'center',
         width: (screenWidth - 30),
-        marginTop:30,
+        margin:10,
         backgroundColor: "rgba(230,230, 230,0.75)",
         borderRadius: 5,
         height: (screenHeight/1.35)
@@ -169,7 +168,7 @@ const styles = StyleSheet.create({
         borderColor: "rgba(255,255,255,1)",
         borderStyle: "solid",
         borderRadius: 7,
-        top: 15
+        margin:20,
     },
 });
 
