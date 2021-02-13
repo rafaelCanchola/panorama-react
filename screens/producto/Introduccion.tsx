@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     imagenProducto:{
         width: screenContainer,
         margin:10,
+        borderRadius:10,
     },
     textoPrincipal: {
         fontFamily: "montserrat-regular",

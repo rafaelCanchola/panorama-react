@@ -4,8 +4,8 @@ import ImagenProducto from "../../components/producto/ImagenProducto";
 import TextoDescripcion from "../../components/producto/TextoDescripcion";
 import TituloProducto from "../../components/producto/TituloProducto";
 
-
 import produc from "../../json/productos";
+import flujo from "../../json/commercial_flowJSON"
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -19,7 +19,7 @@ export default function Monografia({navigation,route}) {
         <View style={styles.container}>
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer} >
                 <TituloProducto nombre={produc[idProducto].titulo_monografia} color={produc[idProducto].color_fondo} style={styles.tituloProducto}/>
-                <ImagenProducto img={produc[idProducto].imagen_monografia.split("\/")[1]}/>
+                <ImagenProducto img={produc[idProducto].imagen_monografia.split("\/")[1]} />
                 <Text style={styles.textoCientifico}>
                     {produc[idProducto].nom_cientifico_monografia}
                 </Text>
@@ -34,7 +34,7 @@ export default function Monografia({navigation,route}) {
                 <Text style={styles.titulo}>
                     Flujo Comercial
                 </Text>
-                <ImagenProducto img={produc[idProducto].imagen_flujo_comercial.split("\/")[1]}/>
+                <ImagenProducto img={produc[idProducto].imagen_flujo_comercial.split("\/")[1]} style={styles.imagenProducto}/>
                 <TextoDescripcion descripcion={produc[idProducto].texto_flujo_comercial} style={styles.texto}/>
                 <Text>{'Liste '+ CambioColor(0.5,"#3f83a3")}</Text>
             </ScrollView>
@@ -58,6 +58,11 @@ const styles = StyleSheet.create({
     tituloProducto: {
         width: screenContainer ,
         margin:20,
+    },
+    imagenProducto:{
+        width: screenContainer,
+        margin:10,
+        borderRadius:10,
     },
     texto: {
         fontFamily: "montserrat-regular",
