@@ -13,7 +13,7 @@ function ImagenConsumo(props) {
                 </Text>
                 <ImageBackground
                     source={require("../../assets/images/CUCHARA.png")}
-                    resizeMode="center"
+                    resizeMode="contain"
                     style={[styles.imagenConsumo,{backgroundColor: props.bgcolor,width:props.imagestyle,height:props.imagestyle}]}
                 >
                     <Text style={[styles.datoConsumo,{top:props.imagestyle/1.65}]}>{props.consumo}</Text>
