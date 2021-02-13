@@ -1,3 +1,4 @@
+import React from "react";
 import {
     Dimensions,
     FlatList,
@@ -9,7 +10,8 @@ import {
     Text,
     View
 } from "react-native";
-import React from "react";
+
+const ImagesArray = require('../../components/producto/ImagesArray').default
 
 function CalendarioProduccion(props) {
     var monthName = [
@@ -31,12 +33,12 @@ function CalendarioProduccion(props) {
 
     const Item = ({month,info}) =>(
         <ImageBackground
-            source={require("../../assets/calendar.png")}
+            source={ImagesArray(props.color)}
             resizeMode={"center"}
-            style={[styles.imagenConsumo,{backgroundColor:'white',width:(screenWidth/2.3)}]}>
-
-            <Text style={[styles.fechaConsumo, {width:(screenWidth/2.5), top:'17%', color:'white', backgroundColor: props.color}]}>{month}</Text>
+            style={[styles.imagenConsumo,{backgroundColor:'white',width:(screenWidth/2.085),height:(screenHeight/5.3)}]}>
+            <Text style={[styles.fechaConsumo, { color:props.color,}]}>{'\n\n'+month}</Text>
             <Text style={[styles.datoConsumo,{color:'black'}]}>{info}</Text>
+
         </ImageBackground>
     );
 
@@ -45,7 +47,7 @@ function CalendarioProduccion(props) {
     );
 
     return (
-            <View style={{flex:1, height:200}}>
+            <View style={{flex:1,}}>
                 <FlatList data={monthName} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} pagingEnabled={true} />
             </View>
         )
@@ -54,21 +56,21 @@ function CalendarioProduccion(props) {
 
 const styles = StyleSheet.create({
     imagenConsumo: {
-        margin:10,
+        flex:1,
     },
     fechaConsumo: {
         fontFamily: "montserrat-700",
-        fontSize: 24,
-        alignSelf:'center',
+        fontSize: 25,
         textAlign: 'center',
-        borderRadius:2,
-        overflow:'hidden'
+        flex:0,
+        position:'relative',
+
     },
     datoConsumo:{
         fontFamily: "montserrat-700",
-        fontSize: 40,
-        alignSelf:'center',
+        fontSize: 38,
         textAlign: 'center',
+        flex:0,
     }
 
 });
