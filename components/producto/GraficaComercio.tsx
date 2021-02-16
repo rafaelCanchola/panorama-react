@@ -9,6 +9,7 @@ import {
     VictoryTheme,
     VictoryBrushContainer,
     VictoryGroup,
+    VictoryLabel,
     createContainer, VictoryVoronoiContainer,
 } from 'victory-native';
 
@@ -39,12 +40,13 @@ export default class GraficaComercio extends Component{
                 </Text>
                 <VictoryChart domainPadding={{ x: 20, y: 40}} width={screenWidth} theme={VictoryTheme.material}  containerComponent={
                     <VictoryVoronoiContainer
-                        labels={({datum}) => datum.volumenproduccion.toLocaleString()}
+                        labels={({datum}) =>(datum.idcomercio == 1 ? 'Exportaciones: ' : datum.aniovolumen.toString() + '\nImportaciones: ') + datum.volumenproduccion.toLocaleString()}
                         voronoiDimension="x"
                         labelComponent={<VictoryTooltip flyoutStyle={{fill: 'black'}} style={{fill: "white"}}
                                                         center={{ x: screenWidth/2, y: 80 }}/>}
                     />}
                 >
+                    <VictoryAxis tickFormat={(t)=> t.toString()} />
                   <VictoryGroup offset={10} animate={{duration: 500, onLoad: { duration: 250 }}}
                   >
                       <VictoryBar
@@ -55,8 +57,8 @@ export default class GraficaComercio extends Component{
                               }
                           }}
                           data={importacionesVal}
-                          x={(datum) => new Date(datum.aniovolumen, 1, 1)}
-                          y={(datum) => (datum.volumenproduccion < 1) ? datum.volumenproduccion *10 : datum.volumenproduccion}
+                          x={(datum) => datum.aniovolumen}
+                          y={(datum) => (datum.volumenproduccion < 1) ? datum.volumenproduccion  : datum.volumenproduccion}
                       />
                       <VictoryBar
                           style={{
@@ -66,8 +68,8 @@ export default class GraficaComercio extends Component{
                               }
                           }}
                           data={exportacionesVal}
-                          x={(datum) => new Date(datum.aniovolumen, 1, 1)}
-                          y={(datum) => (datum.volumenproduccion < 1) ? datum.volumenproduccion *10 : datum.volumenproduccion}
+                          x={(datum) => datum.aniovolumen}
+                          y={(datum) => (datum.volumenproduccion < 1) ? datum.volumenproduccion  : datum.volumenproduccion}
                       />
 
                   </VictoryGroup>

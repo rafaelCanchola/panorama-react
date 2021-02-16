@@ -49,15 +49,15 @@ export default class GraficaProduccion extends Component{
                 zoomDomain: Guarda los valores del estado del zoom, para hacer persistencia
                 onZoomDomainChange: Especifica la función que se realizara en cada cambio de zoom
               */}
-                <VictoryChart domainPadding={{ x: 20,
-                    y: 40}}
+                <VictoryChart domainPadding={{ x: 20, y: 40}}
                               width={screenWidth}
                               scale={{x: "time"}}
                               theme={VictoryTheme.material}
+                              animate={{duration: 500, onLoad: { duration: 250 }}}
                               containerComponent={
                                   <VictoryZoomVoronoiContainer
                                       labels={({ datum }) =>
-                                          datum.volumenproduccion.toLocaleString()}
+                                          datum.aniovolumen + ': '+datum.volumenproduccion.toLocaleString()}
                                       zoomDimension="x"
                                       zoomDomain={this.state.zoomDomain}
                                       onZoomDomainChange={this.handleZoom.bind(this)}
@@ -66,6 +66,7 @@ export default class GraficaProduccion extends Component{
                                   />
                               }
                 >
+                    <VictoryAxis />
                     {/*
                   Propiedades de <VictoryBar>
                     labelComponent:
