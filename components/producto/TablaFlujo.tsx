@@ -17,7 +17,7 @@ export default class TablaFlujo extends Component<any, any> {
         const valorRow = [flow.valorimportaciones,flow.valorexportaciones,flow.valorsaldo];
         const importVal = [flow.varvolumenimportaciones,flow.varvalorimportaciones];
         const exportVal = [flow.varvolumenexportaciones,flow.varvalorexportaciones];
-        const widthArr=[100,130,130,130,130,130];
+        const widthArr=[130,130,130,130,130,130];
         const subWidthArr= widthArr.slice(1,5);
         const tableHeight=30;
         const dataHeight=50;
@@ -39,9 +39,9 @@ export default class TablaFlujo extends Component<any, any> {
                         <TableWrapper style={styles.wrapper}>
                             <TableWrapper>
                                 <Cell data={tableCol[0]} width={widthArr[0]} height={dataHeight/2} textStyle={styles.intitle} />
-                                <Cell data={tableCol[1]} width={widthArr[0]} height={dataHeight/2} textStyle={styles.text}/>
+                                <Cell data={tableCol[1]} width={widthArr[0]}  textStyle={styles.text}/>
                                 <Cell data={tableCol[2]} width={widthArr[0]} height={dataHeight/2} textStyle={styles.intitle}/>
-                                <Cell data={tableCol[3]} width={widthArr[0]} height={dataHeight/2} textStyle={styles.text}/>
+                                <Cell data={tableCol[3]} width={widthArr[0]}  textStyle={styles.text}/>
                             </TableWrapper>
                             <TableWrapper>
                                 <Row data={volumenRow} widthArr={subWidthArr.slice(0,3)} height={dataHeight} textStyle={styles.text}/>
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     wrapper: { flexDirection: 'row' },
     title: { flex: 1,},
     text: { textAlign: 'center', fontFamily: "montserrat-500"},
+    textThin: { textAlign: 'center', fontFamily: "montserrat-500",},
     row: {  height: 30  },
     textwhite: { textAlign: 'center',color:"#fff",fontFamily: "montserrat-700"}
 });

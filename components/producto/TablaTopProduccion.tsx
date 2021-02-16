@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     wrapper: { flexDirection: 'row' },
     title: { flex: 1,},
     text: { textAlign: 'center', fontFamily: "montserrat-500"},
-    row: {  height: 30  },
+    row: {  height: 40  },
     textwhite: { textAlign: 'center',color:"#fff",fontFamily: "montserrat-700"}
 });
 
