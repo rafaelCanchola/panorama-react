@@ -10,7 +10,6 @@ import {
     VictoryBrushContainer,
     createContainer,
 } from 'victory-native';
-import producvol from "../../json/productionVolumeJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
