@@ -1,9 +1,13 @@
 import React from "react";
 import {Dimensions, ScrollView, StyleSheet, Text, View} from "react-native";
 import TextoAgroindustriales from "../../components/producto/TextoAgroindustriales";
+import TituloProducto from "../../components/producto/TituloProducto";
+import TablaComercioExt from "../../components/producto/TablaComercioExt";
+import GraficaComercio from "../../components/producto/GraficaComercio";
 
 import produc from "../../json/productos";
-import TituloProducto from "../../components/producto/TituloProducto";
+import monthDistributionJSON from "../../json/monthDistributionJSON";
+import evolucion from "../../json/Commerce_EvolutionJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -43,9 +47,11 @@ export default function Comercio({navigation,route}){
                 <Text style={styles.titulo}>
                     Evolución de comercio exterior
                 </Text>
+                <GraficaComercio graficaarray={evolucion[idProducto]} titulo={styles.tituloVolumen}/>
                 <Text style={styles.titulo}>
                     Distribución mensual del comercio exterior (%)
                 </Text>
+                <TablaComercioExt data={monthDistributionJSON[idProducto]}/>
 
             </ScrollView>
         </View>
@@ -79,5 +85,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 20,
         margin:10,
+    },
+    tituloVolumen: {
+        fontFamily: "montserrat-700",
+        color: "rgba(128,128,128,1)",
+        width: screenContainer,
+        textAlign: "center",
+        fontSize: 20,
     },
 })

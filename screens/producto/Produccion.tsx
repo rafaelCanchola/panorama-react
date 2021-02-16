@@ -2,14 +2,14 @@ import React from "react";
 import {Dimensions, ScrollView, StyleSheet, Text, View} from "react-native";
 import GraficaProduccion from "../../components/producto/GraficaProduccion";
 import TablaTopProduccion from "../../components/producto/TablaTopProduccion";
+import TablaIndicadores from "../../components/producto/TablaIndicadores";
+import ImagenProducto from "../../components/producto/ImagenProducto";
+import CalendarioProduccion from "../../components/producto/CalendarioProduccion";
+import monthD from "../../json/monthDistributionJSON";
 import producvol from "../../json/productionVolumeJSON";
 import produc from "../../json/productos";
 import top10 from "../../json/top10_statesJSON";
-import ImagenProducto from "../../components/producto/ImagenProducto";
-import TablaIndicadores from "../../components/producto/TablaIndicadores";
 import indicadores19 from "../../json/indicadores_infoJSON";
-import CalendarioProduccion from "../../components/producto/CalendarioProduccion";
-import monthD from "../../json/monthDistributionJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width

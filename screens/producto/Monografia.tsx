@@ -6,6 +6,7 @@ import TituloProducto from "../../components/producto/TituloProducto";
 
 import produc from "../../json/productos";
 import flujo from "../../json/commercial_flowJSON"
+import TablaFlujo from "../../components/producto/TablaFlujo";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -34,9 +35,9 @@ export default function Monografia({navigation,route}) {
                 <Text style={styles.titulo}>
                     Flujo Comercial
                 </Text>
+                <TablaFlujo data={flujo[idProducto]} color={produc[idProducto].color_fondo}/>
                 <ImagenProducto img={produc[idProducto].imagen_flujo_comercial.split("\/")[1]} style={styles.imagenProducto}/>
                 <TextoDescripcion descripcion={produc[idProducto].texto_flujo_comercial} style={styles.texto}/>
-                <Text>{'Liste '+ CambioColor(0.5,"#3f83a3")}</Text>
             </ScrollView>
         </View>
     )
