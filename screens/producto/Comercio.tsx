@@ -19,10 +19,6 @@ export default function Comercio({navigation,route}){
     return(
         <View style={styles.container}>
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer} >
-                <Text style={styles.texto}>
-                    {produc[idProducto].distribucionmensualprod}
-                </Text>
-
                 <Text style={styles.titulo}>Ranking Mundial</Text>
                 <Text style={styles.texto}>
                         {produc[idProducto].rankingmundial}º productor mundial

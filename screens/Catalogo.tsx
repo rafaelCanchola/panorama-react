@@ -79,7 +79,7 @@ function Catalogo({navigation}) {
 const renderProduct = ({item}) => (
     <View style={styles.iconoProductoRow}>
         <TouchableOpacity style={styles.botonProducto} onPress={() => navigation.navigate(
-            'Productos', {id:item.idproducto,color:item.color_fondo}
+            'Productos', {id:item.idproducto,color:item.color_fondo,name:item.producto}
             )}>
         <Image
             source={ImagesArray(item.imagen_producto.split("\/")[1])}
