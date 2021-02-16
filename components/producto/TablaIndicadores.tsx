@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {View, StyleSheet, ScrollView,Text} from "react-native";
-import {Table,Row,Rows,Col,TableWrapper,Cell} from 'react-native-table-component';
+import {Table,Row,Col,TableWrapper,Cell} from 'react-native-table-component';
 import CellData from "./CellData";
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
 export default class TablaIndicadores extends Component<any, any>{
     render() {
         const indicadorArray = this.props.indicadorarr;
@@ -120,6 +120,11 @@ export default class TablaIndicadores extends Component<any, any>{
                     <ScrollView horizontal={true}>
                         {switchTable1}
                     </ScrollView>
+                    <Text style={styles.text}>
+                    <Icon name={"circle"} size={10} color={'#007940'} solid/>{' Aumenta     '}
+                    <Icon name={"circle"} size={10} color={'#c91531'} solid/>{' Disminuye     '}
+                        <Icon name={"circle"} size={10} color={'#59595b'} solid/>{' No aplica     '}
+                    </Text>
                 </View>
                     )
             case '2': return (
@@ -127,6 +132,11 @@ export default class TablaIndicadores extends Component<any, any>{
                     <ScrollView horizontal={true}>
                         {switchTable2}
                     </ScrollView>
+                    <Text style={styles.text}>
+                        <Icon name={"circle"} size={10} color={'#007940'} solid/>{' Aumenta     '}
+                        <Icon name={"circle"} size={10} color={'#c91531'} solid/>{' Disminuye     '}
+                        <Icon name={"circle"} size={10} color={'#59595b'} solid/>{' No aplica     '}
+                    </Text>
                 </View>
             )
             case '3': return (
@@ -134,6 +144,11 @@ export default class TablaIndicadores extends Component<any, any>{
                     <ScrollView horizontal={true}>
                         {switchTable3}
                     </ScrollView>
+                    <Text style={styles.text}>
+                        <Icon name={"circle"} size={10} color={'#007940'} solid/>{' Aumenta     '}
+                        <Icon name={"circle"} size={10} color={'#c91531'} solid/>{' Disminuye     '}
+                        <Icon name={"circle"} size={10} color={'#59595b'} solid/>{' No aplica     '}
+                    </Text>
                 </View>
             )
         }
