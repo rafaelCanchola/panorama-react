@@ -8,7 +8,7 @@ const top10 ={"1":[
 {idtop:"7",idproducto:"1",idestado:"32",idregion:"3",nombreestado:"Zacatecas",nombreregion:"Noreste",rankingtop:"7",volumentop:"14,381",variacion:"-33.8"},
 {idtop:"8",idproducto:"1",idestado:"12",idregion:"1",nombreestado:"Guerrero",nombreregion:"Centro",rankingtop:"8",volumentop:"2,772",variacion:"-15.6"},
 {idtop:"9",idproducto:"1",idestado:"17",idregion:"1",nombreestado:"Morelos",nombreregion:"Centro",rankingtop:"9",volumentop:"180",variacion:"-1.1"},
-{idtop:"10",idproducto:"",idestado:"",idregion:"",nombreestado:"",nombreregion:"",rankingtop:"",volumentop:"",variacion:""}],
+],
 "2":[
 {idtop:"11",idproducto:"2",idestado:"16",idregion:"2",nombreestado:"Michoacán",nombreregion:"Centro-Occidente",rankingtop:"1",volumentop:"1,725,226",variacion:"3.0"},
 {idtop:"12",idproducto:"2",idestado:"14",idregion:"2",nombreestado:"Jalisco",nombreregion:"Centro-Occidente",rankingtop:"2",volumentop:"231,613",variacion:"14.8"},
@@ -581,7 +581,7 @@ const top10 ={"1":[
 {idtop:"530",idproducto:"52",idestado:"24",idregion:"2",nombreestado:"San Luis Potosí",nombreregion:"Centro-Occidente",rankingtop:"8",volumentop:"2,715",variacion:"-93.0"},
 {idtop:"531",idproducto:"52",idestado:"19",idregion:"3",nombreestado:"Nuevo León",nombreregion:"Noreste",rankingtop:"9",volumentop:"489",variacion:"-47.0"},
 {idtop:"532",idproducto:"52",idestado:"8",idregion:"3",nombreestado:"Chihuahua",nombreregion:"Noreste",rankingtop:"10",volumentop:"157",variacion:"-73.1"},
-{idtop:"",idproducto:"",idestado:"",idregion:"",nombreestado:"",nombreregion:"",rankingtop:"",volumentop:"",variacion:""}],
+],
 "53":[
 {idtop:"534",idproducto:"53",idestado:"18",idregion:"4",nombreestado:"Nayarit",nombreregion:"Noroeste",rankingtop:"1",volumentop:"14,939",variacion:"10.9"},
 {idtop:"535",idproducto:"53",idestado:"30",idregion:"5",nombreestado:"Veracruz",nombreregion:"Sur-Sureste",rankingtop:"2",volumentop:"1,596",variacion:"23.2"},

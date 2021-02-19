@@ -30,13 +30,13 @@ export default function RankingMundial(props) {
                     </View>
                 </View>
                 <View style={{flexDirection:'row',flex:1}}>
-                    <View style={{width:screenWidth/7}} />
+                    <View style={{width:screenWidth/5}} />
                     <View style={{width:screenWidth/5}}>
                         <Text style={styles.ranktext}>
                             productor mundial
                         </Text>
                     </View>
-                    <View style={{width:screenWidth/4}} />
+                    <View style={{width:screenWidth/3}} />
                     <View style={{width:screenWidth/5}}>
                         <Text style={styles.ranktext}>
                             México
@@ -74,12 +74,12 @@ const styles = StyleSheet.create({
     },
     ranking:{
         fontFamily: "montserrat-900",
-        fontSize: 48,
+        fontSize: 80,
         margin:5,
     },
     primerrank:{
         fontFamily: "montserrat-900",
-        fontSize: 30,
+        fontSize: 60,
     },
     texto: {
         fontFamily: "montserrat-regular",

@@ -10,6 +10,7 @@ import {
     Text,
     View
 } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const CambioColor = require('../../components/CambioColor').default
 const ImagesArray = require('../../components/producto/ImagesArray').default
@@ -28,6 +29,7 @@ function CalendarioProduccion(props) {
         {id:10,month:'Octubre',prod:props.calendarioarr[0].octubre,color:0},
         {id:11,month:'Noviembre',prod:props.calendarioarr[0].noviembre,color:0},
         {id:12,month:'Diciembre',prod:props.calendarioarr[0].diciembre,color:0},];
+    let disponibilidad = [];
     const screenWidth = Dimensions.get("window").width;
     const screenHeight = Dimensions.get('window').height;
     const Item = ({month,info,color}) =>(
@@ -47,6 +49,9 @@ function CalendarioProduccion(props) {
     for(let i = 0,j= 0.55; i<12;i++,j-=0.05){
         monthName[i].color = j;
     }
+    disponibilidad.push(monthName[11].color);
+    disponibilidad.push(monthName[7].color);
+    disponibilidad.push(monthName[0].color);
     monthName.sort(function (a,b){ return a.id - b.id });
     return (
             <View style={{flex:1,}}>
@@ -54,6 +59,11 @@ function CalendarioProduccion(props) {
                 <FlatList data={monthName.slice(3,6)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
                 <FlatList data={monthName.slice(6,9)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
                 <FlatList data={monthName.slice(9,12)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
+                <Text style={{ textAlign: 'center', fontFamily: "montserrat-500"}}>
+                    <Icon name={"circle"} size={10} color={CambioColor(disponibilidad[0],props.color)} solid/>{' Mayor diponibilidad          '}
+                    <Icon name={"circle"} size={10} color={CambioColor(disponibilidad[1],props.color)} solid/>{' Disponibilidad media          '}
+                    <Icon name={"circle"} size={10} color={CambioColor(disponibilidad[2],props.color)} solid/>{' Poca o nula disponibilidad     '}
+                </Text>
             </View>
         )
 }

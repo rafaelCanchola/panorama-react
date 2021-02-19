@@ -26,7 +26,7 @@ export default function Produccion({navigation,route}){
                 </Text>
                 <GraficaProduccion graficaarray={producvol[idProducto]} color={produc[idProducto].color_fondo} titulo={styles.tituloVolumen}/>
                 <Text style={styles.tituloTop}>
-                    {'Top en volumen de producción\nPrincipales entidades'}
+                    {top10[idProducto+1].nombreestado === 'Resto' ? 'Top 10 en volumen de producción\nPrincipales entidades' : 'Volumen de producción por entidad'}
                 </Text>
                 <TablaTopProduccion
                     data={top10[idProducto+1]}

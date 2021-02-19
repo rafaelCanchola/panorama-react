@@ -12,6 +12,7 @@ import {
     VictoryLabel,
     createContainer, VictoryVoronoiContainer,
 } from 'victory-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -74,6 +75,10 @@ export default class GraficaComercio extends Component{
 
                   </VictoryGroup>
                 </VictoryChart>
+                <Text style={{ textAlign: 'center', fontFamily: "montserrat-500"}}>
+                    <Icon name={"square"} size={10} color={importacionesColor} solid/>{' Importaciones     '}
+                    <Icon name={"square"} size={10} color={exportacionesColor} solid/>{' Exportaciones     '}
+                </Text>
             </View>
         )
     }
