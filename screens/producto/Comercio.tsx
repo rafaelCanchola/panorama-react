@@ -24,6 +24,7 @@ export default function Comercio({navigation,route}){
     let listClientes = clientes.filter(element => element.idproducto === (idProducto+1).toString());
     let listImporta = importa.filter(element => element.idproducto === (idProducto+1).toString());
     let listProveedor = proveedor.filter(element => element.idproducto === (idProducto+1).toString());
+
     return(
         <View style={styles.container}>
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer} keyboardShouldPersistTaps={'always'}>
@@ -38,10 +39,10 @@ export default function Comercio({navigation,route}){
                 <Text style={styles.texto}>
                     {produc[idProducto].origendestinocomercial}
                 </Text>
-                <Text style={styles.texto}>
+                <ListasPaises clienteprin={produc[idProducto].pais} monto={produc[idProducto].montoclienteprincipal} clientes={listClientes} proveedor={listProveedor} importador={listImporta} color={produc[idProducto].color_fondo}/>
+                <Text style={[styles.texto,{color:produc[idProducto].color_fondo}]}>
                     {produc[idProducto].mercadospotenciales}
                 </Text>
-                <ListasPaises clienteprin={produc[idProducto].pais} clientes={listClientes} proveedor={listProveedor} importador={listImporta}/>
                 <Text style={styles.titulo}>
                     Evolución de comercio exterior
                 </Text>

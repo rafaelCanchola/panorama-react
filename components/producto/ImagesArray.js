@@ -331,4 +331,18 @@ const imagesArray = {
     'Noviembre':  Images.nov,
     'Diciembre':  Images.dic,
 
+    'Estados Unidos': Images.us,
+    'Belice': Images.bz,
+    'China': Images.cn,
+    'Cuba' : Images.cu,
+    'Alemania' : Images.de,
+    'República Dominicana' : Images.do,
+    'Francia' : Images.fr,
+    'Italia' : Images.it,
+    'Japón' : Images.jp,
+    'Corea del Sur' : Images.kr,
+    'México' : Images.mx,
+    'Turquía' : Images.tr,
+    'Venezuela' : Images.ve,
+
 }

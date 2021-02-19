@@ -318,6 +318,23 @@ const images={
     nov: require('./calendar/nov.png'),
     dic: require('./calendar/dic.png'),
 
+    us: require('./paises/us.png'),
+    bz: require('./paises/bz.png'),
+    cn: require('./paises/cn.png'),
+    cu: require('./paises/cu.png'),
+    de: require('./paises/de.png'),
+    do: require('./paises/do.png'),
+    fr: require('./paises/fr.png'),
+    it: require('./paises/it.png'),
+    jp: require('./paises/jp.png'),
+    kr: require('./paises/kr.png'),
+    mx: require('./paises/mx.png'),
+    tr: require('./paises/tr.png'),
+    ve: require('./paises/ve.png'),
+
+
+
+
 
 };
 
