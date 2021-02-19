@@ -12,7 +12,7 @@ function TextoAgroindustriales(props) {
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 5,
+        borderRadius: 7,
     },
     agaveTequilero: {
         color: "#fff",

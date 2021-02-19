@@ -16,19 +16,18 @@ const ImagesArray = require('../../components/producto/ImagesArray').default
 
 function CalendarioProduccion(props) {
     let monthName = [
-        {id:'1',month:'Enero',prod:props.calendarioarr[0].enero,color:0},
-        {id:'2',month:'Febrero',prod:props.calendarioarr[0].febrero,color:0},
-        {id:'3',month:'Marzo',prod:props.calendarioarr[0].marzo,color:0},
-        {id:'4',month:'Abril',prod:props.calendarioarr[0].abril,color:0},
-        {id:'5',month:'Mayo',prod:props.calendarioarr[0].mayo,color:0},
-        {id:'6',month:'Junio',prod:props.calendarioarr[0].junio,color:0},
-        {id:'7',month:'Julio',prod:props.calendarioarr[0].julio,color:0},
-        {id:'8',month:'Agosto',prod:props.calendarioarr[0].agosto,color:0},
-        {id:'9',month:'Septiembre',prod:props.calendarioarr[0].septiembre,color:0},
-        {id:'10',month:'Octubre',prod:props.calendarioarr[0].octubre,color:0},
-        {id:'11',month:'Noviembre',prod:props.calendarioarr[0].noviembre,color:0},
-        {id:'12',month:'Diciembre',prod:props.calendarioarr[0].diciembre,color:0},];
-    const sortedMonth = [...monthName];
+        {id:1,month:'Enero',prod:props.calendarioarr[0].enero,color:0},
+        {id:2,month:'Febrero',prod:props.calendarioarr[0].febrero,color:0},
+        {id:3,month:'Marzo',prod:props.calendarioarr[0].marzo,color:0},
+        {id:4,month:'Abril',prod:props.calendarioarr[0].abril,color:0},
+        {id:5,month:'Mayo',prod:props.calendarioarr[0].mayo,color:0},
+        {id:6,month:'Junio',prod:props.calendarioarr[0].junio,color:0},
+        {id:7,month:'Julio',prod:props.calendarioarr[0].julio,color:0},
+        {id:8,month:'Agosto',prod:props.calendarioarr[0].agosto,color:0},
+        {id:9,month:'Septiembre',prod:props.calendarioarr[0].septiembre,color:0},
+        {id:10,month:'Octubre',prod:props.calendarioarr[0].octubre,color:0},
+        {id:11,month:'Noviembre',prod:props.calendarioarr[0].noviembre,color:0},
+        {id:12,month:'Diciembre',prod:props.calendarioarr[0].diciembre,color:0},];
     const screenWidth = Dimensions.get("window").width;
     const screenHeight = Dimensions.get('window').height;
     const Item = ({month,info,color}) =>(
@@ -44,16 +43,17 @@ function CalendarioProduccion(props) {
         <Item month={item.month} info={item.prod} color={item.color}/>
     );
 
-    sortedMonth.sort(function (a,b){ return a.prod - b.prod });
-    for(let i = 0,j= 0.5; i<12;i++,j-=0.05){
-        monthName[monthName.findIndex((month) => month.prod == sortedMonth[i].prod)].color = j;
+    monthName.sort(function (a,b){ return a.prod - b.prod });
+    for(let i = 0,j= 0.55; i<12;i++,j-=0.05){
+        monthName[i].color = j;
     }
+    monthName.sort(function (a,b){ return a.id - b.id });
     return (
             <View style={{flex:1,}}>
-                <FlatList data={monthName.slice(0,3)} renderItem={renderItem} keyExtractor={item => item.id} scrollEnabled={false} horizontal={true} />
-                <FlatList data={monthName.slice(3,6)} renderItem={renderItem} keyExtractor={item => item.id} scrollEnabled={false} horizontal={true} />
-                <FlatList data={monthName.slice(6,9)} renderItem={renderItem} keyExtractor={item => item.id} scrollEnabled={false} horizontal={true} />
-                <FlatList data={monthName.slice(9,12)} renderItem={renderItem} keyExtractor={item => item.id} scrollEnabled={false} horizontal={true} />
+                <FlatList data={monthName.slice(0,3)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
+                <FlatList data={monthName.slice(3,6)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
+                <FlatList data={monthName.slice(6,9)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
+                <FlatList data={monthName.slice(9,12)} renderItem={renderItem} keyExtractor={item => item.month} scrollEnabled={false} horizontal={true} />
             </View>
         )
 }

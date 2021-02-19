@@ -26,7 +26,7 @@ export default function Introduccion({navigation,route}){
                 <Text style={styles.tituloParticipacion}>
                         {produc[idProducto].participacionetiqueta}
                 </Text>
-                <TextoAgroindustriales participacion={produc[idProducto].participacion + '%'} color={produc[idProducto].color_fondo} style={{width:screenContainer,height:60,margin:10,}}/>
+                <TextoAgroindustriales participacion={produc[idProducto].participacion + '%'} color={produc[idProducto].color_fondo} style={{width:screenContainer,margin:10,}}/>
             </ScrollView>
         </View>
     );
