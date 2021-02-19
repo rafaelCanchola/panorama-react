@@ -26,7 +26,7 @@ export default function Comercio({navigation,route}){
     let listProveedor = proveedor.filter(element => element.idproducto === (idProducto+1).toString());
     return(
         <View style={styles.container}>
-            <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer} >
+            <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer} keyboardShouldPersistTaps={'always'}>
                 <RankingMundial rank={produc[idProducto].rankingmundial} descripcion={produc[idProducto].rankingmundial_descripcion} productivo={produc[idProducto].paismasproductivo} color={produc[idProducto].color_fondo} volumen={produc[idProducto].volumen_toneladas}/>
                 <Text style={styles.titulo}>Comercio exterior 2019</Text>
                 <Text style={styles.texto}>

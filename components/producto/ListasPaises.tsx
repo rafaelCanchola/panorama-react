@@ -15,13 +15,10 @@ export default function ListasPaises(props){
     }
 
     return(
-        <View>
-            <SectionGrid sections={sections} style={styles.gridView}
-                         renderItem={({item,section,index}) => (<Text style={styles.itemName}>{item.pais}</Text>)}
-                         renderSectionHeader={({section}) => (<View><Text style={styles.sectionHeader}>{section.title}</Text><Text style={styles.sectionSub}>{section.sub}</Text></View>)}
-            />
-        </View>
-
+        <SectionGrid sections={sections} style={styles.gridView}
+                     renderItem={({item,section,index}) => (<Text style={styles.itemName}>{item.pais}</Text>)}
+                     renderSectionHeader={({section}) => (<View><Text style={styles.sectionHeader}>{section.title}</Text><Text style={styles.sectionSub}>{section.sub}</Text></View>)}
+        />
     )
 }
 
