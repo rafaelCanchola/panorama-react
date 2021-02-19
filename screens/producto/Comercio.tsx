@@ -1,13 +1,18 @@
 import React from "react";
-import {Dimensions, ScrollView, StyleSheet, Text, View} from "react-native";
+import {Dimensions, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
 import TextoAgroindustriales from "../../components/producto/TextoAgroindustriales";
 import TituloProducto from "../../components/producto/TituloProducto";
 import TablaComercioExt from "../../components/producto/TablaComercioExt";
 import GraficaComercio from "../../components/producto/GraficaComercio";
+import RankingMundial from "../../components/producto/RankingMundial";
+import ListasPaises from "../../components/producto/ListasPaises";
 
 import produc from "../../json/productos";
 import monthDistributionJSON from "../../json/monthDistributionJSON";
 import evolucion from "../../json/Commerce_EvolutionJSON";
+import clientes from "../../json/customers_infoJSON";
+import importa from "../../json/import_export_infoJSON";
+import proveedor from "../../json/provider_infoJSON";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -16,30 +21,27 @@ const screenContainer = screenWidth - 30
 export default function Comercio({navigation,route}){
 
     const idProducto =  route.params.id;
+    let listClientes = clientes.filter(element => element.idproducto === (idProducto+1).toString());
+    let listImporta = importa.filter(element => element.idproducto === (idProducto+1).toString());
+    let listProveedor = proveedor.filter(element => element.idproducto === (idProducto+1).toString());
     return(
         <View style={styles.container}>
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer} >
-                <Text style={styles.titulo}>Ranking Mundial</Text>
-                <Text style={styles.texto}>
-                        {produc[idProducto].rankingmundial}º productor mundial
-                </Text>
-                <Text style={styles.texto}>
-                    {produc[idProducto].rankingmundial_descripcion}
-                </Text>
-                <Text style={styles.texto}>
-                    {produc[idProducto].paismasproductivo}
-                </Text>
-                <TextoAgroindustriales participacion={produc[idProducto].volumen_toneladas + ' toneladas'} color={produc[idProducto].color_fondo} width={screenWidth}/>
+                <RankingMundial rank={produc[idProducto].rankingmundial} descripcion={produc[idProducto].rankingmundial_descripcion} productivo={produc[idProducto].paismasproductivo} color={produc[idProducto].color_fondo} volumen={produc[idProducto].volumen_toneladas}/>
                 <Text style={styles.titulo}>Comercio exterior 2019</Text>
                 <Text style={styles.texto}>
                     {produc[idProducto].comercioexterior}
                 </Text>
-                <Text style={styles.texto}>
+                <Text style={styles.titulo}>
                     Origen-destino comercial
+                </Text>
+                <Text style={styles.texto}>
+                    {produc[idProducto].origendestinocomercial}
                 </Text>
                 <Text style={styles.texto}>
                     {produc[idProducto].mercadospotenciales}
                 </Text>
+                <ListasPaises clienteprin={produc[idProducto].pais} clientes={listClientes} proveedor={listProveedor} importador={listImporta}/>
                 <Text style={styles.titulo}>
                     Evolución de comercio exterior
                 </Text>
@@ -48,7 +50,6 @@ export default function Comercio({navigation,route}){
                     Distribución mensual del comercio exterior (%)
                 </Text>
                 <TablaComercioExt data={monthDistributionJSON[idProducto]}/>
-
             </ScrollView>
         </View>
         )
