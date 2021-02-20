@@ -3,7 +3,6 @@ import React from "react";
 import {View, StyleSheet, Text, Dimensions, TouchableOpacity} from "react-native"
 
 import BotonInfografias from "../components/principal/BotonInfografias";
-import FooterInicio from "../components/principal/FooterInicio";
 import BotonProducto from "../components/principal/BotonProducto";
 
 const screenHeight = Dimensions.get('window').height
@@ -13,77 +12,48 @@ const screenWidth = Dimensions.get("window").width
 export default class Principal extends Component {
     render(){
         return(
-            <View style= {styles.container}>
-                <View style={styles.title1Stack}>
-                    <Text style={styles.title1}>PANORAMA</Text>
-                    <Text style={styles.title2}>AGROALIMENTARIO</Text>
+            <View style={styles.container}>
+                <View style={{flex:1, justifyContent: "center",alignItems:'center'}}>
+                    <View style={styles.titleStack}>
+                        <Text style={[styles.title,{fontSize:36, letterSpacing:15,}]}>PANORAMA</Text>
+                        <Text style={[styles.title,{fontSize: 33,}]}>AGROALIMENTARIO</Text>
+                        <Text style={[styles.title,{fontSize: 36,letterSpacing:15}]}>2020</Text>
+                    </View>
+                    <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
+                    <BotonProducto style={styles.botonProducto}></BotonProducto>
+                    <BotonInfografias style={styles.botonInfografias}></BotonInfografias>
                 </View>
-                <Text style={styles.title3}>2020</Text>
-                <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
-                <BotonProducto style={styles.botonProducto}></BotonProducto>
-                <BotonInfografias style={styles.botonInfografias}></BotonInfografias>
-                <FooterInicio style={styles.footerInicio}></FooterInicio>
+
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    container:{
+        flex:1,
+        alignItems:"center",
     },
-    title1: {
-        fontFamily: "montserrat-700",
+    title: {
+        fontFamily: "montserrat-900",
         color: "rgba(193,167,129,1)",
-        height: 33,
-        width: 300,
-        fontSize: 27,
         textAlign: "center",
-        letterSpacing: 16,
-        position: "absolute",
-        top: 0,
-        left: 2
     },
-    title2: {
-        fontFamily: "montserrat-700",
-        color: "rgba(193,167,129,1)",
-        height: 33,
-        width: 300,
-        fontSize: 27,
-        textAlign: "center",
-        letterSpacing: 1,
-        position: "absolute",
-        top: 31,
-        left: 0
-    },
-    title1Stack: {
-        width: 302,
-        height: 64,
-        marginTop: 78,
-        marginLeft: 44
-    },
-    title3: {
-        fontFamily: "montserrat-700",
-        color: "rgba(193,167,129,1)",
-        height: 33,
-        width: 300,
-        fontSize: 27,
-        textAlign: "center",
-        letterSpacing: 16,
-        marginLeft: 50
+    titleStack: {
+        width: screenWidth-60,
     },
     intro: {
         fontFamily: "montserrat-regular",
         color: "#121212",
-        width: 300,
-        fontSize: 16,
+        fontSize: 18,
         textAlign: "center",
-        marginTop: 12,
-        alignSelf: "center"
+        alignSelf: "center",
+        margin:20,
+        width:screenWidth -60
     },
     botonProducto: {
-        height: 44,
-        width: 300,
+        width: screenWidth-30,
+        minHeight:50,
         backgroundColor: "rgba(0,120,83,1)",
         borderWidth: 2,
         borderColor: "rgba(255,255,255,1)",
@@ -97,12 +67,12 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         shadowRadius: 4,
         borderRadius: 7,
-        marginTop: 65,
+        margin:10,
         alignSelf: "center"
     },
     botonInfografias: {
-        height: 44,
-        width: 300,
+        width: screenWidth-30,
+        minHeight:50,
         borderWidth: 2,
         borderColor: "rgba(255,255,255,1)",
         borderRadius: 7,
@@ -114,12 +84,7 @@ const styles = StyleSheet.create({
         elevation: 12,
         shadowOpacity: 0.4,
         shadowRadius: 4,
-        marginTop: 18,
+        margin:10,
         alignSelf: "center"
     },
-    footerInicio: {
-        height: 56,
-        backgroundColor: "rgba(230, 230, 230,1)",
-        marginTop: screenHeight -500
-    }
 });

@@ -19,7 +19,7 @@ import Monografia from "../screens/producto/Monografia";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
+const TabMain = createBottomTabNavigator();
 const CambioColor = require('../components/CambioColor').default
 
 function ProductoTabs ({navigation,route}){
@@ -42,6 +42,16 @@ function ProductoTabs ({navigation,route}){
     )
 }
 
+function PrincipalTabs({navigation,route}){
+    return(
+        <TabMain.Navigator initialRouteName={'Principal'}>
+            <Tab.Screen name={'Ayuda'} component={Ayuda}/>
+            <Tab.Screen name={'Principal'} component={Principal} options={{tabBarVisible:true}}/>
+            <Tab.Screen name={'Contacto'} component={Contacto}/>
+        </TabMain.Navigator>
+    )
+}
+
 export default function App(){
     let [fontsLoaded] = useFonts({
         'montserrat-regular': require('../assets/fonts/Montserrat-regular.ttf'),
@@ -59,7 +69,7 @@ export default function App(){
         return (
             <NavigationContainer>
                 <Stack.Navigator>
-                    <Stack.Screen name={'Principal'} component={Principal}
+                    <Stack.Screen name={'Principal'} component={PrincipalTabs}
                                   options={{headerShown: false}}/>
                     <Stack.Screen name={'GraficaProduccion'} component={GraficaProduccion}/>
                     <Stack.Screen name={'Contacto'} component={Contacto}/>

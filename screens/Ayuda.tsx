@@ -5,7 +5,6 @@ import FooterInicio from "../components/principal/FooterInicio";
 function Ayuda(props) {
     return (
         <View style={styles.container}>
-            <FooterInicio style={styles.footerInicio}></FooterInicio>
             <View style={styles.scrollArea}>
                 <ScrollView
                     horizontal={false}

@@ -18,7 +18,6 @@ export default function Introduccion({navigation,route}){
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
-
                 <TituloProducto nombre={produc[idProducto].producto} color={produc[idProducto].color_fondo} style={styles.tituloProducto}/>
                 <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]} style={styles.imagenProducto}/>
                 <TextoDescripcion descripcion={produc[idProducto].descripcion} style={styles.textoPrincipal}/>
