@@ -16,7 +16,8 @@ export default function ListasPaises(props){
     if(props.importador && props.importador.length){
         sections.push({title: 'Importador y Exportador', data:props.importador});
     }
-const ClientePrincipal = ({item}) => (
+
+    const ClientePrincipal = ({item}) => (
     <View >
         <Text style={[styles.itemName,{paddingBottom:10, fontFamily: "montserrat-700",}]}>{item.monto}*</Text>
         <Text style={[styles.itemName,{paddingBottom:10,}]}>○{item.clientepais}</Text>
