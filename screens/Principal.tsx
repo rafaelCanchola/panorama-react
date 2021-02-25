@@ -1,27 +1,25 @@
 import {Component} from "react";
 import React from "react";
-import {View, StyleSheet, Text, Dimensions, TouchableOpacity} from "react-native"
+import {View, StyleSheet, Text, Dimensions, Image} from "react-native"
 
 import BotonInfografias from "../components/principal/BotonInfografias";
 import BotonProducto from "../components/principal/BotonProducto";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
-
+const screenContainer = screenWidth - 30
 
 export default class Principal extends Component {
     render(){
         return(
             <View style={styles.container}>
                 <View style={{flex:1, justifyContent: "center",alignItems:'center'}}>
-                    <View style={styles.titleStack}>
-                        <Text style={[styles.title,{fontSize:36, letterSpacing:15,}]}>PANORAMA</Text>
-                        <Text style={[styles.title,{fontSize: 33,}]}>AGROALIMENTARIO</Text>
-                        <Text style={[styles.title,{fontSize: 36,letterSpacing:15}]}>2020</Text>
-                    </View>
+                    <View style={{padding:20}}></View>
+                    <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
                     <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
                     <BotonProducto style={styles.botonProducto}></BotonProducto>
                     <BotonInfografias style={styles.botonInfografias}></BotonInfografias>
+                    <View style={{flex:1}}></View>
                 </View>
 
             </View>
@@ -34,21 +32,13 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:"center",
     },
-    title: {
-        fontFamily: "montserrat-900",
-        color: "rgba(193,167,129,1)",
-        textAlign: "center",
-    },
-    titleStack: {
-        width: screenWidth-60,
-    },
     intro: {
         fontFamily: "montserrat-regular",
         color: "#121212",
         fontSize: 18,
         textAlign: "center",
         alignSelf: "center",
-        margin:20,
+        margin:10,
         width:screenWidth -60
     },
     botonProducto: {

@@ -3,20 +3,19 @@ import AppLoading from "expo";
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {Image, View} from "react-native";
+import {View} from "react-native";
 import {useFonts} from "@use-expo/font";
 import Principal from '../screens/Principal'
-import GraficaProduccion from '../components/producto/GraficaProduccion'
 import Contacto from "../screens/Contacto";
 import Ayuda from "../screens/Ayuda";
 import Infografia from "../screens/Infografia";
 import Catalogo from "../screens/Catalogo";
-import Producto from "../screens/Producto";
 import Introduccion from "../screens/producto/Introduccion";
 import Produccion from "../screens/producto/Produccion";
 import Comercio from "../screens/producto/Comercio";
 import Monografia from "../screens/producto/Monografia";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import ImagenInfografia from "../screens/infografia/ImagenInfografia";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const TabMain = createBottomTabNavigator();
@@ -43,11 +42,16 @@ function ProductoTabs ({navigation,route}){
 }
 
 function PrincipalTabs({navigation,route}){
+    const colorNormal = '#c1a781';
+    const colorLighter = CambioColor(0.5,'#c1a781');
     return(
-        <TabMain.Navigator initialRouteName={'Principal'}>
-            <Tab.Screen name={'Ayuda'} component={Ayuda}/>
-            <Tab.Screen name={'Principal'} component={Principal} options={{tabBarVisible:true}}/>
-            <Tab.Screen name={'Contacto'} component={Contacto}/>
+        <TabMain.Navigator initialRouteName={'Principal'} tabBarOptions={{
+            inactiveTintColor: colorLighter,
+            activeTintColor:colorNormal,
+        }}>
+            <Tab.Screen name={'Ayuda'} component={Ayuda} options={{tabBarIcon:({size,color})=>(<Icon name="question-circle" size={size} color={color}/>)}}/>
+            <Tab.Screen name={'Principal'} component={Principal} options={{tabBarIcon:({size,color})=>(<Icon name="book-reader" size={size} color={color}/>)}}/>
+            <Tab.Screen name={'Contacto'} component={Contacto}options={{tabBarIcon:({size,color})=>(<Icon name="envelope-open" size={size} color={color}/>)}}/>
         </TabMain.Navigator>
     )
 }
@@ -71,13 +75,12 @@ export default function App(){
                 <Stack.Navigator>
                     <Stack.Screen name={'Principal'} component={PrincipalTabs}
                                   options={{headerShown: false}}/>
-                    <Stack.Screen name={'GraficaProduccion'} component={GraficaProduccion}/>
                     <Stack.Screen name={'Contacto'} component={Contacto}/>
                     <Stack.Screen name={'Ayuda'} component={Ayuda}/>
-                    <Stack.Screen name={'Infografia'} component={Infografia}/>
+                    <Stack.Screen name={'Infografia'} component={Infografia} options={{headerTitle:'Infografías', headerBackTitle:''}}/>
+                    <Stack.Screen name={'InfografiaImagen'} component={ImagenInfografia} options={{headerTitle:'Infografía', headerBackTitle:''}}/>
                     <Stack.Screen name={'Catalogo'} component={Catalogo}/>
                     <Stack.Screen name={'Productos'} component={ProductoTabs} />
-                    {/*<Stack.Screen name={'Producto'} component={Producto}></Stack.Screen>*/}
                 </Stack.Navigator>
             </NavigationContainer>
         )

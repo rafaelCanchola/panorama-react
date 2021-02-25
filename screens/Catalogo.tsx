@@ -4,11 +4,9 @@ import {
     View,
     Image,
     ImageBackground,
-    ScrollView,
     Text,
     TouchableOpacity, FlatList, Dimensions
 } from "react-native";
-import MaterialRadio from "../components/catalogo/MaterialRadio";
 import BotonMostrarSector from "../components/catalogo/BotonMostrarSector";
 const ImagesArray = require('../components/producto/ImagesArray').default
 
@@ -22,11 +20,10 @@ function Catalogo({navigation}) {
         {id:'1',img:'agricola',limite:[0,60]},{id:'2',img:'pecuario',limite:[60,69]},{id:'3',img:'pesquero',limite:[69,75]}
     ];
 
-
     {/*
     <View style={styles.imagenFondoStack}>
                 <ImageBackground
-                    source={require("../assets/images/Agricola2019.jpg")}
+                    source={require("../assets/images/.jpg")}
                     resizeMode="center"
                     style={styles.imagenFondo}
                     imageStyle={styles.imagenFondo_imageStyle}
@@ -76,20 +73,20 @@ function Catalogo({navigation}) {
             </View>
             </ImageBackground>
     );
-const renderProduct = ({item}) => (
+    const renderProduct = ({item}) => (
     <View style={styles.iconoProductoRow}>
         <TouchableOpacity style={styles.botonProducto} onPress={() => navigation.navigate(
             'Productos', {id:item.idproducto,color:item.color_fondo,name:item.producto}
             )}>
-        <Image
-            source={ImagesArray(item.imagen_producto.split("\/")[1])}
-            resizeMode="cover"
-            style={styles.iconoProducto}
-        />
+            <Image
+                source={ImagesArray(item.imagen_producto.split("\/")[1])}
+                resizeMode="cover"
+                style={styles.iconoProducto}
+            />
             <Text style={styles.nombreProducto}>{item.producto}</Text>
         </TouchableOpacity>
     </View>
-);
+    );
 
     const renderItem = ({item}) =>(
         <Item sector={item.img} limite={item.limite}/>

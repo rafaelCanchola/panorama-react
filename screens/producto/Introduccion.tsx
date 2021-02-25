@@ -22,9 +22,7 @@ export default function Introduccion({navigation,route}){
                 <ImagenProducto img={produc[idProducto].imagen_producto.split("\/")[1]} style={styles.imagenProducto}/>
                 <TextoDescripcion descripcion={produc[idProducto].descripcion} style={styles.textoPrincipal}/>
                 <ImagenConsumo bgcolor={produc[idProducto].color_fondo} consumo={produc[idProducto].consumonacional} textstyle={styles.tituloParticipacion} imagestyle={screenContainer}/>
-                <Text style={styles.tituloParticipacion}>
-                        {produc[idProducto].participacionetiqueta}
-                </Text>
+                <Text style={styles.tituloParticipacion}>{produc[idProducto].participacionetiqueta}</Text>
                 <TextoAgroindustriales participacion={produc[idProducto].participacion + '%'} color={produc[idProducto].color_fondo} style={{width:screenContainer,margin:10,}}/>
             </ScrollView>
         </View>

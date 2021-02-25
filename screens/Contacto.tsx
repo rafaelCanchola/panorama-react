@@ -33,12 +33,11 @@ const siap = 'El Servicio de Información Agroalimentaria y Pesquera,' +
     ' Municipales y de la Ciudad de México, para la implementación del Sistema' +
     ' Nacional de Información para el Desarrollo Rural Sustentable.\n';
 
-const terminos = 'El Servicio de Información Agroalimentaria y Pesquera (SIAP) solicita al usuario de ' +
-    'esta aplicación que lea detalladamente las condiciones y la política de privacidad' +
-    'antes de iniciar su exploración o utilización, y en caso de no estar de acuerdo, le' +
-    'sugerimos que se abstenga de acceder o navegar.';
-
 const SECTIONS =[
+    {title:'Condiciones',content:'El Servicio de Información Agroalimentaria y Pesquera (SIAP) solicita al usuario de ' +
+            'esta aplicación que lea detalladamente las condiciones y la política de privacidad' +
+            'antes de iniciar su exploración o utilización, y en caso de no estar de acuerdo, le' +
+            'sugerimos que se abstenga de acceder o navegar.'},
     {title: 'Aceptación de Términos',content:'La descarga y uso de la aplicación atribuye' +
             ' la condición de usuario de la misma e implica la lectura, entendimiento y' +
             ' aceptación de todos los términos y condiciones recogidas por la presente.' +
@@ -143,10 +142,9 @@ export default class Contacto extends Component{
                 <TouchableOpacity style={[styles.btnContainer, styles.botonTerminos]} onPress={()=>{this.setState({visible:true});}}>
                     <Text style={styles.caption}>Términos y Condiciones</Text>
                 </TouchableOpacity>
-                <Modal visible={this.state.visible} onTouchOutside={()=> {this.setState({visible:false});}} >
+                <Modal visible={this.state.visible} onTouchOutside={()=> {this.setState({visible:false});}} width={screenWidth-30}>
                     <ModalContent>
                             <Text style={styles.textoSIAP}>
-                                {terminos}
                                 <Accordion sections={SECTIONS} renderHeader={this._renderHeader} renderContent={this._renderContent} onChange={this._updateSections} activeSections={this.state.activeSections}/>
                             </Text>
                     </ModalContent>

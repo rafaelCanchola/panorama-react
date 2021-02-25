@@ -175,7 +175,7 @@ function Producto({route}) {
                         2018 y 2019 E...
                     </Text>
                     <Image
-                        source={require("../assets/images/us.png")}
+                        source={require("../assets/images/.png")}
                         resizeMode="contain"
                         style={styles.imagenBandera}
                     ></Image>
