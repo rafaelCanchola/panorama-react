@@ -332,7 +332,33 @@ const images={
     tr: require('./paises/tr.png'),
     ve: require('./paises/ve.png'),
 
+    infografia1: require('./infologo/infografia1.jpg'),
+    infografia2: require('./infologo/infografia2.jpg'),
+    infografia3: require('./infologo/infografia3.jpg'),
+    infografia4: require('./infologo/infografia4.jpg'),
+    infografia5: require('./infologo/infografia5.jpg'),
+    infografia6: require('./infologo/infografia6.jpg'),
+    infografia7: require('./infologo/infografia7.jpg'),
+    infografia8: require('./infologo/infografia8.jpg'),
+    infografia9: require('./infologo/infografia9.jpg'),
+    infografia10: require('./infologo/infografia10.jpg'),
+    infografia11: require('./infologo/infografia11.jpg'),
+    infografia12: require('./infologo/infografia12.jpg'),
+    infografia13: require('./infologo/infografia13.jpg'),
 
+    info1: require('./infografia/info1.jpg'),
+    info2: require('./infografia/info2.jpg'),
+    info3: require('./infografia/info3.jpg'),
+    info4: require('./infografia/info4.jpg'),
+    info5: require('./infografia/info5.jpg'),
+    info6: require('./infografia/info6.jpg'),
+    info7: require('./infografia/info7.jpg'),
+    info8: require('./infografia/info8.jpg'),
+    info9: require('./infografia/info9.jpg'),
+    info10: require('./infografia/info10.jpg'),
+    info11: require('./infografia/info11.jpg'),
+    info12: require('./infografia/info12.jpg'),
+    info13: require('./infografia/info13.jpg'),
 
 
 
