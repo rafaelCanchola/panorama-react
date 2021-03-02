@@ -1,12 +1,13 @@
-import {Component, useCallback} from "react";
+import {Component, Fragment,useCallback} from "react";
 import React from "react";
-import {View, StyleSheet, Text, Dimensions, TouchableOpacity, Linking, Alert, Button, ScrollView} from "react-native"
+import {View, StyleSheet, Text, Dimensions, TouchableOpacity, Linking, Button, Platform, FlatList, ScrollView} from "react-native"
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import {Modal,ModalContent} from "react-native-modals";
 import Accordion from "react-native-collapsible/Accordion";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
+const screenContainer = screenWidth - 30
 
 const OpenURLButton = ({ url, children }) => {
     const handlePress = useCallback(async () => {
@@ -102,53 +103,78 @@ export default class Contacto extends Component{
     _updateSections = activeSections => {
         this.setState({ activeSections });
     };
+
+    listSection = ({item}) =>(
+        <View style={{width:screenWidth-35,margin:10}}>
+            <Text style={styles.textoSIAP}>{item.title}.</Text>
+            <Text style={styles.textoSIAP}>{item.content}</Text>
+        </View>
+    )
+
+    buttons = [
+        <View style={{width:screenContainer}}>
+            <Text style={styles.textoSIAP}>{siap}</Text>
+            <OpenGobButton url={'https://www.gob.mx/siap'}/>
+            <View style={styles.gobRow}>
+                <View style={{width:screenWidth/20}}/>
+                <OpenURLButton url={'https://www.facebook.com/siap.sader/'}>siap.sader</OpenURLButton>
+                <EntypoIcon
+                name="facebook-with-circle"
+                style={styles.iconoFacebook}/>
+                <View style={{width:screenWidth/20}}/>
+                <EntypoIcon
+                    name="twitter-with-circle"
+                    style={styles.iconoFacebook}/>
+                <OpenURLButton url={'https://www.twitter.com/siap_mx/'}>@siap_mx</OpenURLButton>
+                <View style={{width:screenWidth/20}}/>
+            </View>
+            <View style={styles.gobRow}>
+                <View style={{width:screenWidth/20}}/>
+                <OpenURLButton url={'http://www.youtube.com/channel/UCBowHJV2R1w-ubCYFESL4Lw'}>siap.sader</OpenURLButton>
+                <EntypoIcon
+                    name="youtube-with-circle"
+                    style={styles.iconoFacebook}/>
+                <View style={{width:screenWidth/20}}/>
+                <EntypoIcon
+                    name="instagram-with-circle"
+                    style={styles.iconoFacebook}/>
+                <OpenURLButton url={'http://www.instagram.com/siap_mx/'}>@siap_mx</OpenURLButton>
+                <View style={{width:screenWidth/20}}/>
+            </View>
+    </View>];
+
+
     render() {
         return (
             <View style={styles.container}>
-                <View style={{width:screenWidth-30}}>
-                    <Text style={styles.textoSIAP}>{siap}</Text>
-                    <OpenGobButton url={'https://www.gob.mx/siap'}/>
-                    <View style={styles.gobRow}>
-                        <View style={{width:screenWidth/20}}/>
-                        <EntypoIcon
-                            name="facebook-with-circle"
-                            style={styles.iconoFacebook}
-                        />
-                        <OpenURLButton url={'https://www.facebook.com/siap.sader/'}>siap.sader</OpenURLButton>
-                        <View style={{width:screenWidth/10}}/>
-                        <EntypoIcon
-                            name="twitter-with-circle"
-                            style={styles.iconoFacebook}
-                        />
-                        <OpenURLButton url={'https://www.twitter.com/siap_mx/'}>@siap_mx</OpenURLButton>
-                        <View style={{width:screenWidth/10}}/>
-                    </View>
-                    <View style={styles.gobRow}>
-                    <View style={{width:screenWidth/20}}/>
-                    <EntypoIcon
-                        name="youtube-with-circle"
-                        style={styles.iconoFacebook}
-                    />
-                        <OpenURLButton url={'http://www.youtube.com/channel/UCBowHJV2R1w-ubCYFESL4Lw'}>siap.sader</OpenURLButton>
-                    <View style={{width:screenWidth/10}}/>
-                    <EntypoIcon
-                        name="instagram-with-circle"
-                        style={styles.iconoFacebook}
-                    />
-                        <OpenURLButton url={'http://www.instagram.com/siap_mx/'}>@siap_mx</OpenURLButton>
-                    <View style={{width:screenWidth/10}}/>
-                </View>
-                </View>
-                <TouchableOpacity style={[styles.btnContainer, styles.botonTerminos]} onPress={()=>{this.setState({visible:true});}}>
-                    <Text style={styles.caption}>Términos y Condiciones</Text>
-                </TouchableOpacity>
-                <Modal visible={this.state.visible} onTouchOutside={()=> {this.setState({visible:false});}} width={screenWidth-30}>
-                    <ModalContent>
-                            <Text style={styles.textoSIAP}>
-                                <Accordion sections={SECTIONS} renderHeader={this._renderHeader} renderContent={this._renderContent} onChange={this._updateSections} activeSections={this.state.activeSections}/>
-                            </Text>
-                    </ModalContent>
-                </Modal>
+                {Platform.OS==='ios'?
+                    <Fragment key={'ios'}>
+                        {this.buttons}
+                        <Fragment>
+                            <TouchableOpacity style={[styles.btnContainer, styles.botonTerminos]} onPress={()=>{this.setState({visible:true});}}>
+                                <Text style={styles.caption}>Términos y Condiciones</Text>
+                            </TouchableOpacity>
+                            <Modal visible={this.state.visible} onTouchOutside={()=> {this.setState({visible:false});}} width={screenContainer}>
+                                <ModalContent>
+                                    <Text style={styles.textoSIAP}>
+                                        <Accordion sections={SECTIONS} renderHeader={this._renderHeader} renderContent={this._renderContent} onChange={this._updateSections} activeSections={this.state.activeSections}/>
+                                    </Text>
+                                </ModalContent>
+                            </Modal>
+                        </Fragment>
+                    </Fragment>
+                    :
+                        <ScrollView key={'android'} style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
+                            <View style={{margin:30}}/>
+                            {this.buttons}
+                            <TouchableOpacity style={styles.terminos} disabled={true}>
+                                <Text style={styles.caption}>Términos y Condiciones</Text>
+                            </TouchableOpacity>
+                            <FlatList data={SECTIONS} renderItem={this.listSection} keyExtractor={item => item.title} horizontal={true} pagingEnabled={true}/>
+                        </ScrollView>
+                }
+
+
 
             </View>
         );
@@ -161,6 +187,23 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems:'center',
+    },
+    scrollView: {
+        backgroundColor: '#fff',
+        width: screenWidth-15,
+    },
+    scrollViewContainer: {
+        alignItems: 'center',
+    },
+    terminos:{
+        backgroundColor: "rgba(0,118,255,1)",
+        width:screenContainer,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius:7,
+        borderWidth: 2,
+        borderColor: "rgba(255,255,255,1)",
+        minHeight:40,
     },
    textoSIAP: {
         fontFamily: "montserrat-regular",
@@ -187,7 +230,6 @@ const styles = StyleSheet.create({
         backgroundColor: "rgba(0,118,255,1)",
         borderWidth: 2,
         borderColor: "rgba(255,255,255,1)",
-        borderStyle: "solid",
         borderRadius: 7,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -202,7 +244,6 @@ const styles = StyleSheet.create({
         fontFamily: "roboto-700",
         color: "rgba(0,120,83,1)",
         fontSize: 32,
-
     },
     mxSiap: {
         fontFamily: "montserrat-500",
@@ -216,10 +257,8 @@ const styles = StyleSheet.create({
     },
 
     btnContainer: {
-        backgroundColor: "#673AB7",
         justifyContent: "center",
         alignItems: "center",
-        flexDirection: "row",
         borderRadius: 2,
         shadowColor: "#000",
         shadowOffset: {
@@ -229,7 +268,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.35,
         shadowRadius: 5,
         elevation: 2,
-        minWidth: 88,
         paddingLeft: 16,
         paddingRight: 16
     },

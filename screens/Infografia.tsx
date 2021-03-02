@@ -50,28 +50,6 @@ function Infografia({navigation}) {
             <View style={{width:screenContainer}}>
                 <FlatList data={infos} renderItem={renderItem} keyExtractor={item => item.id} />
             </View>
-
-                    {/*<ScrollView
-                        horizontal={false}
-                        contentContainerStyle={styles.scrollArea_contentContainerStyle}
-                    >
-                        <View style={styles.nombreInfografiaRow}>
-                            <TextInput
-                                placeholder="Servicio de Información Agroalimentaria y Pesquera"
-                                multiline={true}
-                                numberOfLines={2}
-                                style={styles.nombreInfografia}
-                            ></TextInput>
-                            <Icon name="download" style={styles.iconoDescargar}></Icon>
-                        </View>
-                    </ScrollView>
-                </View>
-                <Text style={styles.tituloInfografias}>INFOGRAFÍAS</Text>
-                <Image
-                    source={require("../assets/images/infografia_.jpg")}
-                    resizeMode="contain"
-                    style={styles.iconoInfografia}
-                ></Image>*/}
         </View>
     );
 }

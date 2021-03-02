@@ -360,6 +360,8 @@ const imagesArray = {
     'infografia13': Images.infografia13,
 
     'info1': Images.info1,
+    'info1_1': Images.info1_1,
+    'info1_2': Images.info1_2,
     'info2': Images.info2,
     'info3': Images.info3,
     'info4': Images.info4,

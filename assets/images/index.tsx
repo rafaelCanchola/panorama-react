@@ -347,6 +347,8 @@ const images={
     infografia13: require('./infologo/infografia13.jpg'),
 
     info1: require('./infografia/info1.jpg'),
+    info1_1: require('./infografia/info1_1.png'),
+    info1_2: require('./infografia/info1_2.png'),
     info2: require('./infografia/info2.jpg'),
     info3: require('./infografia/info3.jpg'),
     info4: require('./infografia/info4.jpg'),
