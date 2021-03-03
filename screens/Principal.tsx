@@ -1,4 +1,4 @@
-import {Component} from "react";
+import {Component,Fragment} from "react";
 import React from "react";
 import {View, StyleSheet, Text, Dimensions, Image} from "react-native"
 
@@ -10,18 +10,35 @@ const screenWidth = Dimensions.get("window").width
 const screenContainer = screenWidth - 30
 
 export default class Principal extends Component {
+    menuPrincipalSelector = false;
     render(){
         return(
             <View style={styles.container}>
-                <View style={{flex:1, justifyContent: "center",alignItems:'center'}}>
-                    <View style={{padding:20}}></View>
-                    <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
-                    <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
-                    <BotonProducto style={styles.botonProducto}></BotonProducto>
-                    <BotonInfografias style={styles.botonInfografias}></BotonInfografias>
-                    <View style={{flex:1}}></View>
+                <View style={{flex:1,backgroundColor:'white'}}>
+                    {
+                        this.menuPrincipalSelector ?
+                            <Fragment>
+                                <View style={{padding:30}}/>
+                                <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
+                                <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
+                                <View style={{width:screenWidth-30}}>
+                                    <BotonProducto style={styles.botonProducto}/>
+                                    <BotonInfografias style={styles.botonProducto}/>
+                                </View>
+                                <View style={{flex:1}}/>
+                                <Image source={require('../assets/images/header.png')} resizeMode="cover" style={{width:screenWidth,height:60}}/>
+                            </Fragment>
+                            :
+                            <Fragment>
+                                <View style={{padding:20}}/>
+                                <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
+                                <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
+                                <BotonProducto style={styles.botonOldProducto}></BotonProducto>
+                                <BotonInfografias style={[styles.botonOldProducto,{backgroundColor: "rgba(0,96,142,1)",}]}/>
+                                <View style={{flex:1}}/>
+                            </Fragment>
+                    }
                 </View>
-
             </View>
         )
     }
@@ -30,7 +47,6 @@ export default class Principal extends Component {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems:"center",
     },
     intro: {
         fontFamily: "montserrat-regular",
@@ -38,10 +54,29 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign: "center",
         alignSelf: "center",
-        margin:10,
+        margin:30,
         width:screenWidth -60
     },
     botonProducto: {
+        width: screenWidth-10,
+        minHeight:50,
+        backgroundColor: "#643241",
+        borderWidth: 2,
+        borderColor: "rgba(255,255,255,1)",
+        borderStyle: "solid",
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            height: 7,
+            width: 3
+        },
+        elevation: 12,
+        shadowOpacity: 0.4,
+        shadowRadius: 4,
+        borderRadius: 25,
+        margin:15,
+        alignSelf: "flex-end"
+    },
+    botonOldProducto:{
         width: screenWidth-30,
         minHeight:50,
         backgroundColor: "rgba(0,120,83,1)",
@@ -60,21 +95,5 @@ const styles = StyleSheet.create({
         margin:10,
         alignSelf: "center"
     },
-    botonInfografias: {
-        width: screenWidth-30,
-        minHeight:50,
-        borderWidth: 2,
-        borderColor: "rgba(255,255,255,1)",
-        borderRadius: 7,
-        shadowColor: "rgba(0,0,0,1)",
-        shadowOffset: {
-            width: 3,
-            height: 7
-        },
-        elevation: 12,
-        shadowOpacity: 0.4,
-        shadowRadius: 4,
-        margin:10,
-        alignSelf: "center"
-    },
+
 });

@@ -42,8 +42,10 @@ function ProductoTabs ({navigation,route}){
 }
 
 function PrincipalTabs({navigation,route}){
-    const colorNormal = '#c1a781';
-    const colorLighter = CambioColor(0.5,'#c1a781');
+    const menuOld = '#c1a781';
+    const menuRojo = '#643241';
+    const colorNormal = menuOld;
+    const colorLighter = CambioColor(0.5,colorNormal);
     return(
         <TabMain.Navigator initialRouteName={'Principal'} tabBarOptions={{
             inactiveTintColor: colorLighter,
