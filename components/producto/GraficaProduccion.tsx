@@ -1,12 +1,11 @@
 import React, {Component} from "react";
-import {StyleSheet, Text, View, Dimensions,} from "react-native";
+import { Text, View, Dimensions,} from "react-native";
 import {
     VictoryBar,
     VictoryTooltip,
     VictoryChart,
     VictoryAxis,
     VictoryLine,
-    VictoryLegend,
     VictoryTheme,
     VictoryBrushContainer,
     createContainer, VictoryGroup,
@@ -14,7 +13,6 @@ import {
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
-
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
 
 export default class GraficaProduccion extends Component{
@@ -22,12 +20,25 @@ export default class GraficaProduccion extends Component{
         super();
         this.state = {};
     }
+    leyendaFlag = true;
     handleZoom(domain) {
         this.setState({selectedDomain: domain});
     }
 
     handleBrush(domain) {
         this.setState({zoomDomain: domain});
+    }
+
+    mostrarLeyenda(anio,volumen,promedio,unidad){
+        let leyenda = '';
+        if (this.leyendaFlag){
+            leyenda = unidad+ '\n' +anio + ': '+volumen
+        }else{
+            leyenda = 'Promedio:'+promedio
+        }
+        this.leyendaFlag = !this.leyendaFlag
+        return leyenda
+
     }
 
     render() {
@@ -56,18 +67,16 @@ export default class GraficaProduccion extends Component{
                               theme={VictoryTheme.material}
                               containerComponent={
                                   <VictoryZoomVoronoiContainer
-                                      voronoiBlacklist={["promedio"]}
-                                      labels={({ datum }) =>
-                                          datum.aniovolumen + ': '+datum.volumenproduccion.toLocaleString()}
+                                      labels={({ datum }) => this.mostrarLeyenda(datum.aniovolumen,datum.volumenproduccion.toLocaleString(),datum.promedio.toLocaleString(),vol[0].unidad)
+                                      }
                                       zoomDimension="x"
                                       zoomDomain={this.state.zoomDomain}
                                       onZoomDomainChange={this.handleZoom.bind(this)}
                                       voronoiDimension="x"
-                                      labelComponent={<VictoryTooltip flyoutStyle={{fill: productColor}} style={{fill: "white"}}/>}
+                                      labelComponent={<VictoryTooltip flyoutStyle={{fill: productColor}} style={{fill: "white"}} center={{ x: screenWidth/2, y: 50 }}/>}
                                   />
                               }
                 >
-                    <VictoryLegend title={'Promedio\n'+vol[0].promedio.toLocaleString()} x={screenWidth/1.4} y={20} style={{title:{fontSize:20,fill:productColor}}} centerTitle orientation={'horizontal'} gutter={20} data={[{name:'',symbol:{fill:'white'}}]}/>
                     <VictoryAxis />
                     {/*
                   Propiedades de <VictoryBar>

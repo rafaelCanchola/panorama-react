@@ -1,6 +1,18 @@
 import {Component, Fragment,useCallback} from "react";
 import React from "react";
-import {View, StyleSheet, Text, Dimensions, TouchableOpacity, Linking, Button, Platform, FlatList, ScrollView} from "react-native"
+import {
+    View,
+    StyleSheet,
+    Text,
+    Dimensions,
+    TouchableOpacity,
+    Linking,
+    Button,
+    Platform,
+    FlatList,
+    ScrollView,
+    Image
+} from "react-native"
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import {Modal,ModalContent} from "react-native-modals";
 import Accordion from "react-native-collapsible/Accordion";
@@ -13,7 +25,7 @@ const OpenURLButton = ({ url, children }) => {
     const handlePress = useCallback(async () => {
         await Linking.openURL(url);
         }, [url]);
-    return <Button title={children} onPress={handlePress} />;
+    return <Button title={children} onPress={handlePress} color={'#643241'} />;
 };
 
 const OpenGobButton = ({ url}) => {
@@ -35,11 +47,11 @@ const siap = 'El Servicio de Información Agroalimentaria y Pesquera,' +
     ' Nacional de Información para el Desarrollo Rural Sustentable.\n';
 
 const SECTIONS =[
-    {title:'Condiciones',content:'El Servicio de Información Agroalimentaria y Pesquera (SIAP) solicita al usuario de ' +
+    {id: 0,title:'Condiciones',content:'El Servicio de Información Agroalimentaria y Pesquera (SIAP) solicita al usuario de ' +
             'esta aplicación que lea detalladamente las condiciones y la política de privacidad' +
             'antes de iniciar su exploración o utilización, y en caso de no estar de acuerdo, le' +
             'sugerimos que se abstenga de acceder o navegar.'},
-    {title: 'Aceptación de Términos',content:'La descarga y uso de la aplicación atribuye' +
+    {id: 1,title: 'Aceptación de Términos',content:'La descarga y uso de la aplicación atribuye' +
             ' la condición de usuario de la misma e implica la lectura, entendimiento y' +
             ' aceptación de todos los términos y condiciones recogidas por la presente.' +
             '\nCuando un usuario accede a la aplicación Panorama Agroalimentario lo hace' +
@@ -54,17 +66,17 @@ const SECTIONS =[
             'El acceso y descarga de la aplicación es gratuita, salvo en lo relativo al costo' +
             ' de la conexión a través de la red de telecomunicaciones suministrada por el ' +
             'proveedor de acceso contratado por el usuario.\n'},
-    {title: 'Derechos Morales y Patrimoniales',content:'La aplicación y la totalidad de su contenido' +
+    {id: 2,title: 'Derechos Morales y Patrimoniales',content:'La aplicación y la totalidad de su contenido' +
             ' (textos, gráficos, logos, animaciones y sonidos) son propiedad intelectual del SIAP y ' +
             'están protegidos por la Ley Federal del Derecho de Autor. Se permite la reproducción total ' +
             'o parcial, traducción, recuperación, exhibición, impresión, copia o descarga de cualquier ' +
             'material de esta aplicación exclusivamente para uso personal, siempre y cuando se haga referencia a la fuente de origen.\n'},
-    {title: 'Exclusión de Garantías. Responsabilidad',content:'SIAP no garantiza en todo momento la ' +
+    {id: 3,title: 'Exclusión de Garantías. Responsabilidad',content:'SIAP no garantiza en todo momento la ' +
             'disponibilidad de acceso y continuidad del funcionamiento de la presente aplicación móvil' +
             ' y de sus servicios, por lo que no será responsable de los daños y perjuicios causados al' +
             ' usuario como consecuencia de la indisponibilidad, fallos de acceso y falta de continuidad' +
             ' de la presente aplicación móvil y sus servicios.\n'},
-    {title: 'Privacidad',content:'SIAP se compromete a salvaguardar la privacidad de la información personal' +
+    {id: 4,title: 'Privacidad',content:'SIAP se compromete a salvaguardar la privacidad de la información personal' +
             ' del usuario obtenida a través de la aplicación, para lo cual adopta una política de confidencialidad' +
             ' de acuerdo con lo que se establece más adelante. Se entiende por información personal aquella ' +
             'suministrada por el usuario para el registro, la cual incluye datos como: nombre, identificación,' +
@@ -105,7 +117,7 @@ export default class Contacto extends Component{
     };
 
     listSection = ({item}) =>(
-        <View style={{width:screenWidth-35,margin:10}}>
+        <View style={{width:screenWidth-35,margin:10}} key={(item.id+10).toString()}>
             <Text style={styles.textoSIAP}>{item.title}.</Text>
             <Text style={styles.textoSIAP}>{item.content}</Text>
         </View>
@@ -113,6 +125,7 @@ export default class Contacto extends Component{
 
     buttons = [
         <View style={{width:screenContainer}}>
+            <Image source={require('../assets/images/siap.png')} resizeMode="contain" style={{width:screenWidth-110,height:120,alignSelf:'center',marginBottom:10}}/>
             <Text style={styles.textoSIAP}>{siap}</Text>
             <OpenGobButton url={'https://www.gob.mx/siap'}/>
             <View style={styles.gobRow}>
@@ -151,7 +164,7 @@ export default class Contacto extends Component{
                     <Fragment key={'ios'}>
                         {this.buttons}
                         <Fragment>
-                            <TouchableOpacity style={[styles.btnContainer, styles.botonTerminos]} onPress={()=>{this.setState({visible:true});}}>
+                            <TouchableOpacity style={styles.botonTerminos} onPress={()=>{this.setState({visible:true});}}>
                                 <Text style={styles.caption}>Términos y Condiciones</Text>
                             </TouchableOpacity>
                             <Modal visible={this.state.visible} onTouchOutside={()=> {this.setState({visible:false});}} width={screenContainer}>
@@ -170,7 +183,7 @@ export default class Contacto extends Component{
                             <TouchableOpacity style={styles.terminos} disabled={true}>
                                 <Text style={styles.caption}>Términos y Condiciones</Text>
                             </TouchableOpacity>
-                            <FlatList data={SECTIONS} renderItem={this.listSection} keyExtractor={item => item.title} horizontal={true} pagingEnabled={true}/>
+                            <FlatList data={SECTIONS} renderItem={this.listSection} keyExtractor={item => item.id.toString()} horizontal={true} pagingEnabled={true}/>
                         </ScrollView>
                 }
 
@@ -196,7 +209,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     terminos:{
-        backgroundColor: "rgba(0,118,255,1)",
+        backgroundColor: "#643241",
         width:screenContainer,
         justifyContent: "center",
         alignItems: "center",
@@ -221,13 +234,16 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-regular",
         color: "rgba(0,0,238,1)",
         fontSize: 16,
-        textDecorationLine: "underline",
         marginLeft: 7,
         marginTop: 12
     },
    botonTerminos: {
         minHeight:50,
-        backgroundColor: "rgba(0,118,255,1)",
+       justifyContent: "center",
+       alignItems: "center",
+       paddingLeft: 16,
+       paddingRight: 16,
+       backgroundColor: "#643241",
         borderWidth: 2,
         borderColor: "rgba(255,255,255,1)",
         borderRadius: 7,
@@ -256,21 +272,7 @@ const styles = StyleSheet.create({
         margin:15,
     },
 
-    btnContainer: {
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 2,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1
-        },
-        shadowOpacity: 0.35,
-        shadowRadius: 5,
-        elevation: 2,
-        paddingLeft: 16,
-        paddingRight: 16
-    },
+
     caption: {
         color: "#fff",
         fontSize: 16,

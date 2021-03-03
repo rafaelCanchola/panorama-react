@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         margin:10,
         backgroundColor: "rgba(230,230, 230,0.75)",
         borderRadius: 5,
-        height: (screenHeight/1.35)
+        height: (screenHeight/1.4)
     },
     botonAgricola: {
         height: 60,
