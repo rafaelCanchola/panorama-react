@@ -14,31 +14,33 @@ export default class Principal extends Component {
     render(){
         return(
             <View style={styles.container}>
-                <View style={{flex:1,backgroundColor:'white'}}>
                     {
                         this.menuPrincipalSelector ?
                             <Fragment>
-                                <View style={{padding:30}}/>
-                                <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
-                                <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
-                                <View style={{width:screenWidth-30}}>
-                                    <BotonProducto style={styles.botonProducto}/>
-                                    <BotonInfografias style={styles.botonProducto}/>
+                                <View style={{flex:1,backgroundColor:'white'}}>
+                                    <View style={{padding:30}}/>
+                                    <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
+                                    <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
+                                    <View style={{width:screenWidth-30}}>
+                                        <BotonProducto style={styles.botonProducto}/>
+                                        <BotonInfografias style={styles.botonProducto}/>
+                                    </View>
+                                    <View style={{flex:1}}/>
+                                    <Image source={require('../assets/images/header.png')} resizeMode="cover" style={{width:screenWidth,height:60}}/>
                                 </View>
-                                <View style={{flex:1}}/>
-                                <Image source={require('../assets/images/header.png')} resizeMode="cover" style={{width:screenWidth,height:60}}/>
                             </Fragment>
                             :
                             <Fragment>
-                                <View style={{padding:20}}/>
-                                <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
-                                <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
-                                <BotonProducto style={styles.botonOldProducto}></BotonProducto>
-                                <BotonInfografias style={[styles.botonOldProducto,{backgroundColor: "rgba(0,96,142,1)",}]}/>
-                                <View style={{flex:1}}/>
+                                <View style={{flex:1, alignItems:'center', backgroundColor:'white'}}>
+                                    <View style={{padding:20}}/>
+                                    <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
+                                    <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
+                                    <BotonProducto style={styles.botonOldProducto}></BotonProducto>
+                                    <BotonInfografias style={[styles.botonOldProducto,{backgroundColor: "rgba(0,96,142,1)",}]}/>
+                                    <View style={{flex:1}}/>
+                                </View>
                             </Fragment>
                     }
-                </View>
             </View>
         )
     }
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         borderRadius: 7,
         margin:10,
-        alignSelf: "center"
+        alignSelf: "center",
     },
 
 });
