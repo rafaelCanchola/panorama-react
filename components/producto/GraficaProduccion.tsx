@@ -6,9 +6,10 @@ import {
     VictoryChart,
     VictoryAxis,
     VictoryLine,
+    VictoryLegend,
     VictoryTheme,
     VictoryBrushContainer,
-    createContainer,
+    createContainer, VictoryGroup,
 } from 'victory-native';
 
 const screenHeight = Dimensions.get('window').height
@@ -53,9 +54,9 @@ export default class GraficaProduccion extends Component{
                               width={screenWidth}
                               scale={{x: "time"}}
                               theme={VictoryTheme.material}
-                              animate={{duration: 500, onLoad: { duration: 250 }}}
                               containerComponent={
                                   <VictoryZoomVoronoiContainer
+                                      voronoiBlacklist={["promedio"]}
                                       labels={({ datum }) =>
                                           datum.aniovolumen + ': '+datum.volumenproduccion.toLocaleString()}
                                       zoomDimension="x"
@@ -66,6 +67,7 @@ export default class GraficaProduccion extends Component{
                                   />
                               }
                 >
+                    <VictoryLegend title={'Promedio\n'+vol[0].promedio.toLocaleString()} x={screenWidth/1.4} y={20} style={{title:{fontSize:20,fill:productColor}}} centerTitle orientation={'horizontal'} gutter={20} data={[{name:'',symbol:{fill:'white'}}]}/>
                     <VictoryAxis />
                     {/*
                   Propiedades de <VictoryBar>
@@ -76,18 +78,22 @@ export default class GraficaProduccion extends Component{
                     x: y: Recibe el nombre y formato de la información del eje X
                     labels: Especifica el dato que tendrán los labels o pop ups de la grafica
                   */}
-                    <VictoryBar
-                        cornerRadius={{ top: 10 }}
-                        style={{
-                            data: {
-                                fill: productColor,
-                                width: 20
-                            }
-                        }}
-                        data={vol}
-                        x={(datum) => new Date(datum.aniovolumen, 1, 1)}
-                        y={(datum) => datum.volumenproduccion}
-                    />
+                  <VictoryGroup>
+                      <VictoryBar
+                          cornerRadius={{ top: 10 }}
+                          style={{
+                              data: {
+                                  fill: productColor,
+                                  width: 20
+                              }
+                          }}
+                          data={vol}
+                          x={(datum) => new Date(datum.aniovolumen, 1, 1)}
+                          y={(datum) => datum.volumenproduccion}
+                      />
+                      <VictoryLine name={'promedio'} data={vol} x={(datum) => new Date(datum.aniovolumen, 1, 1)} y={(datum) => datum.promedio}
+                      style={{data:{ strokeDasharray:10,stroke:'red', strokeLinecap:'round',strokeWidth:2}}} />
+                  </VictoryGroup>
 
                 </VictoryChart>
                 <VictoryChart

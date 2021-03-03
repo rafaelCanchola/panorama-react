@@ -43,14 +43,12 @@ export default class GraficaComercio extends Component{
                     <VictoryVoronoiContainer
                         labels={({datum}) =>(datum.idcomercio == 1 ? 'Exportaciones: ' : datum.aniovolumen.toString() + '\nImportaciones: ') + datum.volumenproduccion.toLocaleString()}
                         voronoiDimension="x"
-                        labelComponent={<VictoryTooltip flyoutStyle={{fill: 'black'}} style={{fill: "white"}}
-                                                        center={{ x: screenWidth/2, y: 80 }}/>}
+                        labelComponent={<VictoryTooltip flyoutStyle={{fill: 'black'}} style={{fill: "white"}} center={{ x: screenWidth/2, y: 80 }}/>}
                     />}
                 >
                     <VictoryAxis tickFormat={(t)=> t.toString()} />
-                  <VictoryGroup offset={10} animate={{duration: 500, onLoad: { duration: 250 }}}
-                  >
-                      <VictoryBar
+                    <VictoryGroup offset={10} >
+                        <VictoryBar
                           style={{
                               data: {
                                   fill: importacionesColor,
@@ -60,8 +58,8 @@ export default class GraficaComercio extends Component{
                           data={importacionesVal}
                           x={(datum) => datum.aniovolumen}
                           y={(datum) => (datum.volumenproduccion < 1) ? datum.volumenproduccion  : datum.volumenproduccion}
-                      />
-                      <VictoryBar
+                        />
+                        <VictoryBar
                           style={{
                               data: {
                                   fill: exportacionesColor,
@@ -71,9 +69,8 @@ export default class GraficaComercio extends Component{
                           data={exportacionesVal}
                           x={(datum) => datum.aniovolumen}
                           y={(datum) => (datum.volumenproduccion < 1) ? datum.volumenproduccion  : datum.volumenproduccion}
-                      />
-
-                  </VictoryGroup>
+                        />
+                    </VictoryGroup>
                 </VictoryChart>
                 <Text style={{ textAlign: 'center', fontFamily: "montserrat-500"}}>
                     <Icon name={"square"} size={10} color={importacionesColor} solid/>{' Importaciones     '}
