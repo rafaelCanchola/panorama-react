@@ -1,6 +1,6 @@
 import {Component,Fragment} from "react";
 import React from "react";
-import {View, StyleSheet, Text, Dimensions, Image} from "react-native"
+import {View, StyleSheet, Text, Dimensions, Image,TouchableOpacity} from "react-native"
 
 import BotonInfografias from "../components/principal/BotonInfografias";
 import BotonProducto from "../components/principal/BotonProducto";
@@ -10,36 +10,54 @@ const screenWidth = Dimensions.get("window").width
 const screenContainer = screenWidth - 30
 
 export default class Principal extends Component {
-    menuPrincipalSelector = false;
+    constructor() {
+        super();
+        this.state = {menuPrincipalSelector: true, llave: 1};
+    }
+
+    SelectorMenu(){
+        if(this.state.menuPrincipalSelector){
+            return this.menuRojo;
+        }else{
+            return this.menuDorado;
+        }
+    }
+    menuRojo=[
+        <Fragment>
+            <View style={{flex:1,backgroundColor:'white'}} key={()=>this.state.llave}>
+                <View style={{padding:30}}/>
+                <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
+                <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
+                    <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text> 
+                </TouchableOpacity>
+                <View style={{width:screenWidth-30}}>
+                    <BotonProducto style={styles.botonProducto}/>
+                    <BotonInfografias style={styles.botonProducto}/>
+                </View>
+                <View style={{flex:1}}/>
+                <Image source={require('../assets/images/header.png')} resizeMode="cover" style={{width:screenWidth,height:60}}/>
+            </View>
+        </Fragment>
+    ];
+    menuDorado=[
+        <Fragment>
+            <View style={{flex:1, alignItems:'center', backgroundColor:'white'}} key={()=>this.state.llave}>
+                <View style={{padding:20}}/>
+                <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
+                <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
+                    <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
+                </TouchableOpacity>
+                <BotonProducto style={styles.botonOldProducto}></BotonProducto>
+                <BotonInfografias style={[styles.botonOldProducto,{backgroundColor: "rgba(0,96,142,1)",}]}/>
+                <View style={{flex:1}}/>
+            </View>
+        </Fragment>
+    ];
     render(){
         return(
             <View style={styles.container}>
                     {
-                        this.menuPrincipalSelector ?
-                            <Fragment>
-                                <View style={{flex:1,backgroundColor:'white'}}>
-                                    <View style={{padding:30}}/>
-                                    <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
-                                    <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
-                                    <View style={{width:screenWidth-30}}>
-                                        <BotonProducto style={styles.botonProducto}/>
-                                        <BotonInfografias style={styles.botonProducto}/>
-                                    </View>
-                                    <View style={{flex:1}}/>
-                                    <Image source={require('../assets/images/header.png')} resizeMode="cover" style={{width:screenWidth,height:60}}/>
-                                </View>
-                            </Fragment>
-                            :
-                            <Fragment>
-                                <View style={{flex:1, alignItems:'center', backgroundColor:'white'}}>
-                                    <View style={{padding:20}}/>
-                                    <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
-                                    <Text style={styles.intro}>Un campo productivo, inclusivo y sustentable para alimentar a México.</Text>
-                                    <BotonProducto style={styles.botonOldProducto}></BotonProducto>
-                                    <BotonInfografias style={[styles.botonOldProducto,{backgroundColor: "rgba(0,96,142,1)",}]}/>
-                                    <View style={{flex:1}}/>
-                                </View>
-                            </Fragment>
+                        this.SelectorMenu()
                     }
             </View>
         )
