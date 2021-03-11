@@ -19,7 +19,7 @@ const screenWidth = Dimensions.get("window").width
 
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
 
-export default class GraficaComercio extends Component{
+export default class GraficaComercio extends Component<any, any>{
     constructor() {
         super();
         this.state = {};

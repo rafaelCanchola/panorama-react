@@ -19,7 +19,7 @@ function Infografia({navigation}) {
         {id:'1',title:'Servicio de Información Agroalimentaria y Pesquera',image:'info1',logo:'infografia1'},
         {id:'2',title:'México, sector agroalimentario en cifras',image:'info2',logo:'infografia2'},
         {id:'3',title:'Frontera agrícola en México, lugar donde se produce bienestar',image:'info3',logo:'infografia3'},
-        {id:'4',title:'¿Quiénes generarn la producción agropecuaria y pesquera en México?',image:'info4',logo:'infografia4'},
+        {id:'4',title:'¿Quiénes generan la producción agropecuaria y pesquera en México?',image:'info4',logo:'infografia4'},
         {id:'5',title:'Productos agroalimentarios mexicanos en los mercados internacionales',image:'info5',logo:'infografia5'},
         {id:'6',title:'Sector exportador agroalimentario de México',image:'info6',logo:'infografia6'},
         {id:'7',title:'Calendario Agrícola 2020',image:'info7',logo:'infografia7'},

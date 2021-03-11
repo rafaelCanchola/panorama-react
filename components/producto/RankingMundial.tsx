@@ -13,36 +13,29 @@ export default function RankingMundial(props) {
             <View style={styles.container}>
                 <Text style={styles.titulo}>Ranking Mundial</Text>
                 <View style={{flexDirection:'column',flex:1}}>
-                    <View style={{flexDirection:'row',flex:1}}>
-                        <View style={{width:screenWidth/6}} />
-                        <View style={{}}>
+                    <View style={{flexDirection:'row',flex:1,alignItems:'center'}}>
+                        <View style={{flexDirection:'row',width:screenWidth/2,justifyContent:'center'}}>
                             <Text style={[styles.ranking,{color:props.color}]}>
                                 {props.rank}
                             </Text>
-                        </View>
-                        <View style={{}}>
                             {props.rank === '1' ? <Text style={[styles.primerrank,{color:props.color,}]}>er</Text> : <Text style={[styles.ranking,{color:props.color,}]}>º</Text>}
                         </View>
-                        <View style={{width:screenWidth/5}}/>
                         <View style={{width:screenWidth/2}}>
                             <Image source={require("../../assets/images/paises/mx.png")} resizeMode="contain" style={{width:screenWidth/2.5, height:screenWidth/4}}/>
                         </View>
                     </View>
                 </View>
-                <View style={{flexDirection:'row',flex:1}}>
-                    <View style={{width:screenWidth/5}} />
-                    <View style={{width:screenWidth/5}}>
+                <View style={{flexDirection:'row',flex:1,justifyContent:'center',alignItems:'center'}}>
+                    <View style={{width:screenWidth/2}}>
                         <Text style={styles.ranktext}>
                             productor mundial
                         </Text>
                     </View>
-                    <View style={{width:screenWidth/3}} />
-                    <View style={{width:screenWidth/5}}>
+                    <View style={{width:screenWidth/2}}>
                         <Text style={styles.ranktext}>
                             México
                         </Text>
                     </View>
-                    <View style={{width:screenWidth/5}} />
                 </View>
                 <TextoAgroindustriales participacion={props.volumen + ' toneladas'} color={props.color} style={{width:screenContainer,margin:10,}}/>
                 <View>

@@ -15,6 +15,9 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const CambioColor = require('../../components/CambioColor').default
 const ImagesArray = require('../../components/producto/ImagesArray').default
 
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get('window').height;
+
 function CalendarioProduccion(props) {
     let monthName = [
         {id:1,month:'Enero',prod:props.calendarioarr[0].enero,color:0},
@@ -30,14 +33,14 @@ function CalendarioProduccion(props) {
         {id:11,month:'Noviembre',prod:props.calendarioarr[0].noviembre,color:0},
         {id:12,month:'Diciembre',prod:props.calendarioarr[0].diciembre,color:0},];
     let disponibilidad = [];
-    const screenWidth = Dimensions.get("window").width;
-    const screenHeight = Dimensions.get('window').height;
     const Item = ({month,info,color}) =>(
         <ImageBackground
             source={ImagesArray(month)}
             resizeMode={"contain"}
             style={[styles.imagenConsumo,{backgroundColor:CambioColor(color,props.color),width:(screenWidth/3.2),height:(screenWidth/3.2)}]}>
+
             <Text style={[styles.datoConsumo,{color:'black'}]}>{info}</Text>
+
         </ImageBackground>
     );
 
@@ -71,6 +74,9 @@ function CalendarioProduccion(props) {
 const styles = StyleSheet.create({
     imagenConsumo: {
         flex:1,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent: 'center',
     },
     fechaConsumo: {
         fontFamily: "montserrat-700",
@@ -84,7 +90,7 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-700",
         fontSize: 38,
         textAlign: 'center',
-        top:55,
+
     }
 
 });

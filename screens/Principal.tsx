@@ -9,7 +9,7 @@ const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
 const screenContainer = screenWidth - 30
 
-export default class Principal extends Component {
+export default class Principal extends Component<any, any> {
     constructor() {
         super();
         this.state = {menuPrincipalSelector: false, llave: 1};
