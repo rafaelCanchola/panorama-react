@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {
     StyleSheet,
     View,
@@ -7,47 +7,37 @@ import {
     Text,
     TouchableOpacity, FlatList, Dimensions
 } from "react-native";
+import {bindActionCreators} from "redux";
+import {addProducto,addConteo,deleteProductos} from "../actions/analyticsActions";
+import {connect} from 'react-redux';
 import BotonMostrarSector from "../components/catalogo/BotonMostrarSector";
-const ImagesArray = require('../components/producto/ImagesArray').default
 
 import produc from "../json/productos";
+
+const ImagesArray = require('../components/producto/ImagesArray').default
+
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get('window').height;
 
-function Catalogo({navigation}) {
+
+class Catalogo extends Component<any, any>{
+
+    render(){
+        const {navigation,productos} = this.props;
 
     const pagesArray = [
         {id:'1',img:'agricola',limite:[0,60]},{id:'2',img:'pecuario',limite:[60,69]},{id:'3',img:'pesquero',limite:[69,75]}
     ];
 
-    {/*
-    <View style={styles.imagenFondoStack}>
-                <ImageBackground
-                    source={require("../assets/images/.jpg")}
-                    resizeMode="center"
-                    style={styles.imagenFondo}
-                    imageStyle={styles.imagenFondo_imageStyle}
-                >
-                    <View style={styles.scrollArea}>
-                        <ScrollView
-                            horizontal={false}
-                            contentContainerStyle={styles.scrollArea_contentContainerStyle}
-                        >
-
-                        </ScrollView>
-                    </View>
-                </ImageBackground>
-                <TouchableOpacity style={styles.radioCatalogos}>
-                    <View style={styles.radioAgricolaRow}>
-                        <MaterialRadio style={styles.radioAgricola}></MaterialRadio>
-                        <MaterialRadio style={styles.radioPecuario}></MaterialRadio>
-                        <MaterialRadio style={styles.radioPesquero}></MaterialRadio>
-                    </View>
-                </TouchableOpacity>
-                <BotonMostrarAgricola style={styles.botonAgricola}></BotonMostrarAgricola>
-            </View>
-    */}
-
+    const NavigateProducto = (idproducto:Number,color_fondo:any,producto:any) => {
+        let busqueda = productos.find(producto => producto.idProducto == idproducto);
+        if(typeof(busqueda) !== 'undefined' && busqueda != null ){
+            this.props.addConteo(idproducto);
+        }else{
+            this.props.addProducto(idproducto);
+        }
+        navigation.navigate('Productos', {id:idproducto,color:color_fondo,name:producto})
+    }
 
     const Item = ({sector,limite}) => (
         <ImageBackground source={ImagesArray(sector)}
@@ -75,9 +65,9 @@ function Catalogo({navigation}) {
     );
     const renderProduct = ({item}) => (
     <View style={styles.iconoProductoRow}>
-        <TouchableOpacity style={styles.botonProducto} onPress={() => navigation.navigate(
-            'Productos', {id:item.idproducto,color:item.color_fondo,name:item.producto}
-            )}>
+        <TouchableOpacity style={styles.botonProducto} onPress={() =>
+            NavigateProducto(item.idproducto,item.color_fondo,item.producto)
+        }>
             <Image
                 source={ImagesArray(item.imagen_producto.split("\/")[1])}
                 resizeMode="cover"
@@ -92,12 +82,25 @@ function Catalogo({navigation}) {
         <Item sector={item.img} limite={item.limite}/>
         );
 
-    return (
-        <View style={styles.container}>
-            <FlatList data={pagesArray} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} pagingEnabled={true} />
-        </View>
-    );
+        return (
+            <View style={styles.container}>
+                <FlatList data={pagesArray} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} pagingEnabled={true} />
+            </View>
+        );
+    }
 }
+
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ addProducto, addConteo }, dispatch)
+}
+const mapStateToProps = (state) => {
+    return{
+        productos: state.analytics.productos,
+    }
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(Catalogo)
 
 const styles = StyleSheet.create({
     container: {
@@ -169,4 +172,3 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Catalogo;

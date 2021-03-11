@@ -1,3 +1,4 @@
 import {combineReducers} from "redux";
 import visibility from "./visibility";
-export default combineReducers({visibility});
+import analytics from "./analytics";
+export default combineReducers({analytics,visibility});

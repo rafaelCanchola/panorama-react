@@ -16,6 +16,9 @@ import {
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import {Modal,ModalContent} from "react-native-modals";
 import Accordion from "react-native-collapsible/Accordion";
+import {bindActionCreators} from "redux";
+import {updateVisible} from "../actions/visibilityActions";
+import {connect} from "react-redux";
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get("window").width
@@ -91,9 +94,8 @@ const SECTIONS =[
 ];
 
 
-export default class Contacto extends Component{
+class Contacto extends Component<any, any>{
     state ={
-        visible:false,
         activeSections:[],
     }
 
@@ -164,16 +166,17 @@ export default class Contacto extends Component{
 
 
     render() {
+        const {visible} = this.props;
         return (
             <View style={styles.container}>
                 {Platform.OS==='ios'?
                     <Fragment key={'ios'}>
                         {this.buttons}
                         <Fragment>
-                            <TouchableOpacity style={styles.botonTerminos} onPress={()=>{this.setState({visible:true});}}>
+                            <TouchableOpacity style={styles.botonTerminos} onPress={()=>{this.props.updateVisible(true)}}>
                                 <Text style={styles.caption}>Términos y Condiciones</Text>
                             </TouchableOpacity>
-                            <Modal visible={this.state.visible} onTouchOutside={()=> {this.setState({visible:false});}} width={screenContainer}>
+                            <Modal visible={visible} onTouchOutside={()=> {this.props.updateVisible(false)}} width={screenContainer}>
                                 <ModalContent>
                                     <Text style={styles.textoSIAP}>
                                         <Accordion sections={SECTIONS} renderHeader={this._renderHeader} renderContent={this._renderContent} onChange={this._updateSections} activeSections={this.state.activeSections}/>
@@ -199,6 +202,18 @@ export default class Contacto extends Component{
         );
     }
 };
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ updateVisible}, dispatch)
+}
+const mapStateToProps = (state) => {
+    return{
+        visible: state.visibility.visible,
+    }
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(Contacto)
+
 
 
 const styles = StyleSheet.create({
