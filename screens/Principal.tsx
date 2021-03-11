@@ -12,7 +12,7 @@ const screenContainer = screenWidth - 30
 export default class Principal extends Component {
     constructor() {
         super();
-        this.state = {menuPrincipalSelector: true, llave: 1};
+        this.state = {menuPrincipalSelector: false, llave: 1};
     }
 
     SelectorMenu(){
@@ -25,7 +25,7 @@ export default class Principal extends Component {
     menuRojo=[
         <Fragment>
             <View style={{flex:1,backgroundColor:'white'}} key={()=>this.state.llave}>
-                <View style={{padding:30}}/>
+                <View style={{flex:1}}/>
                 <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
                 <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
                     <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text> 
@@ -42,7 +42,7 @@ export default class Principal extends Component {
     menuDorado=[
         <Fragment>
             <View style={{flex:1, alignItems:'center', backgroundColor:'white'}} key={()=>this.state.llave}>
-                <View style={{padding:20}}/>
+                <View style={{flex:1}}/>
                 <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
                 <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
                     <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>

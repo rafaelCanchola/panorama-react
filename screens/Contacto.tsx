@@ -32,11 +32,12 @@ const OpenGobButton = ({ url}) => {
     const handlePress = useCallback(async () => {
         await Linking.openURL(url);
     }, [url]);
-    return <TouchableOpacity style={styles.gobRow} onPress={handlePress}>
-        <View style={{width: screenWidth / 4}}/>
-        <Text style={styles.gob}>gob</Text>
-        <Text style={styles.mxSiap}>.mx/siap</Text>
-    </TouchableOpacity>;
+    return <View style={{alignItems:'center',margin:10}}>
+        <TouchableOpacity style={[styles.gobRow,{alignItems:'center'}]} onPress={handlePress}>
+            <Text style={styles.gob}>gob</Text>
+            <Text style={styles.mxSiap}>.mx/siap</Text>
+        </TouchableOpacity>
+    </View>;
 };
 const siap = 'El Servicio de Información Agroalimentaria y Pesquera,' +
     ' órgano administrativo desconcentrado de la SADER es el encargado de' +
@@ -128,32 +129,37 @@ export default class Contacto extends Component{
             <Image source={require('../assets/images/siap.png')} resizeMode="contain" style={{width:screenWidth-110,height:120,alignSelf:'center',marginBottom:10}}/>
             <Text style={styles.textoSIAP}>{siap}</Text>
             <OpenGobButton url={'https://www.gob.mx/siap'}/>
-            <View style={styles.gobRow}>
-                <View style={{width:screenWidth/20}}/>
-                <OpenURLButton url={'https://www.facebook.com/siap.sader/'}>siap.sader</OpenURLButton>
-                <EntypoIcon
-                name="facebook-with-circle"
-                style={styles.iconoFacebook}/>
-                <View style={{width:screenWidth/20}}/>
-                <EntypoIcon
-                    name="twitter-with-circle"
-                    style={styles.iconoFacebook}/>
-                <OpenURLButton url={'https://www.twitter.com/siap_mx/'}>@siap_mx</OpenURLButton>
-                <View style={{width:screenWidth/20}}/>
+            <View style={{alignItems:"center",margin:10}}>
+                <View style={styles.gobRow}>
+                    <View style={{width:screenWidth/3,flexDirection:'row'}}>
+                        <OpenURLButton url={'https://www.facebook.com/siap.sader/'}>siap.sader</OpenURLButton>
+                        <EntypoIcon
+                            name="facebook-with-circle"
+                            style={styles.iconoFacebook}/>
+                    </View>
+                    <View style={{width:screenWidth/3,flexDirection:'row'}}>
+                        <EntypoIcon
+                            name="twitter-with-circle"
+                            style={styles.iconoFacebook}/>
+                        <OpenURLButton url={'https://www.twitter.com/siap_mx/'}>@siap_mx</OpenURLButton>
+                    </View>
+                </View>
+                <View style={styles.gobRow}>
+                    <View style={{width:screenWidth/3,flexDirection:'row'}}>
+                        <OpenURLButton url={'http://www.youtube.com/channel/UCBowHJV2R1w-ubCYFESL4Lw'}>siap.sader</OpenURLButton>
+                        <EntypoIcon
+                        name="youtube-with-circle"
+                        style={styles.iconoFacebook}/>
+                    </View>
+                    <View style={{width:screenWidth/3,flexDirection:'row'}}>
+                        <EntypoIcon
+                        name="instagram-with-circle"
+                        style={styles.iconoFacebook}/>
+                        <OpenURLButton url={'http://www.instagram.com/siap_mx/'}>@siap_mx</OpenURLButton>
+                    </View>
+                </View>
             </View>
-            <View style={styles.gobRow}>
-                <View style={{width:screenWidth/20}}/>
-                <OpenURLButton url={'http://www.youtube.com/channel/UCBowHJV2R1w-ubCYFESL4Lw'}>siap.sader</OpenURLButton>
-                <EntypoIcon
-                    name="youtube-with-circle"
-                    style={styles.iconoFacebook}/>
-                <View style={{width:screenWidth/20}}/>
-                <EntypoIcon
-                    name="instagram-with-circle"
-                    style={styles.iconoFacebook}/>
-                <OpenURLButton url={'http://www.instagram.com/siap_mx/'}>@siap_mx</OpenURLButton>
-                <View style={{width:screenWidth/20}}/>
-            </View>
+
     </View>];
 
 
@@ -269,7 +275,6 @@ const styles = StyleSheet.create({
     },
     gobRow: {
         flexDirection: "row",
-        margin:15,
     },
 
 
