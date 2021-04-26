@@ -6,7 +6,7 @@ function BotonProducto(props) {
     const navigation = useNavigation();
     return (
         <TouchableOpacity style={[styles.container, props.style]}
-                          onPress={() => navigation.navigate('Catalogo')}>
+                          onPress={() => navigation.navigate('Carousel')}>
             <Text style={styles.infografias}>
                 {props.infografias || "Busqueda por Producto"}
             </Text>

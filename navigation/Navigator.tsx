@@ -14,6 +14,7 @@ import Introduccion from "../screens/producto/Introduccion";
 import Produccion from "../screens/producto/Produccion";
 import Comercio from "../screens/producto/Comercio";
 import Monografia from "../screens/producto/Monografia";
+import Carousel from "../screens/Carousel";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import ImagenInfografia from "../screens/infografia/ImagenInfografia";
 const Stack = createStackNavigator();
@@ -81,7 +82,8 @@ export default function App(){
                     <Stack.Screen name={'Ayuda'} component={Ayuda}/>
                     <Stack.Screen name={'Infografia'} component={Infografia} options={{headerTitle:'Infografías', headerBackTitle:''}}/>
                     <Stack.Screen name={'InfografiaImagen'} component={ImagenInfografia} options={{headerTitle:'Infografía', headerBackTitle:''}}/>
-                    <Stack.Screen name={'Catalogo'} component={Catalogo}/>
+                    {/*<Stack.Screen name={'Catalogo'} component={Catalogo}/>*/}
+                    <Stack.Screen name={'Carousel'} component={Carousel} options={{headerShown:false}}/>
                     <Stack.Screen name={'Productos'} component={ProductoTabs} />
                 </Stack.Navigator>
             </NavigationContainer>

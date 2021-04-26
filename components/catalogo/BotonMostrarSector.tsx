@@ -11,13 +11,13 @@ export default class BotonMostrarSector extends Component<any, any>{
         let index:number = 0
 
         switch (this.props.nombre){
-            case 'agricola':
+            case 'Fagricola':
                 index = 0
             break
-            case 'pecuario':
+            case 'Fpecuario':
                 index = 1
             break
-            case 'pesquero':
+            case 'Fpesquero':
                 index = 2
             break
         }
