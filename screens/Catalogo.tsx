@@ -69,7 +69,7 @@ class Catalogo extends Component<any, any>{
             NavigateProducto(item.idproducto,item.color_fondo,item.producto)
         }>
             <Image
-                source={ImagesArray(item.imagen_producto.split("\/")[1])}
+                source={ImagesArray(item.imagen_producto)}
                 resizeMode="cover"
                 style={styles.iconoProducto}
             />

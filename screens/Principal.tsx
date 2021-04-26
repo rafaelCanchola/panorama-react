@@ -23,10 +23,10 @@ export default class Principal extends Component<any, any> {
         }
     }
     menuRojo=[
-        <Fragment>
-            <View style={{flex:1,backgroundColor:'white'}} key={()=>this.state.llave}>
+        <Fragment key={()=>this.state.llave}>
+            <View style={{flex:1,backgroundColor:'white'}} >
                 <View style={{flex:1}}/>
-                <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:170,marginTop:20}}/>
+                <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:screenContainer-180}}/>
                 <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
                     <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text> 
                 </TouchableOpacity>
@@ -40,8 +40,8 @@ export default class Principal extends Component<any, any> {
         </Fragment>
     ];
     menuDorado=[
-        <Fragment>
-            <View style={{flex:1, alignItems:'center', backgroundColor:'white'}} key={()=>this.state.llave}>
+        <Fragment key={()=>this.state.llave}>
+            <View style={{flex:1, alignItems:'center', backgroundColor:'white'}} >
                 <View style={{flex:1}}/>
                 <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
                 <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
