@@ -8,7 +8,7 @@ function BotonProducto(props) {
         <TouchableOpacity style={[styles.container, props.style]}
                           onPress={() => navigation.navigate('Carousel')}>
             <Text style={styles.infografias}>
-                {props.infografias || "Busqueda por Producto"}
+                {props.infografias || "BUSQUEDA POR PRODUCTO"}
             </Text>
         </TouchableOpacity>
     );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     infografias: {
         color: "#fff",
-        fontSize: 23,
+        fontSize: 20,
         fontFamily: "montserrat-regular",
         textAlign: "center",
         paddingLeft:30,

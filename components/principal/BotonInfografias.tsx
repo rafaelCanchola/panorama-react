@@ -8,7 +8,7 @@ function BotonInfografias(props) {
     return (
         <TouchableOpacity style={[styles.container, props.style]}
                           onPress={() => navigation.navigate('Infografia')}>
-            <Text style={styles.infografias}>Infografías</Text>
+            <Text style={styles.infografias}>INFOGRAFÍAS</Text>
         </TouchableOpacity>
     );
 }
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     infografias: {
         color: "#fff",
-        fontSize: 23,
+        fontSize: 20,
         fontFamily: "montserrat-regular",
         textAlign: "center",
         paddingLeft:30,
