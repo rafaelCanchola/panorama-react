@@ -8,7 +8,7 @@ const ImagesArray = require('../../components/producto/ImagesArray').default
 
 const { width: screenWidth } = Dimensions.get('window');
 const width = screenWidth/2;
-const height = screenWidth/2.5;
+const height = screenWidth/2;
 
 export class ProductoAnimado extends Component {
     static WIDTH = width;
@@ -20,8 +20,7 @@ export class ProductoAnimado extends Component {
             <Animated.View style={styles.container}>
                 <Animated.Image
                     style={[
-                        styles.planet,
-                        {
+                        {width:width,height:width,
                             transform: [
                                 {
                                     scale: animatedValue.interpolate({
@@ -40,7 +39,7 @@ export class ProductoAnimado extends Component {
                             ],
                         },
                     ]}
-                    resizeMode={"center"}
+                    resizeMode={"contain"}
                     source={ImagesArray(product.imagen_producto)}
                 />
                 <Animated.Text
@@ -73,7 +72,6 @@ export class ProductoAnimado extends Component {
 const styles = StyleSheet.create({
     container: {
         width: width,
-        height: height,
         alignItems: 'center',
         overflow: 'visible',
     },
