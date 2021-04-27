@@ -17,6 +17,10 @@ const imagesArray = {
     'Fpecuario' : Images.f_pecuario,
     'Fpesquero' : Images.f_pesquero,
 
+    'Fagricola2' : Images.fi_agricola,
+    'Fpecuario2' : Images.fi_pecuario,
+    'Fpesquero2' : Images.fi_pesquero,
+
     'b_aga.jpg' : Images.b_aga,
     'b_agu.jpg' : Images.b_agu,
     'b_ajo.jpg' : Images.b_ajo,

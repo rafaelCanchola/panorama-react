@@ -83,7 +83,7 @@ export default function App(){
                     <Stack.Screen name={'Infografia'} component={Infografia} options={{headerTitle:'Infografías', headerBackTitle:''}}/>
                     <Stack.Screen name={'InfografiaImagen'} component={ImagenInfografia} options={{headerTitle:'Infografía', headerBackTitle:''}}/>
                     {/*<Stack.Screen name={'Catalogo'} component={Catalogo}/>*/}
-                    <Stack.Screen name={'Carousel'} component={Carousel} options={{headerShown:false}}/>
+                    <Stack.Screen name={'Carousel'} component={Carousel} options={{headerShown:false, headerTitle:'Catálogo'}}/>
                     <Stack.Screen name={'Productos'} component={ProductoTabs} />
                 </Stack.Navigator>
             </NavigationContainer>

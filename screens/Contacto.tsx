@@ -174,7 +174,7 @@ class Contacto extends Component<any, any>{
                         {this.buttons}
                         <Fragment>
                             <TouchableOpacity style={styles.botonTerminos} onPress={()=>{this.props.updateVisible(true)}}>
-                                <Text style={styles.caption}>Términos y Condiciones</Text>
+                                <Text style={styles.caption}>TÉRMINOS Y CONDICIONES</Text>
                             </TouchableOpacity>
                             <Modal visible={visible} onTouchOutside={()=> {this.props.updateVisible(false)}} width={screenContainer}>
                                 <ModalContent>
