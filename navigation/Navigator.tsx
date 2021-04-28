@@ -1,9 +1,9 @@
 import * as React from 'react';
 import AppLoading from "expo";
-import {NavigationContainer} from "@react-navigation/native";
+import {NavigationContainer, DefaultTheme, DarkTheme, useTheme} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {View} from "react-native";
+import {useColorScheme, View} from "react-native";
 import {useFonts} from "@use-expo/font";
 import Principal from '../screens/Principal'
 import Contacto from "../screens/Contacto";
@@ -47,6 +47,7 @@ function PrincipalTabs({navigation,route}){
     const menuRojo = '#643241';
     const colorNormal = menuRojo;
     const colorLighter = CambioColor(0.5,colorNormal);
+
     return(
         <TabMain.Navigator initialRouteName={'Principal'} tabBarOptions={{
             inactiveTintColor: colorLighter,
@@ -54,7 +55,7 @@ function PrincipalTabs({navigation,route}){
         }}>
             <Tab.Screen name={'Ayuda'} component={Ayuda} options={{tabBarIcon:({size,color})=>(<Icon name="question-circle" size={size} color={color}/>)}}/>
             <Tab.Screen name={'Principal'} component={Principal} options={{tabBarIcon:({size,color})=>(<Icon name="book-reader" size={size} color={color}/>)}}/>
-            <Tab.Screen name={'Contacto'} component={Contacto}options={{tabBarIcon:({size,color})=>(<Icon name="envelope-open" size={size} color={color}/>)}}/>
+            <Tab.Screen name={'Contacto'} component={Contacto} options={{tabBarIcon:({size,color})=>(<Icon name="envelope-open" size={size} color={color}/>)}}/>
         </TabMain.Navigator>
     )
 }
@@ -69,12 +70,12 @@ export default function App(){
         'montserrat-900': require('../assets/fonts/Montserrat-900.ttf'),
         'roboto-700':require('../assets/fonts/Roboto-700.ttf'),
     });
-
+    const scheme = useColorScheme();
     if(!fontsLoaded){
         return <View/>
     }else {
         return (
-            <NavigationContainer>
+            <NavigationContainer theme={scheme === 'dark' ? DarkTheme : DefaultTheme}>
                 <Stack.Navigator>
                     <Stack.Screen name={'Principal'} component={PrincipalTabs}
                                   options={{headerShown: false}}/>

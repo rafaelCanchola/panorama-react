@@ -6,7 +6,6 @@ const screenWidth = Dimensions.get("window").width
 const screenContainer = screenWidth - 30
 
 function Ayuda(props) {
-
     const glosario =[
         {id:'1',header:'Búsqueda por producto',content:'Consiste en tres secciones principales de cada sector, la navegación de las secciones ' +
                 'principales se divide por páginas, el cambio de página se logra mediante el swipe ' +
@@ -135,14 +134,14 @@ function Ayuda(props) {
         {id:'53',title:'Variación anual.',content:'Valor que muestra el cambio que acontece en una variable entre dos periodos, uno de ellos se establece como el de comparación o relación en porcentaje.'},
     ];
 
-    const renderItem = ({item}) =>(
+    let renderItem = ({item}) =>(
         <Fragment>
             {item.header && item.header.length?
-                <Fragment><Text style={styles.textoHeader}>{item.header}</Text><Text style={styles.textoPrincipal}>{item.content}</Text></Fragment> :
+                <Fragment><Text style={[styles.textoHeader,{color:"rgba(0,120,83,1)"}]}>{item.header}</Text><Text style={[styles.textoPrincipal,{color:"rgba(0,96,142,1)"}]}>{item.content}</Text></Fragment> :
                 item.title && item.title.length?
-                    <Fragment><Text style={styles.textoPrincipal}><Text style={{fontFamily:'montserrat-700'}}>{item.title + ' '}</Text>{item.content}</Text></Fragment> :
+                    <Fragment><Text style={[styles.textoPrincipal,{color:"rgba(0,96,142,1)"}]}><Text style={{fontFamily:'montserrat-700'}}>{item.title + ' '}</Text>{item.content}</Text></Fragment> :
                     item.list && item.list.length?
-                        <Fragment><Text style={styles.textoPrincipal}>{item.list}</Text><Text style={styles.tituloParticipacion}>Glosario</Text></Fragment> :
+                        <Fragment><Text style={[styles.textoPrincipal,{color:"rgba(0,96,142,1)"}]}>{item.list}</Text><Text style={styles.tituloParticipacion}>Glosario</Text></Fragment> :
                         <Fragment></Fragment>
             }
         </Fragment>
@@ -152,7 +151,7 @@ function Ayuda(props) {
     return (
         <View style={styles.container}>
             <Text style={{padding:30}}></Text>
-            <FlatList data={glosario} renderItem={renderItem} keyExtractor={item => item.id} />
+            <FlatList data={glosario} renderItem={renderItem} keyExtractor={item => item.id}  />
         </View>
     );
 }
@@ -180,7 +179,6 @@ const styles = StyleSheet.create({
     },
     textoPrincipal: {
         fontFamily: "montserrat-regular",
-        color: "#121212",
         width: screenContainer,
         margin:10,
         textAlign:'justify',

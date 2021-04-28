@@ -48,7 +48,7 @@ function Infografia({navigation}) {
     return (
         <View style={styles.container}>
             <View style={{width:screenContainer}}>
-                <FlatList data={infos} renderItem={renderItem} keyExtractor={item => item.id} />
+                <FlatList data={infos} renderItem={renderItem} keyExtractor={item => item.id}  />
             </View>
         </View>
     );
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
         marginLeft: 14,
         marginTop: 0,
         marginRight:60,
+        color: "rgba(128,128,128,1)",
     },
     iconoProductoRow: {
         flexDirection: "row",

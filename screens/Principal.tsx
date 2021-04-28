@@ -12,9 +12,11 @@ const screenContainer = screenWidth - 30
 export default class Principal extends Component<any, any> {
     constructor() {
         super();
-        this.state = {menuPrincipalSelector: false, llave: 1};
+        this.state = {
+            menuPrincipalSelector: false,
+            llave: 1,
+        };
     }
-
     SelectorMenu(){
         if(this.state.menuPrincipalSelector){
             return this.menuRojo;
@@ -24,11 +26,11 @@ export default class Principal extends Component<any, any> {
     }
     menuRojo=[
         <Fragment key={()=>this.state.llave}>
-            <View style={{flex:1,backgroundColor:'white'}} >
+            <View style={{flex:1}} >
                 <View style={{flex:1}}/>
-                <Image source={require('../assets/images/panoramatitle.png')} resizeMode="cover" style={{width:screenWidth,height:screenContainer-180}}/>
+                <Image source={require('../assets/images/panoramatitleB.png')} resizeMode="cover" style={{width:screenWidth,height:screenContainer-180}}/>
                 <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
-                    <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text> 
+                    <Text style={[styles.intro,{color:"#643241"}]}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
                 </TouchableOpacity>
                 <View style={{width:screenWidth-30}}>
                     <BotonProducto style={styles.botonProducto}/>
@@ -41,11 +43,11 @@ export default class Principal extends Component<any, any> {
     ];
     menuDorado=[
         <Fragment key={()=>this.state.llave}>
-            <View style={{flex:1, alignItems:'center', backgroundColor:'white'}} >
+            <View style={{flex:1, alignItems:'center'}} >
                 <View style={{flex:1}}/>
                 <Image source={require('../assets/images/panorama.png')} resizeMode="contain" style={{width:screenContainer,height:screenContainer-80}}/>
                 <TouchableOpacity onPress={()=>this.setState({menuPrincipalSelector: !this.state.menuPrincipalSelector,llave:this.state.llave + 1})}>
-                    <Text style={styles.intro}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
+                    <Text style={[styles.intro,{color:"rgba(0,120,83,1)"}]}>Datos de un campo que avanza sin dejar a nadie atrás.</Text>
                 </TouchableOpacity>
                 <BotonProducto style={styles.botonOldProducto}></BotonProducto>
                 <BotonInfografias style={[styles.botonOldProducto,{backgroundColor: "rgba(0,96,142,1)",}]}/>
@@ -55,22 +57,19 @@ export default class Principal extends Component<any, any> {
     ];
     render(){
         return(
-            <View style={styles.container}>
-                    {
-                        this.SelectorMenu()
-                    }
-            </View>
-        )
+            <View style={[styles.container,]}>{this.SelectorMenu()}</View>
+        );
+
     }
 }
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
+
     },
     intro: {
         fontFamily: "montserrat-regular",
-        color: "#121212",
         fontSize: 18,
         textAlign: "center",
         alignSelf: "center",

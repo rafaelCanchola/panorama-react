@@ -2,7 +2,7 @@
   "expo": {
     "name": "Panorama Agroalimentario 2020",
     "slug": "SIAP-Panorama-2020",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -19,15 +19,16 @@
     "ios": {
       "supportsTablet": true,
         "bundleIdentifier": "com.Siap.Panorama201",
-        "buildNumber": "1.0.0"
+        "buildNumber": "1.1.0"
     },
     "android": {
       "package": "com.siap.panorama201",
-      "versionCode": 1,
+      "permissions": [],
+      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -127,7 +127,7 @@ class Contacto extends Component<any, any>{
     )
 
     buttons = [
-        <View style={{width:screenContainer}}>
+        <View style={{width:screenContainer}} key={'butt'}>
             <Image source={require('../assets/images/siap.png')} resizeMode="contain" style={{width:screenWidth-110,height:120,alignSelf:'center',marginBottom:10}}/>
             <Text style={styles.textoSIAP}>{siap}</Text>
             <OpenGobButton url={'https://www.gob.mx/siap'}/>
@@ -242,6 +242,7 @@ const styles = StyleSheet.create({
    textoSIAP: {
         fontFamily: "montserrat-regular",
         textAlign:'justify',
+       color:"rgba(0,120,83,1)",
         },
     textoHeader: {
         fontFamily: "montserrat-700",
